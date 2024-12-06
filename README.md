@@ -3,3 +3,4 @@
 ```console
 docker-compose up --build
 ```
+На винде не работает. На wls2 не понимает пути.
