@@ -1,8 +1,10 @@
 FROM node
 
-WORKDIR /client
-COPY ./client /client
+WORKDIR /app
+COPY ./package*.json ./
+
 RUN npm i
 COPY . .
+
 CMD ["npm", "run", "serve"]
 
