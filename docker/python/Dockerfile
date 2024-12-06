@@ -6,4 +6,5 @@ COPY ./tomiko_trade /tomiko_trade
 
 RUN pip install --no-cache-dir -r /tomiko_trade/requirements.txt
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:4000"]
+
