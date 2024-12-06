@@ -6,11 +6,14 @@ volumes:
 services:
     nginx:
         restart: always
+        build:
+          context: ./docker/nginx
+          dockerfile: Dockerfile
         image: nginx:latest
         expose:
           - 8080
         ports:
-          - "85:8080"
+          - 8080:8080
         volumes:
             - ./tomiko_trade/static:/static
             - ./tomiko_trade/media:/media
