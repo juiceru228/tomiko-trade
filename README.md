@@ -1,6 +1,7 @@
 # tomiko-trade
 Собирать так:
 ```console
-docker-compose up --build
+docker compose up --build
 ```
 На винде не работает. На wls2 не понимает пути.
+Хотя возможно это только у меня, так что можете взять да проверить.
