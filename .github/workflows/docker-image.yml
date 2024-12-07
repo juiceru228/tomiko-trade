@@ -21,7 +21,7 @@ jobs:
       run: |
         IMAGE_NAME=my-image-name
         IMAGE_TAG=$(date +%Y%m%d%H%M%S)
-        docker-compose build
+        docker compose up --build
         docker tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${IMAGE_TAG}
 
     - name: Push the Docker image
