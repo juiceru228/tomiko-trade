@@ -1,5 +1,5 @@
 version: '3'
-
+project_name: tomiko_trade
 services:
     nginx:
         restart: always
