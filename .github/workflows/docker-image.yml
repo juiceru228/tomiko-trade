@@ -19,7 +19,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        IMAGE_NAME=my-image-name
+        IMAGE_NAME=tomiko-trade
         IMAGE_TAG=$(date +%Y%m%d%H%M%S)
         
         docker compose up --build -d
@@ -30,6 +30,6 @@ jobs:
 
     - name: Push the Docker image
       run: |
-        IMAGE_NAME=my-image-name
+        IMAGE_NAME=tomiko-trade
         IMAGE_TAG=$(date +%Y%m%d%H%M%S)
         docker push ${IMAGE_NAME}:${IMAGE_TAG}
