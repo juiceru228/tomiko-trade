@@ -25,11 +25,3 @@ jobs:
         docker compose up --build -d
         
         docker compose down
-        
-        docker tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${IMAGE_TAG}
-
-    - name: Push the Docker image
-      run: |
-        IMAGE_NAME=tomiko-trade
-        IMAGE_TAG=$(date +%Y%m%d%H%M%S)
-        docker push ${IMAGE_NAME}:${IMAGE_TAG}
