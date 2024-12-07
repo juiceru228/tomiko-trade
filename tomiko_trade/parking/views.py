@@ -4,7 +4,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import CarSerializer
-from .models import Car, Brand 
+from .models import Car 
 
 class CarList(APIView):
     def get(self, request):

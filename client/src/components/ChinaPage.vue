@@ -17,7 +17,7 @@
 			};
 		},
 		created(){
-		axios.get('http://localhost:8080/api/parking').then(response => {
+		axios.get('http://localhost:8080/api/parking/').then(response => {
 			this.items = response.data;
 		}).catch(error => {
 			console.error('Error fetchiong data:', error)

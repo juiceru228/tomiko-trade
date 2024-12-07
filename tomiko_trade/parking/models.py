@@ -4,8 +4,9 @@ from django.db import models
 class Brand(models.Model):
     country = models.CharField(max_length=150)
     brand = models.CharField(max_length=150)
-    def __str__(self):
-        return self.brand
+   
+    class Meta:
+        db_table = 'brands'
 
 class Car(models.Model):
     model = models.CharField(max_length=50)
@@ -18,5 +19,5 @@ class Car(models.Model):
     color = models.CharField(max_length=50)
     power_volume = models.CharField(max_length=50)
     brand_country = models.ForeignKey(Brand, related_name='cars', on_delete=models.CASCADE)
-    def __str__(self):
-        return f'{self.model} ({self.year})'
+    class Meta:
+        db_table = 'cars'
