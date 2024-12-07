@@ -11,9 +11,9 @@ import JapanPage from './components/JapanPage.vue'
 
 const routes = [
 	{path: '/', component:MainPage},
-	{Path: '/china', component:ChinaPage},
-	{Path: '/korea', component:KoreaPage},
-	{Path: '/japan', component:JapanPage},
+	{path: '/china', component:ChinaPage},
+	{path: '/korea', component:KoreaPage},
+	{path: '/japan', component:JapanPage},
 ];
 
 const router = createRouter({

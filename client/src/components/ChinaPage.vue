@@ -1,28 +1,36 @@
 <template>
-  <div>
-		<h1>Список тестовый</h1>
-		<ul>
-      <li v-for="item in items" :key="item.id">{{ item.name }}</li>
-    </ul>
-  </div>
+	<h1>Список тестовый</h1>
+
+	<div>
+			{{ items }}
+	</div>
 </template>
 
 <script>
 	import axios from 'axios';
 
 	export default {
+		name: 'ChinaPage',
 		data(){
 			return {
 				items: [],
 			};
 		},
-		created(){
-		axios.get('http://localhost:8080/api/parking/').then(response => {
-			this.items = response.data;
-		}).catch(error => {
-			console.error('Error fetchiong data:', error)
-		});
+		methods: {
+			fetchData(params = {}){
+
+				axios.get('http://localhost:8080/api/filter/', {params}).then(response => {
+					this.items = response.data;
+					console.log('Fetched data:', response.data);
+			}).catch(error => {
+				console.error('Error fetchiong data:', error)
+			});
+		},
 	},
+		created(){
+			console.log('Запрос отправлен к API...');
+			this.fetchData({country: 'Китай', type: 'cars', year: '2023'});
+		},
 };
 </script>
 

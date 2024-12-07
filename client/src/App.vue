@@ -5,12 +5,10 @@
 			<router-link to="/china">ChinaPage</router-link>
 			<router-link to="/korea">KoreaPage</router-link>
 			<router-link to="/japan">JapanPage</router-link>
-      <router-link to="/api">API</router-link>
 		</nav>
 		<router-view></router-view>
   </div>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Рад радоваться!"/>
 </template>
 
 <script>
