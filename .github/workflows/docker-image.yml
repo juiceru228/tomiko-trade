@@ -21,11 +21,11 @@ jobs:
       run: |
         IMAGE_NAME=my-image-name
         IMAGE_TAG=$(date +%Y%m%d%H%M%S)
-        # Запуск сборки в фоновом режиме
-        docker-compose up --build -d
-        # Остановка и удаление контейнеров
-        docker-compose down
-        # Тегирование образа
+        
+        docker compose up --build -d
+        
+        docker compose down
+        
         docker tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${IMAGE_TAG}
 
     - name: Push the Docker image
