@@ -1,17 +1,27 @@
 <template>
+	<div id="app">
+		<nav>
+			<router-link to="/">MainPage</router-link>
+			<router-link to="/china">ChinaPage</router-link>
+			<router-link to="/korea">KoreaPage</router-link>
+			<router-link to="/japan">JapanPage</router-link>
+      <router-link to="/api">API</router-link>
+		</nav>
+		<router-view></router-view>
+  </div>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="Рад радоваться!"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+/*import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
   }
-}
+}*/
 </script>
 
 <style>
