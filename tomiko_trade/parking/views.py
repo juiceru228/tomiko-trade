@@ -33,9 +33,9 @@ class FilteredList(APIView):
         if 'country' in params:
             filter_conditions['brand_country__country'] = params.get('country')
         if 'brand' in params:
-            filter_conditions['brand_country__brand__incontains'] = params.get('brand')
+            filter_conditions['brand_country__brand__icontains'] = params.get('brand')
         if 'model' in params:
-            filter_conditions['model__incontains'] = params.get('model')
+            filter_conditions['model__icontains'] = params.get('model')
         if 'year' in params:
             filter_conditions['year'] = params.get('year')
         if 'mileage' in params:
@@ -43,15 +43,15 @@ class FilteredList(APIView):
         if 'price' in params:
             filter_conditions['price'] = params.get('price')
         if 'transmission' in params:
-            filter_conditions['transmission__incontains'] = params.get('transmission')
+            filter_conditions['transmission__icontains'] = params.get('transmission')
         if 'engine_volume' in params:
             filter_conditions['engine_volume__icontains'] = params.get('engine_volume')
         if 'drive' in params:
-            filter_conditions['drive__incontains'] = params.get('drive')
+            filter_conditions['drive__icontains'] = params.get('drive')
         if 'color' in params:
-            filter_conditions['color__incontains'] = params.get('color')
+            filter_conditions['color__icontains'] = params.get('color')
         if 'power_volume' in params:
-            filter_conditions['power_volume__incontains'] = params.get('power_volume')
+            filter_conditions['power_volume__icontains'] = params.get('power_volume')
         
         if data_type == 'cars':
             queryset = Car.objects.all()
