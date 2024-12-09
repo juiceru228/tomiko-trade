@@ -11,9 +11,6 @@ services:
         ports:
           - 8080:8080
         volumes:
-            - ./tomiko_trade/static:/static
-            - ./tomiko_trade/media:/media
-            - ./tomiko_trade/logs:/logs
             - ./nginx:/etc/nginx/conf.d
         depends_on:
             - python
@@ -21,10 +18,10 @@ services:
     python:
         restart: always
         build:
-            context: ./tomiko_trade/
+            context: ./server/
             dockerfile: Dockerfile
         volumes:
-            - ./tomiko_trade:/app
+            - ./server:/app
         expose:
           - 4000
         ports:
@@ -54,7 +51,7 @@ services:
           - POSTGRES_PASSWORD=postgres_password
           - POSTGRES_DB=parking
       volumes:
-          - ./tomiko_trade/database:/docker-entrypoint-initdb.d
+          - ./server/database:/docker-entrypoint-initdb.d
       healthcheck:
         test: ["CMD-SHELL", "pg_isready -U postgres"]
         interval: 5s
