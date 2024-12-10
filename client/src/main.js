@@ -4,10 +4,10 @@ import App from './App.vue'
 import axios from './axios';
 import {createRouter, createWebHistory} from 'vue-router';
 
-import MainPage from './components/MainPage.vue'
-import ChinaPage from './components/ChinaPage.vue'
-import KoreaPage from './components/KoreaPage.vue'
-import JapanPage from './components/JapanPage.vue'
+import MainPage from './views/MainPage.vue'
+import ChinaPage from './views/ChinaPage.vue'
+import KoreaPage from './views/KoreaPage.vue'
+import JapanPage from './views/JapanPage.vue'
 
 const routes = [
 	{path: '/', component:MainPage},
