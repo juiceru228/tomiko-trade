@@ -1,25 +1,25 @@
 <template>
 	<div id="app">
-		<nav>
-			<router-link to="/">MainPage</router-link>
-			<router-link to="/china">ChinaPage</router-link>
-			<router-link to="/korea">KoreaPage</router-link>
-			<router-link to="/japan">JapanPage</router-link>
-		</nav>
-		<router-view></router-view>
+		<Header />
+    <main>
+      <router-view />
+      <img alt="Vue logo" src="./assets/logo.png">
+    </main>
+    <Footer />
   </div>
-  <img alt="Vue logo" src="./assets/logo.png">
 </template>
 
 <script>
-/*import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Footer
   }
-}*/
+}
 </script>
 
 <style>
@@ -28,7 +28,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000000;
+  background-color: #023e8a;
   margin-top: 60px;
+}
+main {
+  min-height: calc(100vh - 120px);
 }
 </style>
