@@ -3,7 +3,8 @@
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import CarSerializer
+from rest_framework.pagination import PageNumberPagination
+from .serializers import CarSerializer, BrandSerializer
 from .models import Car, Brand
 '''
 class CarList(APIView):
@@ -24,7 +25,16 @@ class JapanBrandList(APIView):
         serializer = BrandSerializer(brands, many=True)
         return Response(serializer.data)
 '''
+
+class CustomPagination(PageNumberPagination):
+    page_size = 10
+    max_page_size = 100
+    page_query_param = 'page'
+
+
 class FilteredList(APIView):
+    pagination_class = CustomPagination
+
     def get(self, request):
         params = request.query_params
         data_type = params.get('type')
@@ -67,6 +77,9 @@ class FilteredList(APIView):
             return Response({'error': 'Invalid type. Use "cars" or "brands".'}, status=400)
 
 
+        paginator = self.pagination_class()
+        paginated_result = paginator.paginate_queryset(queryset, request)
+        serialized_data = serializer(paginated_result, many=True)
 
         return Response(serializer.data)
 

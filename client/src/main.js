@@ -24,13 +24,16 @@ const router = createRouter({
 export default {
   data() {
     return {
-      posts: []
+      posts: [],
+      currentPage: 1,
+      totalPages: 1,
     };
   },
   created() {
-    axios.get('/posts') 
+    axios.get('/posts?page=' + this.currentPage) 
       .then(response => {
         this.posts = response.data;
+        this.totalPages = Math.ceil(response.headers['X-Total-Count'] / 10);
       })
       .catch(error => {
         console.error(error);

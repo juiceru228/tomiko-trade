@@ -61,6 +61,12 @@
 					<div>{{ item.model }} | {{ item.year }} | {{ item.mileage }} км | {{ item.engine_volume }} л</div>
 				</li>
 			</ul>
+  
+		<PaginationComponent
+			:current-page="currentPage"
+			:total-pages="totalPages"
+			@update-page="onUpdatePage"
+		/>
 		</div>
 
 	</div>
@@ -68,9 +74,13 @@
 
 <script>
 import axios from 'axios';
+import PaginationComponent from '../components/PaginationComponent.vue';
 
 export default {
 	name: 'ChinaPage',
+	components: {
+		PaginationComponent,
+	},
 	data() {
 		return {
 			brands: [''],
@@ -82,6 +92,8 @@ export default {
 			transmissions: ['Механика', 'Автомат'],
 			colors: ['Черный', 'Белый'],
 			items: [],
+		currentPage: 1,
+		totalPages: 1,
 			selectedBrand: '',
 			selectedYear: '',
 			selectedEngineVolume: '',
@@ -91,6 +103,21 @@ export default {
 			selectedTransmission: '',
 			selectedColor: '',
 		};
+	},
+	computed: {
+		filters() {
+			return {
+				country: "Китай",
+				type: "cars",
+				year: this.selectedYear || null,
+				model: this.selectedModel || null,
+				transmission: this.selectedTransmission || null,
+				engine_volume: this.selectedEngineVolume || null,
+				drive: this.selectedDrive || null,
+				color: this.selectedColor || null,
+				brand: this.selectedBrand || null,
+			};
+		},
 	},
 	methods: {
 		toggleDropdown() {
@@ -124,6 +151,10 @@ export default {
 			});
 			this.fetchData(params);
 		},
+		onUpdatePage(newPage) {
+			this.currentPage = newPage;
+			this.fetchDataWithParam();
+	  	},
 		resetDropdowns() {
 			this.selectedYear = '';
 			this.selectedBrand = '';
