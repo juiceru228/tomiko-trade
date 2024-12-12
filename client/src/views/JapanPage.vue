@@ -9,14 +9,26 @@
 					{{ option }}
 				</option>
 			</select>
-			<select v-model="selectedYear">
-				<option value="" disabled>Год</option>
+			<select v-model="selectedYearFrom">
+				<option value="" disabled>Год от</option>
 				<option v-for="option in years" :key="option" :value="option">
 					{{ option }}
 				</option>
 			</select>
-			<select v-model="selectedEngineVolume">
-				<option value="" disabled>Объем</option>
+			<select v-model="selectedYearTo">
+				<option value="" disabled>Год до</option>
+				<option v-for="option in years" :key="option" :value="option">
+					{{ option }}
+				</option>
+			</select>
+			<select v-model="selectedEngineVolumeFrom">
+				<option value="" disabled>Объем от</option>
+				<option v-for="option in engineVolumes" :key="option" :value="option">
+					{{ option }}
+				</option>
+			</select>
+			<select v-model="selectedEngineVolumeTo">
+				<option value="" disabled>Объем до</option>
 				<option v-for="option in engineVolumes" :key="option" :value="option">
 					{{ option }}
 				</option>
@@ -33,8 +45,14 @@
 					{{ option }}
 				</option>
 			</select>
-			<select v-model="selectedMileage">
-				<option value="" disabled>Пробег</option>
+			<select v-model="selectedMileageFrom">
+				<option value="" disabled>Пробег от</option>
+				<option v-for="option in mileages" :key="option" :value="option">
+					{{ option }}
+				</option>
+			</select>
+			<select v-model="selectedMileageTo">
+				<option value="" disabled>Пробег до</option>
 				<option v-for="option in mileages" :key="option" :value="option">
 					{{ option }}
 				</option>
@@ -74,20 +92,23 @@ export default {
 	data() {
 		return {
 			brands: [''],
-			years: ['2020', '2021', '2022'],
+			years: Array.from({ length: 24 }, (_, i) => (i + 2000).toString()),
 			engineVolumes: [''],
-			drives: ['Передний привод', 'Задний привод'],
+			drives: ['Передний привод', 'Задний привод', 'Полный'],
 			models: [''],
-			mileages: [''],
+			mileages: ['5000', '15000', '30000', '50000', '100000'],
 			transmissions: ['Механика', 'Автомат'],
-			colors: ['Черный', 'Белый'],
+			colors: ['Бежевый', 'Белый', 'Бордовый', 'Желтый', 'Зеленый', 'Золотой', 'Коричневый', 'Красный', 'Оранжевый', 'Розовый', 'Серебряный', 'Серый', 'Синий', 'Фиолетовый'],
 			items: [],
 			selectedBrand: '',
-			selectedYear: '',
-			selectedEngineVolume: '',
+			selectedYearFrom: '',
+			selectedYearTo: '',
+			selectedEngineVolumeFrom: '',
+			selectedEngineVolumeTo: '',
 			selectedDrive: '',
 			selectedModel: '',
-			selectedMileage: '',
+			selectedMileageFrom: '',
+			selectedMileageTo: '',
 			selectedTransmission: '',
 			selectedColor: '',
 		};
@@ -109,30 +130,37 @@ export default {
 			let params = {
 				country: "Япония",
 				type: "cars",
-				year: this.selectedYear || null,
+				year_start: this.selectedYearFrom || null,
+				year_stop: this.selectedYearTo || null,
 				model: this.selectedModel || null,
 				transmission: this.selectedTransmission || null,
-				engine_volume: this.selectedEngineVolume || null,
+				engine_volumeFrom: this.selectedEngineVolume || null,
+				engine_volumeTo: this.selectedEngineVolume || null,
+				mileageFrom: this.selectedMileageFrom || null,
+				mileageTo: this.selectedMileageTo || null,
 				drive: this.selectedDrive || null,
 				color: this.selectedColor || null,
 				brand: this.selectedBrand || null
 			};
 			Object.keys(params).forEach(key => {
 				if (params[key] === null) {
-				delete params[key];
+					delete params[key];
 				}
 			});
 			this.fetchData(params);
 		},
 		resetDropdowns() {
-			this.selectedYear = '';
-			this.selectedBrand = '';
-			this.selectedColor = '';
-			this.selectedDrive = '';
-			this.selectedMileage = '';
-			this.selectedModel = '';
-			this.selectedTransmission = '';
-			this.selectedEngineVolume = '';
+			this.selectedBrand = '',
+				this.selectedYearFrom = '',
+				this.selectedYearTo = '',
+				this.selectedEngineVolumeFrom = '',
+				this.selectedEngineVolumeTo = '',
+				this.selectedDrive = '',
+				this.selectedModel = '',
+				this.selectedMileageFrom = '',
+				this.selectedMileageTo = '',
+				this.selectedTransmission = '',
+				this.selectedColor = ''
 		}
 	},
 };
