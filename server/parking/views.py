@@ -3,7 +3,10 @@
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import CarSerializer
+#from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+from rest_framework.filters import OrderingFilter
+from .serializers import CarSerializer, BrandSerializer
 from .models import Car, Brand
 '''
 class CarList(APIView):
@@ -24,12 +27,44 @@ class JapanBrandList(APIView):
         serializer = BrandSerializer(brands, many=True)
         return Response(serializer.data)
 '''
+class commentaryList(APIView):
+    def get(self, request):
+        """TODO: Docstring for get.
+
+        :request: TODO
+        :returns: TODO
+
+        """
+        response = request.get('https://bbr.ru/graphql/')
+
 class FilteredList(APIView):
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['year']
+    ordering = ['year']
+
     def get(self, request):
         params = request.query_params
         data_type = params.get('type')
-
+        year_start = params.get('year_start')
+        year_stop = params.get('year_stop')
+        mileage_start = params.get('mileage_start')
+        mileage_stop = params.get('mileage_stop')
+        engine_volume_start = params.get('engine_volume_start')
+        engine_volume_stop = params.get('engine_volume_stop')
         filter_conditions = {}
+
+        if year_start:
+            filter_conditions['year__gte'] = int (year_start)
+        if year_stop:
+            filter_conditions['year__lte'] = int (year_stop)
+        if mileage_start:
+            filter_conditions['mileage__gte'] = int (mileage_start)
+        if mileage_stop:
+            filter_conditions['mileage__lte'] = int (mileage_stop)
+        if engine_volume_start:
+            filter_conditions['engine_volume__gte'] = int (engine_volume_start)
+        if engine_volume_stop:
+            filter_conditions['engine_volume__lte'] = int (engine_volume_stop)
         if 'country' in params:
             filter_conditions['brand_country__country'] = params.get('country')
         if 'brand' in params:
@@ -52,11 +87,12 @@ class FilteredList(APIView):
             filter_conditions['color__icontains'] = params.get('color')
         if 'power_volume' in params:
             filter_conditions['power_volume__icontains'] = params.get('power_volume')
+        ordering = self.request.query_params.get('ordering', 'id')
         
         if data_type == 'cars':
-            queryset = Car.objects.all()
+            queryset = Car.objects.all().order_by(ordering)
             if filter_conditions:
-                queryset = queryset.filter(**filter_conditions) 
+                queryset = queryset.filter(**filter_conditions)
             serializer = CarSerializer(queryset, many=True)
         elif data_type == 'brands':
             queryset = Brand.objects.all()
@@ -65,9 +101,7 @@ class FilteredList(APIView):
             serializer = BrandSerializer(queryset, many=True)
         else:
             return Response({'error': 'Invalid type. Use "cars" or "brands".'}, status=400)
-
-
-
+        
         return Response(serializer.data)
 
 
