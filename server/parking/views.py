@@ -1,41 +1,11 @@
-#from django.shortcuts import render
-
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-#from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
-from rest_framework.filters import OrderingFilter
 from .serializers import CarSerializer, BrandSerializer
 from .models import Car, Brand
-'''
-class CarList(APIView):
-    def get(self, request):
-        cars = Car.objects.all()
-        serializer = CarSerializer(cars, many=True)
-        return Response(serializer.data)
-
-class BrandList(APIView):
-    def get(self, request):
-        brand = Brand.objects.all()
-        serializer = BrandSerializer(brand, many=True)
-        return Response(serializer.data)
-
-class JapanBrandList(APIView):
-    def get(self, request):
-        brands = Brand.objects.filter(country='Japan')
-        serializer = BrandSerializer(brands, many=True)
-        return Response(serializer.data)
-'''
-class commentaryList(APIView):
-    def get(self, request):
-        """TODO: Docstring for get.
-
-        :request: TODO
-        :returns: TODO
-
-        """
-        response = request.get('https://bbr.ru/graphql/')
+import logging
+logger = logging.getLogger('django')
 
 class FilteredList(APIView):
     filter_backends = [filters.OrderingFilter]
@@ -94,12 +64,14 @@ class FilteredList(APIView):
             if filter_conditions:
                 queryset = queryset.filter(**filter_conditions)
             serializer = CarSerializer(queryset, many=True)
+            logger.info("fetch cars")
         elif data_type == 'brands':
             queryset = Brand.objects.all()
             if filter_conditions:
                 queryset = queryset.filter(**filter_conditions)
             serializer = BrandSerializer(queryset, many=True)
         else:
+            logger.info("Error to fetch cars")
             return Response({'error': 'Invalid type. Use "cars" or "brands".'}, status=400)
         
         return Response(serializer.data)

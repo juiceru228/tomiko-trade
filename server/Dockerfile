@@ -13,5 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:4000"]
-
+CMD ["sh", "-c", "celery -A tomiko_trade worker --loglevel=info & celery -A tomiko_trade beat --loglevel=info & python manage.py runserver 0.0.0.0:4000"]
