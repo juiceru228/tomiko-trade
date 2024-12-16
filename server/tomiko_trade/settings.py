@@ -174,6 +174,6 @@ from celery.schedules import crontab
 CELERY_BEAT_SCHEDULE = {
     'update_currencies_every_day': {
         'task': 'currencies.tasks.update_currencies_task',
-        'schedule': crontab(minute='*/1440'),
+        'schedule': crontab(minute=0, hour='0,12'),
     },
 }
