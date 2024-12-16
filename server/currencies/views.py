@@ -10,7 +10,6 @@ logger = logging.getLogger('django')
 CACHE_KEY = "currency_rates"
 CACHE_EXPIRY = 12 * 60 * 60
 # Create your views here.
-@shared_task
 def getCurrencies(request=None):
 
     cached_data = redis_client.get(CACHE_KEY)
