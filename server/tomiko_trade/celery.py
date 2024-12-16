@@ -1,8 +1,8 @@
 import os
 
 from django.conf import settings
-
-from celery import Celery
+from currencies.tasks import update_currencies_task
+from celery import Celery, signals
 
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tomiko_trade.settings')
@@ -20,3 +20,8 @@ app.conf.result_serializer = 'pickle'
 app.conf.accept_content = ['application/json', 'application/x-python-serialize']
 # Load task modules from all registered Django apps.
 app.autodiscover_tasks()
+
+@signals.worker_ready.connect
+def at_start(sender, **kwargs):
+    print("Starting initial task...")
+    update_currencies_task.delay()
