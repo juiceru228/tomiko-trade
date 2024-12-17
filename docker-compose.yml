@@ -12,15 +12,17 @@ services:
           - 8080:8080
         volumes:
             - ./nginx:/etc/nginx/conf.d
+            - ./server/media:/app/media
         depends_on:
-            - python
+            - server
             - client
-    python:
+    server:
         restart: always
         build:
             context: ./server/
             dockerfile: Dockerfile
         volumes:
+            - ./server/media:/app/media
             - ./server:/app
         expose:
           - 4000
@@ -36,7 +38,8 @@ services:
             context: ./client
             dockerfile: Dockerfile
         volumes:
-          - ./client:/client
+          - /app/node_modules
+          - ./client:/app
         expose:
           - 8000
         ports:

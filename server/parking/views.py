@@ -9,8 +9,8 @@ logger = logging.getLogger('django')
 
 class FilteredList(APIView):
     filter_backends = [filters.OrderingFilter]
-    ordering_fields = ['year']
-    ordering = ['year']
+    ordering_fields = ['year', 'brand', 'model', 'mileage', 'power_volume', 'engine_volume']
+    ordering = ['year', 'brand', 'model', 'milleage', 'power_volume', 'engine_volume']
 
     def get(self, request):
         params = request.query_params

@@ -176,4 +176,8 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'currencies.tasks.update_currencies_task',
         'schedule': crontab(minute=0, hour='0,12'),
     },
+    'populate_db_images_on_start': {
+        'task': 'parking.tasks.populate_db_images',
+        'schedule': crontab(hour='0'),
+    },
 }

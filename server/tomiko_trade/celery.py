@@ -2,8 +2,8 @@ import os
 
 from django.conf import settings
 from currencies.tasks import update_currencies_task
+#from parking.tasks import populate_db_images
 from celery import Celery, signals
-
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tomiko_trade.settings')
 
