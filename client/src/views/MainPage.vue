@@ -1,7 +1,15 @@
 <template>
-  <div>
-    <h1>MainPage</h1>
-  </div>
+    <div>
+      <div class="hello">
+        <h1>автомобиль вашей мечты здесь</h1>
+        <p1>Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе</p1>
+        <button class="gradient-button">Расчитать стоимость</button>
+      </div>
+      <div class="content">
+        <h1>Йоу, надо примерно так ещё сделать</h1>
+        <p1>Тут нужны картинки разных авто</p1>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -9,24 +17,3 @@ export default {
   name: 'MainPage',
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>

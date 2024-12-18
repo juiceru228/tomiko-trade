@@ -1,0 +1,136 @@
+*{
+  color: white;
+  background-color: #011224;
+  padding:0;
+  margin:0;
+}
+
+/*Тут header*/
+.header {
+    background-color: rgba(0, 0, 0, 0)e;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 1400px;
+    text-align: left;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  /*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
+  .header-text {
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+    margin: 0 auto; 
+  }
+  
+  /*Тут левая часть header*/
+  .left-text {
+    margin-right: auto;
+  }
+  
+  /*Тут правая часть header*/
+  .right-text {
+    margin-left: auto;
+  }
+
+  /*Тут футер*/
+  footer {
+    background-color: #081E36;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* Тут css кнопки */
+  .gradient-button {
+    background: linear-gradient(to right, #0D2F68, #D51117);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .gradient-button:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+  }
+  /*Для изображения*/
+  img {
+    height: 50px;
+  }
+
+  /*Тут общие css*/
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  main {
+    min-height: calc(100vh - 120px);
+  }
+
+  /*настройки разных элементов и классов*/
+  .element {
+    background-image: url(./assets/back1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 700px;
+    width: 100%;
+  }
+  
+  .hello {
+    height: 700px;
+    width: 100%;
+  }
+  
+  .content {
+    height: 700px;
+    width: 100%;
+  }
+  
+  h3 {
+    margin: 40px 0 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #42b983;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
