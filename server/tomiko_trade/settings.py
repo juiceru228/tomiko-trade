@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://redis:6379/1',  # Use the appropriate Redis server URL
+        'LOCATION': 'redis://redis:6379/0',  # Use the appropriate Redis server URL
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
@@ -161,8 +161,8 @@ LOGGING = {
 
 CELERY_TIMEZONE = "Asia/Vladivostok"
 CELERY_TASK_TRACK_STARTED = True
-CELERY_BROKER_URL = 'redis://redis:6379/1'
-CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
@@ -175,9 +175,5 @@ CELERY_BEAT_SCHEDULE = {
     'update_currencies_every_day': {
         'task': 'currencies.tasks.update_currencies_task',
         'schedule': crontab(minute=0, hour='0,12'),
-    },
-    'populate_db_images_on_start': {
-        'task': 'parking.tasks.populate_db_images',
-        'schedule': crontab(hour='0'),
     },
 }
