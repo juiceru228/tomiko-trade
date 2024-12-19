@@ -1,4 +1,4 @@
-from .views import getCurrencies
+from .views import getCurrencies, priceCalculation
 from celery import shared_task
 import json
 import logging
@@ -10,7 +10,10 @@ logger = logging.getLogger('django')
 def update_currencies_task():
     data = getCurrencies()
     logger.info(data)
+    priceCalculation()
     if isinstance(data, JsonResponse):
         data = json.loads(data.content)
     return data
+
+
 

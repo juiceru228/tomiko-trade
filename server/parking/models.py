@@ -20,5 +20,6 @@ class Car(models.Model):
     power_volume = models.CharField(max_length=50)
     brand_country = models.ForeignKey(Brand, related_name='cars', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='cars/', blank=True, null=True)
+    duty = models.IntegerField()
     class Meta:
         db_table = 'cars'
