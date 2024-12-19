@@ -6,7 +6,8 @@ from currencies.tasks import update_currencies_task
 from celery import Celery, signals
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tomiko_trade.settings')
-
+import django
+django.setup()
 app = Celery('tomiko_trade')
 
 # Using a string here means the worker doesn't have to serialize
@@ -24,4 +25,8 @@ app.autodiscover_tasks()
 @signals.worker_ready.connect
 def at_start(sender, **kwargs):
     print("Starting initial task...")
-    update_currencies_task.delay()
+    from parking.tasks import populate_db_images
+    populate_db_images.apply_async()
+    update_currencies_task.apply_async()
+
+
