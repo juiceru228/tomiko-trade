@@ -1,7 +1,8 @@
 <template>
-	<h1>Список китаевёдер</h1>
+
 
 	<div class="element">
+		<h1> Автомобили из Китая</h1>
 		<div>
 			<select v-model="selectedBrand" @change="onBrandChange">
 				<option value="" disabled>Марка авто</option>
@@ -88,12 +89,30 @@
 				</li>
 			</ul>
 		</div>
-
+		<div class="overflow-auto">
+			<!-- Пагинация -->
+			<div class="pagination">
+				<button :disabled="currentPage === 1" @click="changePage(1)">
+					First
+				</button>
+				<button :disabled="currentPage === 1" @click="changePage(currentPage - 1)">
+					Prev
+				</button>
+				<span>Page {{ currentPage }} of {{ totalPages }}</span>
+				<button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)">
+					Next
+				</button>
+				<button :disabled="currentPage === totalPages" @click="changePage(totalPages)">
+					Last
+				</button>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 import axios from 'axios';
+import { ref } from 'vue';
 
 export default {
 	name: 'ChinaPage',
@@ -133,16 +152,30 @@ export default {
 			selectedTransmission: '',
 			selectedColor: '',
 			selectedSorting: '',
-			mediaUrl: "http://localhost:8080/media"
+			mediaUrl: "http://localhost:8080/media",
+			currentPage: ref(1),
+			perPage: ref(5),
+			rows: ref(50),
 		};
 	},
+	computed: {
+		totalPages() {
+			return Math.ceil(this.rows / this.perPage);
+		}
+	},
 	mounted() {
-		this.fetchData({ country: this.COUNTRY, type: "cars" })
+		this.fetchData({ country: this.COUNTRY, type: "cars", page: 1 })
 			.then(() => this.updateBrands());
 	},
 	methods: {
 		toggleDropdown() {
 			this.dropdownVisible = !this.dropdownVisible;
+		},
+		changePage(page) {
+			if (page >= 1 && page <= this.totalPages) {
+				this.currentPage = page;
+			}
+			this.fetchDataWithParam()
 		},
 		fetchData(params = {}) {
 
@@ -190,7 +223,8 @@ export default {
 				drive: this.selectedDrive || null,
 				color: this.selectedColor || null,
 				brand: this.selectedBrand || null,
-				ordering: this.selectedSorting || null
+				ordering: this.selectedSorting || null,
+				page: this.currentPage || null,
 			};
 			Object.keys(params).forEach(key => {
 				if (params[key] === null) {
