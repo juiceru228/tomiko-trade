@@ -85,7 +85,11 @@
 				<li v-for="item in items" :key="item.id" class="item">
 					<div>{{ item.brand }}</div>
 					<div>{{ item.model }} | {{ item.year }} | {{ item.mileage }} км | {{ item.engine_volume }} л</div>
-					<div class="image_frame"><img :src="`${mediaUrl}${item.image}`"></div>
+					<router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
+						<div class="image_frame">
+							<img :src="`${mediaUrl}${item.image}`" alt="Car image">
+						</div>
+					</router-link>
 				</li>
 			</ul>
 		</div>
@@ -272,19 +276,41 @@ a {
 	color: #42b983;
 }
 
+.item {
+	width: calc(30% - 20px);
+	box-sizing: border-box;
+}
+
 .item-list {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
 }
 
-.item {
-	width: calc(25% - 20px);
-	box-sizing: border-box;
-}
-
 .image_frame img {
+    display: block; 
 	width: 322px;
 	height: 190px;
 }
+
+.router-link {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+  /*настройки разных элементов и классов*/
+  .element {
+    color: white;
+    background-image: url(../assets/back1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #011224;
+    height: auto;
+    min-height: 600px;
+    width: 100%;
+  }
 </style>

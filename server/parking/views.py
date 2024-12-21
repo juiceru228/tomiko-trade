@@ -22,6 +22,8 @@ class FilteredList(APIView):
         engine_volume_start = params.get('engine_volume_start')
         engine_volume_stop = params.get('engine_volume_stop')
         filter_conditions = {}
+        if 'id' in params:
+            filter_conditions['id'] = params.get('id')
         if year_start:
             filter_conditions['year__gte'] = int (year_start)
         if year_stop:
