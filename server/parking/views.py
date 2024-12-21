@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import filters
 from .serializers import CarSerializer, BrandSerializer
-from .models import Car, Brand
+from django.core.paginator import Paginator
 import logging
 logger = logging.getLogger('django')
 
@@ -22,7 +22,6 @@ class FilteredList(APIView):
         engine_volume_start = params.get('engine_volume_start')
         engine_volume_stop = params.get('engine_volume_stop')
         filter_conditions = {}
-
         if year_start:
             filter_conditions['year__gte'] = int (year_start)
         if year_stop:
@@ -59,11 +58,19 @@ class FilteredList(APIView):
             filter_conditions['power_volume__icontains'] = params.get('power_volume')
         ordering = self.request.query_params.get('ordering', 'id')
         
+        from .models import Car, Brand
         if data_type == 'cars':
             queryset = Car.objects.all().order_by(ordering)
+            
             if filter_conditions:
                 queryset = queryset.filter(**filter_conditions)
-            serializer = CarSerializer(queryset, many=True)
+            if 'page' in params:
+                paginator = Paginator(queryset, 10)
+                page_number = request.GET.get('page')
+                page_obj = paginator.get_page(page_number)
+                serializer = CarSerializer(page_obj, many=True)
+            else:
+                serializer = CarSerializer(queryset, many=True)
             logger.info("fetch cars")
         elif data_type == 'brands':
             queryset = Brand.objects.all()
@@ -75,5 +82,3 @@ class FilteredList(APIView):
             return Response({'error': 'Invalid type. Use "cars" or "brands".'}, status=400)
         
         return Response(serializer.data)
-
-

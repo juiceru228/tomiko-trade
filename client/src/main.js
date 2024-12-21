@@ -3,6 +3,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import axios from './axios';
 import {createRouter, createWebHistory} from 'vue-router';
+// main.js/ts
+import {createBootstrap} from 'bootstrap-vue-next'
+
+// Add the necessary CSS
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 
 import MainPage from './views/MainPage.vue'
 import ChinaPage from './views/ChinaPage.vue'
