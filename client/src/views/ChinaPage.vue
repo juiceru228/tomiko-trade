@@ -276,6 +276,12 @@ a {
 	color: #42b983;
 }
 
+.image_frame {
+    display: inline-block;
+    width: auto; 
+    height: auto;
+}
+
 .item {
 	width: calc(30% - 20px);
 	box-sizing: border-box;
