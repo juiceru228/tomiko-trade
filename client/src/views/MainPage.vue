@@ -18,3 +18,46 @@ export default {
   name: 'MainPage',
 };
 </script>
+
+
+<style>
+/* Тут css кнопки */
+.gradient-button {
+    background: linear-gradient(to right, #0D2F68, #D51117);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+  }
+  
+  .gradient-button:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+  }
+
+  .hello {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../assets/back1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #011224;
+    height: auto;
+    min-height: 600px;
+    width: 100%;
+  }
+  
+  .content {
+    color: white;
+    background-color: #011224;
+    min-height: 400px;
+    height: auto;
+    width: 100%;
+  }
+</style>
