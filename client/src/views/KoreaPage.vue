@@ -1,7 +1,7 @@
 <template>
 	<h1>Список кореявёдер</h1>
 
-	<div>
+	<div class="element">
 		<div>
 			<select v-model="selectedBrand" @change="onBrandChange">
 				<option value="" disabled>Марка авто</option>

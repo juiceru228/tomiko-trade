@@ -2,10 +2,14 @@
   <header>
     <nav>
       <ul>
-        <li><router-link to="/">Главная страница</router-link></li>
-        <li><router-link to="/china">Китай</router-link></li>
-        <li><router-link to="/japan">Японий</router-link></li>
-        <li><router-link to="/korea">Корея</router-link></li>
+        <div class="header-text">
+          <span class="left-text">
+          <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
+          <li><router-link to="/china">Китай</router-link></li>
+          <li><router-link to="/japan">Япония</router-link></li>
+          <li><router-link to="/korea">Корея</router-link></li></span>
+          <span class="right-text">8 (800) 500-49-46</span>
+        </div>
       </ul>
     </nav>
   </header>
@@ -16,26 +20,3 @@ export default {
   name: 'AppHeader'
 }
 </script>
-
-<style scoped>
-header {
-  background-color: #03045e;
-  color: white;
-  padding: 10px;
-}
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-nav ul li {
-  display: inline;
-  margin-right: 15px;
-}
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-nav ul li a:hover {
-  text-decoration: underline;
-}
-</style>
