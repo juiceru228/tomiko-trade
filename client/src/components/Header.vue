@@ -4,8 +4,7 @@
       <ul>
         <div class="header-text">
           <span class="left-text">
-          <img alt="Vue logo" src="../assets/log1.png">
-          <li><router-link to="/">Главная страница</router-link></li>
+          <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
           <li><router-link to="/china">Китай</router-link></li>
           <li><router-link to="/japan">Япония</router-link></li>
           <li><router-link to="/korea">Корея</router-link></li></span>

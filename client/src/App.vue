@@ -2,11 +2,10 @@
 	<div id="app">
 		<Header />
     <main>
-      <div class="element">
+      <div>
         <router-view />
       </div>
     </main>
-    <ContentTest />
     <Footer />
   </div>
 </template>

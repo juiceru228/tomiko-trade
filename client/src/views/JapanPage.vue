@@ -1,7 +1,7 @@
 <template>
 	<h1>Список японовёдер</h1>
 
-	<div>
+	<div class="element">
 		<div>
 			<select v-model="selectedBrand">
 				<option value="" disabled>Марка авто</option>
