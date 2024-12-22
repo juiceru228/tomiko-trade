@@ -917,3 +917,9 @@ COMMIT;
 ALTER TABLE cars 
 ADD COLUMN image VARCHAR(255),
 ADD COLUMN duty INTEGER;
+CREATE TABLE  bids (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR (100) NOT NULL,
+    phone_number VARCHAR (20) NOT NULL,
+    description TEXT NOT NULL
+);

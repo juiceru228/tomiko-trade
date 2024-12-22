@@ -1,8 +1,9 @@
 from celery import shared_task
 import logging
-logger = logging.getLogger('django')
-from parking.models import Car
 import os
+from parking.models import Car
+
+logger = logging.getLogger('django')
 
 @shared_task
 def populate_db_images():
@@ -11,9 +12,10 @@ def populate_db_images():
 
     cars = Car.objects.all()
 
-    for _, car in enumerate(cars):
-        image_index = car.id % len(image_files)
-        image_path = os.path.join('cars', image_files[image_index])
+    for car in cars:
+        image_indices = [car.id % len(image_files), (car.id + 1) % len(image_files), (car.id + 2) % len(image_files)]
 
-        car.image = image_path
+        image_paths = [os.path.join('cars', image_files[i]) for i in image_indices]
+
+        car.image = ','.join(image_paths)
         car.save()
