@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'parking',
     'currencies',
-    'django_celery_beat'
+    'django_celery_beat',
+    'bids'
 ]
 
 MIDDLEWARE = [

@@ -87,7 +87,7 @@
 					<div>{{ item.model }} | {{ item.year }} | {{ item.mileage }} км | {{ item.engine_volume }} л</div>
 					<router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
 						<div class="image_frame">
-							<img :src="`${mediaUrl}${item.image}`" alt="Car image">
+							<img :src="`${mediaUrl}${item.image.split('%2C')[0]}`" alt="Car image">
 						</div>
 					</router-link>
 				</li>
