@@ -20,3 +20,38 @@ export default {
   name: 'AppHeader'
 }
 </script>
+
+<style>
+/*Тут header*/
+.header {
+    background-color: rgba(0, 0, 0, 0)e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 80%;
+    text-align: left;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  /*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
+  .header-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto; 
+  }
+  
+  /*Тут левая часть header*/
+  .left-text {
+    margin-right: auto;
+  }
+  
+  /*Тут правая часть header*/
+  .right-text {
+    margin-left: auto;
+  }
+</style>

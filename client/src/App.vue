@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<Header />
+    <Header />
     <main>
       <div>
         <router-view />
@@ -25,56 +25,12 @@ export default {
 
 <style>
 *{
+  color: white;
   padding:0;
   margin:0;
   text-align: center;
   justify-content: center;
 }
-
-/*Тут header*/
-.header {
-    background-color: rgba(0, 0, 0, 0)e;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    width: 80%;
-    text-align: left;
-    position: relative;
-    margin: 0 auto;
-  }
-
-  /*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
-  .header-text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: 0 auto; 
-  }
-  
-  /*Тут левая часть header*/
-  .left-text {
-    margin-right: auto;
-  }
-  
-  /*Тут правая часть header*/
-  .right-text {
-    margin-left: auto;
-  }
-
-  /*Тут футер*/
-  footer {
-    background-color: #081E36;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
-
   /* Тут css кнопки */
   .gradient-button {
     background: linear-gradient(to right, #0D2F68, #D51117);
