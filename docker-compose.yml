@@ -17,6 +17,8 @@ services:
         - server
         - client
     server:
+      env_file:
+        - .env
       restart: always 
       build:
         context: ./server/
@@ -38,6 +40,8 @@ services:
         postgres:
           condition: service_healthy
     celery-worker:
+      env_file:
+        - .env
       build:
         context: ./server/
         dockerfile: Dockerfile
@@ -56,6 +60,8 @@ services:
         - redis
 
     celery-beat:
+      env_file:
+        - .env
       build:
         context: ./server/
         dockerfile: Dockerfile
