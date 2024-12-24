@@ -1,4 +1,4 @@
-.env
-node_modules/
-__pycache__/
-celerybeat-schedule
+**/.env
+**/node_modules/
+**/__pycache__/
+**/celerybeat-schedule
