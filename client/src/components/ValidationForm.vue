@@ -9,7 +9,8 @@
                 <div class="left-column">
                     <div class="input-wrapper">
                         <label class="input-describe" for="name">Имя</label>
-                        <input class="first-field" type="text" placeholder="Введите имя" v-model="form.name" />
+                        <input class="first-field" type="text" placeholder="Введите имя" v-model="localForm.name"
+                            @input="$emit('update:form', localForm)" />
                         <div class="error-tooltip" v-if="errors.name">{{ errors.name }}</div>
                     </div>
                 </div>
@@ -17,7 +18,7 @@
                     <div class="input-wrapper">
                         <label class="input-describe" for="phone_number">Телефон</label>
                         <input class="second-field" v-mask="'+7 (###) ###-##-##'" placeholder="+7" type="text"
-                            v-model="form.phone_number" />
+                            v-model="localForm.phone_number" @input="$emit('update:form', localForm)" />
                         <div class="error-tooltip" v-if="errors.phone_number">{{ errors.phone_number }}</div>
                     </div>
                 </div>
@@ -26,14 +27,14 @@
                 <label class="input-describe" for="description">Уточните свой вопрос</label>
                 <textarea rows=3 class="third-field"
                     placeholder="Введите текст сообщения, укажите страну, марку и год машины."
-                    v-model="form.description"></textarea>
+                    v-model="localForm.description" @input="$emit('update:form', localForm)"></textarea>
                 <div class="error-tooltip-description" v-if="errors.description">{{ errors.description }}</div>
 
 
             </div>
             <div class="input-wrapper">
                 <div class="checkbox-container">
-                    <input class="agreed-box" type="checkbox" v-model="form.isAgreed" id="checkbox" />
+                    <input class="agreed-box" type="checkbox" v-model="localForm.isAgreed" id="checkbox" />
                     <label class="agreed-label">С <span class="link">правилами политики конфиденциальности</span>
                         ознакомлен</label>
                     <div class="error-tooltip" v-if="errors.isAgreed">{{ errors.isAgreed }}</div>
@@ -45,7 +46,7 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue';
+import { reactive } from 'vue';
 import axios from 'axios';
 import { mask } from 'vue-the-mask';
 export default {
@@ -56,7 +57,7 @@ export default {
         form: {
             type: Object,
             required: true,
-            
+
         },
     },
     emits: ['submit'],
@@ -65,7 +66,7 @@ export default {
         const errors = reactive({});
 
         const validateForm = () => {
-            const phoneRegex = /^\+7\d{10}$/;
+            const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
             errors.name = props.form.name ? '' : 'Имя обязательно';
             errors.phone_number = phoneRegex.test(props.form.phone_number) ? '' : 'Номер телефона должен быть в формате +71231231231';
             errors.description = props.form.description ? '' : 'Описание обязательно';
@@ -93,10 +94,10 @@ export default {
 
         const submitForm = () => {
             if (validateForm()) {
-                emit('submit', props.form);
+                emit('submit', { ...localForm });
                 fetchData(props.form).then(() => {
-                    emit('submit', props.form);
-                    console.log('Данные отправлены:', props.form);
+                    emit('submit', { ...localForm });
+                    console.log('Данные отправлены:', localForm.form);
                 })
                     .catch((error) => {
                         console.error('Ошибка при отправке данных:', error);
@@ -105,8 +106,9 @@ export default {
         };
 
         return {
-            ...toRefs(localForm),
+            localForm,
             errors,
+            validateForm,
             submitForm,
             handleFormClick,
         };
@@ -271,5 +273,4 @@ span {
     background-color: #20344A;
     color: #FFFFFF80;
 }
-
 </style>

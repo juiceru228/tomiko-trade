@@ -76,7 +76,7 @@
 
         <!-- Модальное окно -->
         <ModalForm :visible="isModalVisible" @close="closeModal">
-            <ValidationForm :form="form" @submit="handleFormSubmit" />
+            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
         </ModalForm>
 
 
@@ -85,7 +85,6 @@
 
 <script>
 import { register } from 'swiper/element/bundle';
-import { ref } from 'vue';
 
 register();
 
@@ -170,10 +169,13 @@ export default {
         },
         onProgress(e) {
             const [swiper, progress] = e.detail;
-            console.log('Progress:', progress);
+            console.log('Progress:', swiper, progress);
         },
         onSlideChange() {
             console.log('Slide changed');
+        },
+        updateForm(newForm) {
+            this.form = newForm;
         },
     },
 };
@@ -356,11 +358,11 @@ export default {
 }
 
 .swipe-button {
-font-weight: 500;
-font-size: 14px;
-line-height: 140%;
-/* identical to box height, or 20px */
-text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    /* identical to box height, or 20px */
+    text-align: center;
     border-radius: 30px;
     width: 149px;
     height: 44px;
@@ -417,24 +419,28 @@ text-align: center;
     justify-content: space-between;
     align-items: center;
 }
-.swiper-additionals{
+
+.swiper-additionals {
     color: rgba(255, 255, 255, 0.5);
     font-weight: 700;
     text-align: right;
-    z-index: 10;  
+    z-index: 10;
 }
-.swiper-title{
+
+.swiper-title {
     font-size: 24px;
     font-weight: 700;
     text-align: right;
-    z-index: 10;  
+    z-index: 10;
 }
+
 .swiper-price {
     font-size: 24px;
     font-weight: 700;
     text-align: right;
     z-index: 10;
 }
+
 .swiper-slide img {
     border-radius: 16px;
     z-index: 0;

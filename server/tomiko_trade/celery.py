@@ -2,6 +2,7 @@ import os
 
 from django.conf import settings
 from currencies.tasks import update_currencies_task
+from others.tasks import update_others_task
 #from parking.tasks import populate_db_images
 from celery import Celery, signals
 # Set the default Django settings module for the 'celery' program.
@@ -28,5 +29,5 @@ def at_start(sender, **kwargs):
     from parking.tasks import populate_db_images
     populate_db_images.apply_async()
     update_currencies_task.apply_async()
-
+    update_others_task.apply_async()
 

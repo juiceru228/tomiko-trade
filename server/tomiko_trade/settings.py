@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'parking',
     'currencies',
     'django_celery_beat',
-    'bids'
+    'bids',
+    'others'
 ]
 
 MIDDLEWARE = [
@@ -177,4 +178,8 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'currencies.tasks.update_currencies_task',
         'schedule': crontab(minute=0, hour='0,12'),
     },
+    'update_others_task':{
+        'task': 'others.tasks.update_others_task',
+        'schedule': crontab(minute=0, hour='0,12'),
+    }
 }

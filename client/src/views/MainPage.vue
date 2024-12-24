@@ -10,12 +10,17 @@
         <h1>Йоу, надо примерно так ещё сделать</h1>
         <p1>Тут нужны картинки разных авто</p1>
       </div>
-    </div>
+      <MapComponent />
+      <iframe loading="lazy" src="https://vk.com/video_ext.php?oid=499628829&id=456239017&hash=08167ba3a6aa1892&__ref=vk.admin_android&api_hash=173506549679f8e7117113cc6111_GM2DINZRGM2TGOI" width="640" height="360" frameborder="0" allowfullscreen></iframe>    </div>
 </template>
 
 <script>
+import MapComponent from '../components/MapComponent.vue';
 export default {
   name: 'MainPage',
+  components: {
+    MapComponent
+  }
 };
 </script>
 
