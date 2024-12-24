@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive, toRefs } from 'vue';
 import axios from 'axios';
 import { mask } from 'vue-the-mask';
 export default {
@@ -56,10 +56,12 @@ export default {
         form: {
             type: Object,
             required: true,
+            
         },
     },
     emits: ['submit'],
     setup(props, { emit }) {
+        const localForm = reactive({ ...props.form });
         const errors = reactive({});
 
         const validateForm = () => {
@@ -103,9 +105,10 @@ export default {
         };
 
         return {
+            ...toRefs(localForm),
             errors,
             submitForm,
-            handleFormClick
+            handleFormClick,
         };
     },
 };
@@ -268,4 +271,5 @@ span {
     background-color: #20344A;
     color: #FFFFFF80;
 }
+
 </style>
