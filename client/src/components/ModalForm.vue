@@ -1,7 +1,7 @@
 <template>
     <div v-if="visible" class="modal-overlay" @click="close">
         <div class="modal-content" @click.stop>
-            <img src="../assets/cross.svg" @click="close" class="modal-close"></img>
+            <img src="../assets/cross.svg" @click="close" class="modal-close"/>
             <slot></slot>
         </div>
 
