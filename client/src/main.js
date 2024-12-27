@@ -14,13 +14,18 @@ import MainPage from './views/MainPage.vue'
 import ChinaPage from './views/ChinaPage.vue'
 import KoreaPage from './views/KoreaPage.vue'
 import JapanPage from './views/JapanPage.vue'
-import CarDetail from './views/CarDetail.vue';
+import CarDetail from './views/CarDetail.vue'
+import ContactPage from './views/ContactPage.vue'
+import NotFound from './views/NotFound.vue'
+
 const routes = [
 	{path: '/', component:MainPage},
 	{path: '/china', component:ChinaPage},
 	{path: '/korea', component:KoreaPage},
 	{path: '/japan', component:JapanPage},
-  {path: '/car/:id', name: 'CarDetail', component:CarDetail}
+  {path: '/car/:id', name: 'CarDetail', component:CarDetail},
+  {path: '/contact', component:ContactPage},
+  {path: '/:pathMatch(.*)*', name: 'NotFound', component:NotFound},
 ];
 
 const router = createRouter({
