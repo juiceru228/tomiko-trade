@@ -19,7 +19,7 @@
         </div>
       </section>
     </div>
-
+    <swiperRelevant/>
     <main class="content">
       <div class="stage_work">
           <div class="container">
@@ -143,12 +143,14 @@
 import VKclipsPage from '../components/VKclips.vue';
 import contacts from '@/components/ContactsPage.vue';
 import subcribe from '@/components/subcribe.vue';
+import swiperRelevant from '@/components/SwiperCars.vue'
 export default {
   name: 'MainPage',
   components: {
     VKclipsPage,
     contacts,
     subcribe,
+    swiperRelevant
   },
 };
 </script>

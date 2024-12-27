@@ -28,7 +28,7 @@ def getClips(request=None):
     "v": "5.245",
     "client_id": "6287487",
     "oauth": "2",
-    "code": "return [API.shortVideo.getOwnerVideos({\"owner_id\":499628829,\"fields\":\"friend_status,is_subscribed,is_member,photo_50,photo_100,photo_200,photo_400,is_nft,about,description,followers_count,members_count,verified\",\"count\":10}),API.shortVideo.getOwnerVideos({\"owner_id\":499628829,\"playlist\":\"scheduled\",\"fields\":\"friend_status,is_subscribed,is_member,photo_50,photo_100,photo_200,photo_400,is_nft,about,description,followers_count,members_count,verified\",\"count\":10})];",
+    "code": "return [API.shortVideo.getOwnerVideos({\"owner_id\":-226932717,\"fields\":\"friend_status,is_subscribed,is_member,photo_50,photo_100,photo_200,photo_400,is_nft,about,description,followers_count,members_count,verified\",\"count\":10}),API.shortVideo.getOwnerVideos({\"owner_id\":499628829,\"playlist\":\"scheduled\",\"fields\":\"friend_status,is_subscribed,is_member,photo_50,photo_100,photo_200,photo_400,is_nft,about,description,followers_count,members_count,verified\",\"count\":10})];",
     "access_token": VK_ACCESS_TOKEN
     }
     try:

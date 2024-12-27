@@ -1,73 +1,105 @@
 <template>
     <div class="car-details">
         <ul class="car-info">
-            <li v-for="item in mainCar" :key="item.id" class="item">
-                <div class="item-content">
-                    <div class="left-text">
-                        <div class="title">{{ mainCar[0].brand_country.brand }} {{ mainCar[0].model }}, {{
-                            mainCar[0].year }}</div>
-                        <div class="price">{{ mainCar[0].price }} ₽</div>
-
-                        <div>
-                            <button @click="openModal" class="gradient-button">Оставить заявку</button>
-                            <img class="whatsup" src="../assets/cta_button1.svg" />
-                        </div>
-                        <div>Экономия до 30% от рынка авто в наличии</div>
-                        <div class="parameter-row">
-                            <div class="left-column">
-                                <div>Год выпуска:</div>
-                                <div>Кузов:</div>
-                                <div>Страна:</div>
-                                <div>КПП:</div>
-                                <div>Двигатель:</div>
-                                <div>Объём двигателя:</div>
-                                <div>Привод:</div>
-                                <div>Цвет:</div>
-                                <div>Пробег:</div>
-                            </div>
-                            <div class="right-column">
-                                <div>{{ mainCar[0].year }} г.</div>
-                                <div>Машина</div>
-                                <div>{{ mainCar[0].brand_country.country }}</div>
-                                <div>{{ mainCar[0].transmission }}</div>
-                                <div>Бензиновый</div>
-                                <div>{{ mainCar[0].engine_volume }} лс</div>
-                                <div>{{ mainCar[0].drive }}</div>
-                                <div>{{ mainCar[0].color }}</div>
-                                <div>{{ mainCar[0].mileage }}</div>
-                            </div>
-                        </div>
-                        <button @click="openModal" class="info-button-red">Подробный расчет</button>
-                    </div>
-
-                    <!-- Правая часть с изображением -->
-                    <div class="right-text">
-                        <img class="image_frame" :src="`${mediaUrl}${selectedImage}`" alt="Car image" />
-                        <div class="image-thumbnails">
-                            <img v-for="(image, index) in item.image.split('%2C')" :key="index"
-                                :src="`${mediaUrl}${image}`" class="thumbnail" @click="selectImage(image)"
-                                :class="{ selected: selectedImage === image }" alt="Car thumbnail" />
-                        </div>
-                    </div>
-
-                </div>
-            </li>
+            
 
             <div class="swiper-container-wrapper">
                 <div class="control">
-                    <div class="control-title1">ПОХОЖИЕ</div>
-                    <div class="control-title2">АВТОМОБИЛИ✨</div>
+                    <div class="control-title1">ПОПУЛЯРНЫЕ АВТО</div>
+                    <div class="control-title2">ИЗ КИТАЯ 🇨🇳</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler"></img>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler"></img>
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('china')"></img>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('china')"></img>
                     
                     
                 </div>
-                <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
+                <swiper-container :slides-per-view="5" ref="chinaRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
 
-                    <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">
+                    <swiper-slide class="swiper-slide" v-for="(item, index) in itemsChina" :key="index">
+                        <router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
+                            <div class="swiper-item-box">
+
+                                <div class="swiper-title">{{ item.brand_country.brand }} {{ item.model }}</div>
+                                <div class="swiper-title-less">{{ item.year }} Бензиновый, {{ item.mileage }}</div>
+
+
+                                <img :src="`${mediaUrl}${item.image.split('%2C')[0]}`" class="swipe-img-thumbnail" />
+
+                                <div class="price-button-wrapper">
+                                    <div class="swiper-price">{{ item.price }} ₽</div>
+                                    <button class="swipe-button" @click="openModal">Оставить заявку</button>
+
+                                </div>
+
+                            </div>
+
+                        </router-link>
+                    </swiper-slide>
+
+                    <swiper-slide class="swiper-slide"></swiper-slide>
+                    <swiper-slide class="swiper-slide"></swiper-slide>
+
+                </swiper-container>
+                <router-view :key="$route.fullPath"></router-view>
+            </div>
+            <div class="swiper-container-wrapper">
+                <div class="control">
+                    <div class="control-title1">ПОПУЛЯРНЫЕ АВТО</div>
+                    <div class="control-title2">ИЗ КОРЕИ 🇰🇷</div>
+                </div>
+                <div class="swiper-buttons">
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('korea')"></img>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('korea')"></img>
+                    
+                    
+                </div>
+                <swiper-container :slides-per-view="5" ref="koreaRef" :rtl="true" @swiperprogress="onProgress"
+                    @swiperslidechange="onSlideChange">
+
+                    <swiper-slide class="swiper-slide" v-for="(item, index) in itemsKorea" :key="index">
+                        <router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
+                            <div class="swiper-item-box">
+
+                                <div class="swiper-title">{{ item.brand_country.brand }} {{ item.model }}</div>
+                                <div class="swiper-title-less">{{ item.year }} Бензиновый, {{ item.mileage }}</div>
+
+
+                                <img :src="`${mediaUrl}${item.image.split('%2C')[0]}`" class="swipe-img-thumbnail" />
+
+                                <div class="price-button-wrapper">
+                                    <div class="swiper-price">{{ item.price }} ₽</div>
+                                    <button class="swipe-button" @click="openModal">Оставить заявку</button>
+
+                                </div>
+
+                            </div>
+
+                        </router-link>
+                    </swiper-slide>
+
+                    <swiper-slide class="swiper-slide"></swiper-slide>
+                    <swiper-slide class="swiper-slide"></swiper-slide>
+
+                </swiper-container>
+                <router-view :key="$route.fullPath"></router-view>
+            </div>
+            <div class="swiper-container-wrapper">
+                <div class="control">
+                    <div class="control-title1">ПОПУЛЯРНЫЕ АВТО</div>
+                    <div class="control-title2">ИЗ ЯПОНИИ 🇯🇵</div>
+                </div>
+                <div class="swiper-buttons">
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('japan')"></img>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('japan')"></img>
+                    
+                    
+                </div>
+                <swiper-container :slides-per-view="5" ref="japanRef" @swiperprogress="onProgress"
+                    @swiperslidechange="onSlideChange">
+
+                    <swiper-slide class="swiper-slide" v-for="(item, index) in itemsJapan" :key="index">
                         <router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
                             <div class="swiper-item-box">
 
@@ -105,19 +137,18 @@
 
     </div>
 </template>
-
 <script>
 import { register } from 'swiper/element/bundle';
 import { ref } from 'vue';
 register();
-
+import 'swiper/swiper-bundle.css';
 import { reactive } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
 import contacts from '@/components/ContactsPage.vue';
 import axios from 'axios';
 export default {
-    name: 'CarDetail',
+    name: 'SwiperCars',
     components: {
         ModalForm,
         ValidationForm,
@@ -125,7 +156,9 @@ export default {
     },
     data() {
         return {
-
+            itemsChina: [],
+        itemsKorea: [],
+        itemsJapan: [],
             selectedImage: '',
             mainCar: [],
             items: [],
@@ -148,9 +181,9 @@ export default {
         },
     },
     mounted() {
-        const carId = this.$route.params.id;
-        this.fetchDataMain({ id: carId, type: "cars" });
-
+    this.fetchDataChina({ country: "Китай", type: "cars", page: 1 });
+    this.fetchDataKorea({ country: "Корея", type: "cars", page: 1 });
+    this.fetchDataJapan({ country: "Япония", type: "cars", page: 1 });
 
     },
     methods: {
@@ -166,31 +199,51 @@ export default {
         closeModal() {
             this.isModalVisible = false;
         },
-        async fetchDataMain(params = {}) {
+        async fetchDataChina(params = {}) {
             return await axios
                 .get('http://localhost:8080/api/filter/', { params })
                 .then((response) => {
-                    this.mainCar = response.data;
-                    this.fetchDataRelevant({ country: this.mainCar[0].brand_country.country, type: "cars", page: 1 });
-                    console.log('Fetched data:', this.mainCar[0].brand_country.country);
+                    this.itemsChina = response.data;
+                    console.log('Fetched data:', this.itemsChina);
                 })
                 .catch((error) => {
                     console.error('Error fetching data:', error);
                     throw error;
                 });
         },
-        async fetchDataRelevant(params = {}) {
+        async fetchDataKorea(params = {}) {
             return await axios
                 .get('http://localhost:8080/api/filter/', { params })
                 .then((response) => {
-                    this.items = response.data;
-                    console.log('Fetched data:', this.items);
+                    this.itemsKorea = response.data;
+                    console.log('Fetched data:', this.itemsKorea);
                 })
                 .catch((error) => {
                     console.error('Error fetching data:', error);
                     throw error;
                 });
         },
+        async fetchDataJapan(params = {}) {
+            return await axios
+                .get('http://localhost:8080/api/filter/', { params })
+                .then((response) => {
+                    this.itemsJapan = response.data;
+                    console.log('Fetched data:', this.itemsJapan);
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                    throw error;
+                });
+        },
+/*       async fetchDataRelevant(params = {}) {
+    try {
+        const response = await axios.get('http://localhost:8080/api/filter/', { params });
+        return response.data;
+    } catch (error) {
+        console.error('Ошибка при загрузке данных:', error);
+        return [];
+    }
+},*/
         handleFormSubmit(formData) {
             console.log('Форма успешно отправлена!', formData);
             alert('Форма успешно отправлена!');
@@ -208,17 +261,38 @@ export default {
         },
     },
     setup() {
-        const swiperRef = ref(null);
-        const prevHandler = () => {
-            swiperRef.value.swiper.slidePrev();
+        // Создаём ссылки на каждый swiper
+        const chinaRef = ref(null);
+        const koreaRef = ref(null);
+        const japanRef = ref(null);
+
+        // Получаем экземпляр swiper по имени
+        const getSwiperInstance = (swiperName) => {
+            if (swiperName === "china") return chinaRef.value.swiper;
+            if (swiperName === "korea") return koreaRef.value.swiper;
+            if (swiperName === "japan") return japanRef.value.swiper;
+            return null;
         };
 
-        const nextHandler = () => {
-            swiperRef.value.swiper.slideNext();
+        // Обработчики кнопок
+        const prevHandler = (swiperName) => {
+            const swiper = getSwiperInstance(swiperName);
+            if (swiper) swiper.slidePrev();
         };
 
-        return { swiperRef, prevHandler, nextHandler };
-    }
+        const nextHandler = (swiperName) => {
+            const swiper = getSwiperInstance(swiperName);
+            if (swiper) swiper.slideNext();
+        };
+
+        return {
+            chinaRef,
+            koreaRef,
+            japanRef,
+            prevHandler,
+            nextHandler,
+        };
+    },
 };
 </script>
 
@@ -454,6 +528,7 @@ export default {
 
 
 .swiper-slide {
+    
     display: flex;
     justify-content: flex-end;
     padding: 100px 0;
@@ -466,6 +541,7 @@ export default {
     max-width: 1800px;
     margin: 0 auto;
     overflow: hidden;
+    
 }
 
 .swiper-item-box {
@@ -489,9 +565,9 @@ export default {
 }
 
 .swiper-container {
+    
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     width: 100%;
     overflow: visible;
 
@@ -609,8 +685,7 @@ export default {
     /* Увеличенное расстояние */
     margin-left: 200px;
     display: flex;
-    align-items: left;
-    align-items: center;
+    align-items: right;
     transform: translateY(-50px);
 
 }

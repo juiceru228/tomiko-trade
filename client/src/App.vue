@@ -85,5 +85,6 @@ export default {
   
   main {
     min-height: calc(100vh - 120px);
+    overflow-x: hidden
   }
 </style>

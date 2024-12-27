@@ -15,12 +15,14 @@ import ChinaPage from './views/ChinaPage.vue'
 import KoreaPage from './views/KoreaPage.vue'
 import JapanPage from './views/JapanPage.vue'
 import CarDetail from './views/CarDetail.vue';
+import SwiperCars from './components/SwiperCars.vue'
 const routes = [
 	{path: '/', component:MainPage},
 	{path: '/china', component:ChinaPage},
 	{path: '/korea', component:KoreaPage},
 	{path: '/japan', component:JapanPage},
-  {path: '/car/:id', name: 'CarDetail', component:CarDetail}
+  {path: '/car/:id', name: 'CarDetail', component:CarDetail},
+  {path: '/ayaya', component:SwiperCars}
 ];
 
 const router = createRouter({
