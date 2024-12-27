@@ -8,7 +8,9 @@
           <li><router-link to="/china">Авто из Китая</router-link></li>
           <li><router-link to="/japan">Авто из Японии</router-link></li>
           <li><router-link to="/korea">Авто из Кореи</router-link></li></span>
-          <span class="right-text">8 (800) 500-49-46</span>
+          <span class="right-text">8 (800) 500-49-46
+          <li><router-link to="/"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
+          </span>
         </div>
       </ul>
     </nav>
@@ -30,7 +32,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    width: 80%;
+    width: 90%;
     text-align: left;
     position: relative;
     margin: 0 auto;
@@ -41,7 +43,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 90%;
     margin: 0 auto; 
   }
   

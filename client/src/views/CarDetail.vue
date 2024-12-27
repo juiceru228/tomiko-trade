@@ -53,7 +53,6 @@
                 </div>
             </li>
             <div class="swiper-container-wrapper">
-
                 <swiper-container :slides-per-view="3" navigation="true" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
                     <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">
@@ -93,6 +92,7 @@ import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
 import axios from 'axios';
 export default {
+    name: 'CarDetail',
     components: {
         ModalForm,
         ValidationForm,

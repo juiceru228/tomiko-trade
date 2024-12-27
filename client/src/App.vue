@@ -25,11 +25,50 @@ export default {
 
 <style>
 *{
+  color: white;
   padding:0;
   margin:0;
   text-align: center;
   justify-content: center;
 }
+
+/*Эти руты очень удобно в будущем, можно вписать все нужные цвета
+потом очень легко настраивать разные элементы */
+:root {
+    --primary-color: #0D2F68;
+    --secondary-color: #D51117;
+    --hover-color: #feb47b;
+    --hover-bg-color: #ff7e5f;
+    --background-color: #011224;
+    --card-bg-color: #081E36;
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
   /*Для изображения*/
   img {
     height: 50px;
@@ -47,9 +86,6 @@ export default {
   main {
     min-height: calc(100vh - 120px);
   }
-
-  
-
 
   .h1 {
     clear: both;
