@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /*Тут header*/
 .header {
     background-color: rgba(0, 0, 0, 0)e;
@@ -50,11 +50,82 @@ export default {
   /*Тут левая часть header*/
   .left-text {
     margin-right: auto;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.36px;
   }
   
   /*Тут правая часть header*/
   .right-text {
     margin-left: auto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
   }
   
+  /* */
+  .h1 {
+    clear: both;
+  }
+
+  .p {
+    clear: both;
+  }
+  
+  h3 {
+    margin: 40px 0 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #42b983;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+ol, ul {
+    padding-left: 2rem;
+}
+
+img, svg {
+    vertical-align: middle;
+    aspect-ratio: 1 / 1;
+    height: 80px;
+    width: 80px;
+}
+
+header .right-text img {
+    width: 36px;
+    height: 36px;
+    aspect-ratio: 1 / 1;
+}
 </style>

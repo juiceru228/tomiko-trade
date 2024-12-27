@@ -132,25 +132,29 @@
           </div>
       </div>
     </main>
-    <MapComponent />
     <VKclipsPage/>
+    <subcribe/>
+    <contacts/>
   </div>
   
 </template>
 
 <script>
-import MapComponent from '../components/MapComponent.vue';
 import VKclipsPage from '../components/VKclips.vue';
+import contacts from '@/components/ContactsPage.vue';
+import subcribe from '@/components/subcribe.vue';
 export default {
   name: 'MainPage',
   components: {
-    MapComponent,
     VKclipsPage,
+    contacts,
+    subcribe,
   },
 };
 </script>
 
-<style>
+<style scoped>
+
 .stage_work {
     margin-bottom: 80px;
 }
@@ -158,6 +162,7 @@ export default {
 .tittle img{
   height: 50px;
 }
+
 .stage_work .save_discount {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -178,16 +183,6 @@ export default {
 div {
     display: block;
     unicode-bidi: isolate;
-}
-
-.about_us .bottom_abouts {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    margin-top: 33px;
 }
 
 .stage_work { 
@@ -242,7 +237,7 @@ div {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -276,7 +271,7 @@ div {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
+/*
 .item img {
   width: 100%;
   height: auto;
@@ -297,7 +292,7 @@ div {
 .line_img {
   width: 100%; 
 }
-
+*/
 .btns_stage {
   margin-top: 30px;
 }
@@ -317,22 +312,6 @@ div {
 
 .save_discount a img {
   width: 40px;
-}
-
-/* Кнопка с градиентом */
-.gradient-button {
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  border: none;
-  color: white;
-  padding: 15px 30px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background 0.3s ease;
-}
-
-.gradient-button:hover {
-  background: linear-gradient(to right, var(--hover-color), var(--hover-bg-color));
 }
 
 .hello {
@@ -359,7 +338,25 @@ div {
   margin-bottom: 20%;
 }
 
+.titles p{
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 48px;
+  padding: 0 25%;
+}
 
+.titles h1{
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 76.8px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
 .title h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -414,4 +411,318 @@ div {
 .card_discount span {
   font-weight: bold;
 }
+
+/* */
+.h1 {
+    clear: both;
+  }
+
+  .p {
+    clear: both;
+  }
+  
+  h3 {
+    margin: 40px 0 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #42b983;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Кнопка с градиентом */
+.gradient-button {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+
+.gradient-button:hover {
+  background: linear-gradient(to right, var(--hover-color), var(--hover-bg-color));
+}
+
+.ZAP .left_info .item div {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.ZAP .left_info .item p {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5019607843);
+}
+
+.ZAP .left_info .item div img {
+    margin-right: 12px;
+    aspect-ratio: 1 / 1;
+    height: 25px;
+    width: 25px;
+}
+
+.ZAP .left_info .item div {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.ZAP .left_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.ZAP .card_discoint p {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.ZAP .card_discoint p span {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 72px;
+    text-align: left;
+    color: #fd554b;
+}
+
+.stage_work .title h2 span {
+    color: #f8534a;
+}
+
+.stage_work .title h2 {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.stage_work .itesm_stages .item h3 span {
+    color: #fff;
+}
+
+.stage_work .itesm_stages .item p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.stage_work .stage_block .itesm_stages img {
+    aspect-ratio: 1 / 1;
+    width: 52px;
+    height: 52px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .stage_work .itesm_stages .item .line_img {
+        left: 80px;
+        max-width: 139px;
+    }
+}
+.stage_work .itesm_stages .item .line_img {
+    position: absolute;
+    top: 27px;
+    left: 77px;
+}
+.stage_work .stage_block .itesm_stages .line_img {
+    aspect-ratio: 203 / 2;
+    width: 203px;
+    height: 2px;
+}
+.stage_work .stage_block .itesm_stages img {
+    aspect-ratio: 1 / 1;
+    width: 52px;
+    height: 52px;
+}
+img, svg {
+    vertical-align: middle;
+}
+.stage_work .btns_stage img {
+    aspect-ratio: 1 / 1;
+    width: 70px;
+    height: 70px;
+}
+
+.about_us .about_block h2 {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 16px;
+}
+@media (min-width: 992px) {
+    .d-lg-block {
+        display: block !important;
+    }
+}
+
+.about_us .about_block .titles p {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    color: #fff;
+    white-space: pre-wrap;
+}
+
+.about_us .about_block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #2a3847;
+    padding: 0 0 40px 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .about_us .about_block .img_abouts img {
+        -webkit-transform: none;
+        transform: none;
+        max-width: 500px;
+        height: auto;
+    }
+}
+.about_us .about_block .img_abouts img {
+    -webkit-box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    border-radius: 16px;
+    aspect-ratio: 500 / 301;
+    width: 603px;
+    height: 363px;
+}
+
+.about_us .about_block .titles .btns_stage {
+    margin-top: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.about_us .btns_stage img {
+    aspect-ratio: 1 / 1;
+    width: 70px;
+    height: 70px;
+}
+
+.about_us .about_block .titles {
+    max-width: 748px; 
+}
+
+.about_us .bottom_abouts .item h3 {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: #fd554b;
+    margin-bottom: 4px;
+}
+
+.about_us .bottom_abouts .item p {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5019607843);
+}
+
+.about_us .bottom_abouts .items img {
+    margin-right: 24px;
+    aspect-ratio: 1 / 1;
+    width: 41px;
+    height: 41px;
+}
+
+.about_us .bottom_abouts .items p {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    color: #fff;
+}
+
+.about_us .bottom_abouts .items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.about_us .bottom_abouts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 33px;
+}
+
 </style>

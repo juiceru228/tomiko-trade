@@ -39,8 +39,7 @@
                                 :pagination="{ clickable: true }"
                                 @swiper="onSwiper"
                                 @slideChange="onSlideChange"
-                                :loop="true"
-                                :autoplay="{ delay: 3000, disableOnInteraction: false }">
+                                :loop="true">
                                     <SwiperSlide>
                                             <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239036" target="_blank">
                                                 <img loading="lazy" src="https://sun9-47.vkuserphoto.ru/impg/mAAsGXWEwzuaLnL_wrLaB_nxQLD6EFTtW73ZDg/shgDdAhTNw8.jpg?quality=90&amp;proxy=1&amp;sign=57ec89847be709505e8d533bcb233d39&amp;c_uniq_tag=s6L9tXyYV2oOafiOIB0ajMZMMNhuXL-1R9SfjWFtx5U&amp;type=video_thumb" alt="Превью">
@@ -127,12 +126,11 @@
         </section>
 </template>
 
-<script>
-import { Navigation, Pagination, A11y, Autoplay} from 'swiper/modules';
+<script scoped>
+import { Navigation, Pagination, A11y} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import "swiper/css/autoplay";
 export default {
   name: 'VKclipsPage',
   components:{
@@ -149,7 +147,7 @@ export default {
       return {
         onSwiper,
         onSlideChange,
-        modules: [Navigation, Pagination, A11y, Autoplay],
+        modules: [Navigation, Pagination, A11y],
       };
   },
 };    
@@ -162,9 +160,6 @@ export default {
     margin: 0 0 80px 0;
     position: relative;
     z-index: 1;
-    transition-duration: 0ms;
-    transition-delay: 0ms;
-    transform: translate3d(-602px, 0px, 0px);
 }
 .clips::after {
     box-sizing: border-box;
@@ -186,9 +181,11 @@ export default {
     height: 264px;
     border-radius: 16px;
     display:inline-block;
+    max-width: 1800px;
 }
 .swiper-slide img {
     object-fit: cover;
+    max-width: 1800px;
 }
 img, svg {
     vertical-align: middle;
@@ -196,8 +193,8 @@ img, svg {
 .clips .clips_swiper {
     overflow: visible;
     display:inline-block;
+    max-width: 1800px;
 }
-
 .swiper-horizontal {
     touch-action: pan-y;
 }
@@ -210,8 +207,8 @@ img, svg {
     padding: 0;
     z-index: 1;
     display: block;
+    max-width: 1800px;
 }
-
 .swiper-wrapper {
     position: relative;
     width: 100%;
@@ -221,10 +218,62 @@ img, svg {
     transition-property: transform;
     transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
     box-sizing: content-box;
+    max-width: 1800px;
 }
-
 .clips .clips_swiper .swiper-wrapper {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
+    max-width: 1800px;
+}
+
+.clips .title h2 {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: left;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.clips .clips_link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 140%;
+    color: #FFF;
+}
+@media (min-width: 576px) {
+    .d-sm-flex {
+        display: flex !important;
+    }
+}
+.clips .section_top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 0 24px 0;
 }
 </style>

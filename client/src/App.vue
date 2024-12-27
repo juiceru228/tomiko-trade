@@ -69,11 +69,11 @@ export default {
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 
-  /*Для изображения*/
+  /*Для изображения
   img {
     height: 50px;
   }
-
+  */
   /*Тут общие css*/
   #app {
     background-color: #011224;
@@ -86,47 +86,4 @@ export default {
   main {
     min-height: calc(100vh - 120px);
   }
-
-  .h1 {
-    clear: both;
-  }
-
-  .p {
-    clear: both;
-  }
-  
-  h3 {
-    margin: 40px 0 0;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  a {
-    color: #42b983;
-  }
-
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  nav ul li {
-    display: inline;
-    margin-right: 15px;
-  }
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
 </style>
