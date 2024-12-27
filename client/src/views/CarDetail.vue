@@ -53,10 +53,16 @@
                 </div>
             </li>
             <div class="swiper-container-wrapper">
-                <swiper-container :slides-per-view="3" navigation="true" @swiperprogress="onProgress"
+                <div class="swiper-buttons">
+                    <button class="swiper-button-prev">‹</button>
+                    <button class="swiper-button-next">›</button>
+                </div>
+
+                <swiper-container :slides-per-view="5" :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
                     <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">
                         <div class="swiper-item-box">
+                            <router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
                             <div class="swiper-title">{{ item.brand_country.brand }} {{ item.model }}</div>
                             <div class="swiper-title">{{ item.year }} Бензиновый, {{ item.mileage }}</div>
 
@@ -66,8 +72,12 @@
                                 <div class="swiper-price">{{ item.price }} ₽</div>
                                 <button class="swipe-button">Оставить заявку</button>
                             </div>
+                        </router-link>
                         </div>
                     </swiper-slide>
+                    <swiper-slide class="swiper-slide"></swiper-slide>
+                    <swiper-slide class="swiper-slide"></swiper-slide>
+
                 </swiper-container>
 
             </div>
@@ -99,6 +109,7 @@ export default {
     },
     data() {
         return {
+
             selectedImage: '',
             mainCar: [],
             items: [],
@@ -358,6 +369,7 @@ export default {
 }
 
 .swipe-button {
+    margin-right: 10px;
     font-weight: 500;
     font-size: 14px;
     line-height: 140%;
@@ -388,7 +400,8 @@ export default {
 
 .swiper-container-wrapper {
     max-width: 1800px;
-
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .swiper-item-box {
@@ -405,12 +418,13 @@ export default {
 
 }
 
+
 .swiper-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 
 }
 
@@ -418,6 +432,8 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .swiper-additionals {
@@ -430,15 +446,59 @@ export default {
 .swiper-title {
     font-size: 24px;
     font-weight: 700;
-    text-align: right;
+    text-align: left;
     z-index: 10;
+    width: 100%;
+    padding-left: 10px;
 }
 
+.swiper-slide-active .swiper-price {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    z-index: 10;
+    margin-left: 10px;
+    transform: translateX(-180px) translateY(50px);
+}
+
+.swiper-slide-active .swipe-button {
+    text-align: left;
+    transition: transform 0.5s ease;
+    z-index: 10;
+    width: 100%;
+    transform: translateX(180px) translateY(50px);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    /* identical to box height, or 20px */
+    text-align: center;
+    border-radius: 30px;
+    width: 149px;
+    height: 44px;
+    z-index: 100;
+    color: #FFFFFF;
+    background: #20344A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.swiper-slide-active .swiper-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    transition: transform 0.5s ease;
+    z-index: 10;
+    width: 100%;
+    transform: translateX(-180px) translateY(-30px);
+}
 .swiper-price {
     font-size: 24px;
     font-weight: 700;
-    text-align: right;
+    text-align: left;
     z-index: 10;
+    margin-left: 10px;
 }
 
 .swiper-slide img {
@@ -448,17 +508,25 @@ export default {
     width: 322px;
     height: 190px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
-.swipe-img-thumbnail {}
 
 .swiper-slide-active {
-
+    margin-right: 200px;
+    /* Увеличенное расстояние */
+    margin-left: 200px;
+    display: flex;
+    align-items: left;
     z-index: 2;
     align-items: center;
-}
+    transform: translateY(-50px);
 
+}
+.swiper-buttons {
+    gap: 10px; /* Расстояние между кнопками */
+    max-width: 1800px;
+}
 .swiper-slide-active img {
     transform: scale(2.27);
     z-index: 2;

@@ -213,6 +213,7 @@ img, svg {
 }
 
 .swiper-wrapper {
+    max-width: 1800px;
     position: relative;
     width: 100%;
     height: 100%;

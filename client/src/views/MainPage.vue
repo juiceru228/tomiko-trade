@@ -150,7 +150,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .stage_work {
     margin-bottom: 80px;
 }
