@@ -11,13 +11,11 @@
             <p class="title"><strong>Звонок по России бесплатный</strong></p>
             <p class="s-title">8 (800) 775-67-29</p>
             <p class="s-title">8 (924) 123-45-67</p>
-            <div class="contact-details">
-              <div class="row-of-images">
-                <img src="../assets/telegram.png" alt="Telegram png" />
-                <img src="../assets/whatsapp.png" alt="Whatsapp png" />
-                <img src="../assets/vk.png" alt="VK png" />
-                <img src="../assets/Insta.png" alt="Insta png" />
-              </div>
+            <div class="row-of-images">
+              <img src="../assets/telegram.png" alt="Telegram png" />
+              <img src="../assets/whatsapp.png" alt="Whatsapp png" />
+              <img src="../assets/vk.png" alt="VK png" />
+              <img src="../assets/Insta.png" alt="Insta png" />
             </div>
           </div>
           
@@ -150,24 +148,24 @@ body {
 .contact-section {
   display: flex;
   flex-direction: column;
-  padding: 40px 0;
-  flex: 1;
+  align-items: center;
+  padding: 3% 10% 0px;
 }
 
 .contact-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 60px;
   width: 100%;
-  padding: 0 5%;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .contact-details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
   width: 30%;
   padding: 0;
 }
@@ -176,6 +174,8 @@ body {
   font-family: 'Bebas Neue';
   font-weight: 700;
   font-size: 50px;
+  align-items: flex-start;
+  text-align: left;
   line-height: 60px;
   color: #FFFFFF;
   margin-bottom: 10px;
@@ -185,6 +185,8 @@ body {
   font-family: 'Inter';
   font-weight: 400;
   font-size: 18px;
+  align-items: flex-start;
+  text-align: left;
   line-height: 150%;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 30px;
@@ -193,17 +195,19 @@ body {
 .title {
   font-family: 'Inter';
   font-weight: 400;
+  align-items: flex-start;
+  text-align: left;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 10px;
 }
 
 .s-title {
   font-family: 'Inter';
   font-weight: 500;
+  align-items: flex-start;
+  text-align: left;
   font-size: 18px;
   color: #FFFFFF;
-  margin-bottom: 20px;
 }
 
 .contact-info {
@@ -216,6 +220,7 @@ body {
 .column-left,
 .column-right {
   width: 45%;
+  align-items: flex-start;
 }
 
 .column-left {
@@ -234,22 +239,24 @@ body {
   width: 100%;
 }
 
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #081E36;
-  border-radius: 28px;
-  padding: 40px;
-  width: 640px;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 form {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 40px;
+
+  margin: 0 auto;
+  width: 640px;
+  height: 448px;
+
+  background: #081E36;
+  border-radius: 28px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
 }
 
 label {
@@ -276,9 +283,16 @@ textarea {
 }
 
 input[type="checkbox"] {
-  width: auto;
+  width: 24px;
+  height: 24px;
+  align-self: flex-start;
   background: #FFFFFF;
   border-radius: 8px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
 }
 
 .submit-btn {
@@ -299,9 +313,31 @@ input[type="checkbox"] {
 .privacy {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: flex-start;
   gap: 12px;
   width: 100%;
+
+}
+
+.form-group privacy {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: flex-start;
+  padding: 0px;
+  gap: 12px;
+  text-align: left;
+
+  width: 560px;
+  height: 24px;
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .privacy label {
@@ -328,6 +364,7 @@ input[type="checkbox"] {
 
 .form-group {
   text-align: left;
+  align-items: start;
   width: 100%;
 }
 
@@ -346,9 +383,17 @@ input[type="checkbox"] {
   width: 100%;
 }
 
+.row-of-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
 .row-of-images img {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 768px) {
