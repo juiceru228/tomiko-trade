@@ -17,8 +17,6 @@ import JapanPage from './views/JapanPage.vue'
 import CarDetail from './views/CarDetail.vue'
 import ContactPage from './views/ContactPage.vue'
 import NotFound from './views/NotFound.vue'
-
-import CarDetail from './views/CarDetail.vue';
 import SwiperCars from './components/SwiperCars.vue'
 const routes = [
 	{path: '/', component:MainPage},
