@@ -36,76 +36,14 @@
             </div>
             <div class="clips_swiper swiper">
                 <div class="swiper-wrapper">
-                    <swiper
-                                :modules="modules"
-                                :slides-per-view="3"
-                                :space-between="50"
-                                navigation
-                                :pagination="{ clickable: true }"
-                                @swiper="onSwiper"
-                                @slideChange="onSlideChange"
-                                :loop="true">
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239036" target="_blank">
-                                                <img loading="lazy" src="https://sun9-47.vkuserphoto.ru/impg/mAAsGXWEwzuaLnL_wrLaB_nxQLD6EFTtW73ZDg/shgDdAhTNw8.jpg?quality=90&amp;proxy=1&amp;sign=57ec89847be709505e8d533bcb233d39&amp;c_uniq_tag=s6L9tXyYV2oOafiOIB0ajMZMMNhuXL-1R9SfjWFtx5U&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239034" target="_blank">
-                                                <img loading="lazy" src="https://sun9-25.vkuserphoto.ru/impg/DtO9acxeiZX4bmRndwVL4KBaP5xoj4rR5R5y_A/B1NhkykN5M8.jpg?quality=90&amp;proxy=1&amp;sign=f9d92b9a433f517b577823ba3515d4c4&amp;c_uniq_tag=X40Wvtk_f7ccdS4U9lyS6HPxKostPY4cAQb6SxDdKbU&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239032" target="_blank">
-                                                <img loading="lazy" src="https://sun9-35.vkuserphoto.ru/impg/Obv0TQ-4CtW-wazZuS29nIynDoPXLmKZ7nYnEw/v7W_OupG_ro.jpg?quality=90&amp;proxy=1&amp;sign=cec597bf9d8244768e040de0672c8883&amp;c_uniq_tag=84Z8uTi9a8UHxsQEBCEwhrBs9r-zydo_HeQkcUT7-_c&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239031" target="_blank">
-                                                <img loading="lazy" src="https://sun9-76.vkuserphoto.ru/impg/nlXfG82cY4TOqWvSDCiXZle30-EhX2-Cnu79qg/TNnuIscTKCA.jpg?quality=90&amp;proxy=1&amp;sign=8bf05d509cbb3a285031bcc224d92bd2&amp;c_uniq_tag=ZdLel8t5qcGJqjtnV0v9RSUXKEMmZWJIixb6kKeIKZc&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239030" target="_blank">
-                                                <img loading="lazy" src="https://sun9-42.vkuserphoto.ru/impg/oS4KKmHXHbyJgT5txiuciWCvpGy0IHEICkB3sw/_4ws_f4OOGs.jpg?quality=90&amp;proxy=1&amp;sign=a90a0442e1f2b797598b6aa1a105cd12&amp;c_uniq_tag=CCpWuhje9Z45MyjrT1BqXQ8mOLOrmjDbGshtxepD8Bo&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239029" target="_blank">
-                                                <img loading="lazy" src="https://sun9-76.vkuserphoto.ru/impg/92x_yLZKtSMaWBprlyb1zJz4n3UFMzjHA1QO9A/MJCr1I1mDSE.jpg?quality=90&amp;proxy=1&amp;sign=285978ed145916d6284d0f63bdf1260e&amp;c_uniq_tag=2afOtK5VkZuYO5En97YMrOR9fiOVHiaTBtbaDygI9gA&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>          
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239028" target="_blank">
-                                                <img loading="lazy" src="https://sun9-9.vkuserphoto.ru/impg/vq8b4tTYj8qf7CVIXxbCyw1zcZoXNXgZx1ACxg/I14FMkBhdq0.jpg?quality=90&amp;proxy=1&amp;sign=1efa1d5bd27fddc58fd418686e24f8b8&amp;c_uniq_tag=v0YLpyfuOXGR6Pe_4Dgf53s3Q1BsZpDv3wNEJFpBwuQ&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239026" target="_blank">
-                                                <img loading="lazy" src="https://sun9-46.vkuserphoto.ru/impg/TDC5swgNfiKayL_JYrmKk3tAMq4VJNRlwJ57Iw/epxj1GYZ11A.jpg?quality=90&amp;proxy=1&amp;sign=a0547dff7a9967e222159eb4799cb199&amp;c_uniq_tag=tIwmcaGK6tcEQqM4Lr9n61xwW1GroRxuE456jwo_eNs&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>          
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239025" target="_blank">
-                                                <img loading="lazy" src="https://sun9-32.vkuserphoto.ru/impg/zntdxGFL6t0R3Fi5_FrbChMbP3uI7sji9fqFIQ/91hkzobFUHQ.jpg?quality=90&amp;proxy=1&amp;sign=48b217bceb79b17d82728d251e48df6d&amp;c_uniq_tag=ouTEhjNv9gnhTtr5xLWN8dPc1f58oW46mJj9YDbcPaw&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239024" target="_blank">
-                                                <img loading="lazy" src="https://sun9-58.vkuserphoto.ru/impg/YDNtnHqX-S9HE9D0TMiXmTA3QeARhDhlJ74EVA/l1ARRpOO0Io.jpg?quality=90&amp;proxy=1&amp;sign=fdd6c0a08211a71491d7a72d0a9ed9e8&amp;c_uniq_tag=Om7OSKZziQ7YHcAI8TwO98rlP1onlrDOPMfe0Z0WNgY&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>   
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239020" target="_blank">
-                                                <img loading="lazy" src="https://sun9-43.vkuserphoto.ru/impg/qzwnGNRDgnFxVsLtYEfddnH-u_JhQupn5v2m9w/YqqTpi675GQ.jpg?quality=90&amp;proxy=1&amp;sign=38940a1f941742352a4e8ca9ae76dbb0&amp;c_uniq_tag=YbVMFzIZ6dN3K0LjvuTPzxLekec9pQ5u8s0fBjAFplQ&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                            <a href="https://vk.com/clips/tomiko_trade?z=clip-226932717_456239018" target="_blank">
-                                                <img loading="lazy" src="https://sun9-5.vkuserphoto.ru/impg/2g_4m5Ku-Z139X5c2pJnr-AadpL3-8Myow32jA/g3k6pchNfrY.jpg?quality=90&amp;proxy=1&amp;sign=da813991e8d9d4a2a3e0c12ceb084161&amp;c_uniq_tag=4xzi45S27LvnwSOoOnw1Ae3slAANjDW-E3KBU2_h2Xw&amp;type=video_thumb" alt="Превью">
-                                            </a>
-                                    </SwiperSlide>
-                            </swiper>
+                    <div v-if="loading">Загрузка...</div>
+                    <div v-if="error">{{ error }}</div>
+                    <Swiper v-else :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange">
+                        <SwiperSlide v-for="clip in clips" :key="clip.id">
+                            <img :src="clip.imageUrl" :alt="clip.title" />
+                            <h3>{{ clip.title }}</h3>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
             </div>
             <a href="https://vk.com/tomiko_trade" target="_blank" class="clips_link d-flex d-sm-none">
@@ -142,52 +80,58 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import axios from 'axios';
+
 export default {
     name: 'VKclipsPage',
     components: {
         Swiper,
         SwiperSlide,
     },
-    date() {
+    data() {
         return {
-            clips: []
-        }
+            clips: [],
+            loading: false,
+            error: null,
+        };
     },
     mounted() {
         this.fetchData();
     },
     methods: {
         async fetchData(params = {}) {
-            return await axios
-                .get('http://localhost:8080/api/clips/', { params })
-                .then((response) => {
-                    this.clips = response.data;
-                    console.log('Fetched vs clips:', this.clips);
-                })
-                .catch((error) => {
-                    console.error('Error fetching data:', error);
-                    throw error;
-                });
+            this.loading = true;
+            this.error = null;
+            try {
+                const response = await axios.get('http://localhost:8080/api/clips/', { params });
+                this.clips = response.data.map(clip => ({
+                    id: clip.id,
+                    title: clip.title,
+                    imageUrl: clip.imageUrl,
+                }));
+                console.log('Fetched clips:', this.clips);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                this.error = 'Ошибка загрузки данных';
+            } finally {
+                this.loading = false;
+            }
+        },
+        onSwiper(swiper) {
+            console.log(swiper);
+        },
+        onSlideChange() {
+            console.log('slide change');
         },
     },
     setup() {
-        const onSwiper = (swiper) => {
-            console.log(swiper);
-        };
-        const onSlideChange = () => {
-            console.log('slide change');
-        };
         return {
-            onSwiper,
-            onSlideChange,
             modules: [Navigation, Pagination, A11y],
         };
     },
-};    
+};   
 </script>
 
 <style>
-/*<iframe loading="lazy" src="https://vk.com/video_ext.php?oid=499628829&id=456239017&hash=08167ba3a6aa1892&__ref=vk.admin_android&api_hash=173506549679f8e7117113cc6111_GM2DINZRGM2TGOI" width="640" height="360" frameborder="0" allowfullscreen></iframe>*/
 .clips {
     padding: 60px 0 100px 0;
     margin: 0 0 80px 0;
