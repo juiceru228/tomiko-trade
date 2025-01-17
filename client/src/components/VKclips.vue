@@ -36,9 +36,16 @@
             </div>
             <div class="clips_swiper swiper">
                 <div class="swiper-wrapper">
-                    <div v-if="loading">Загрузка...</div>
+                    <div v-if="loading">Загрузка клипов...</div>
                     <div v-if="error">{{ error }}</div>
-                    <Swiper v-else :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange">
+                    <Swiper
+                    v-if="!loading && !error"
+                    :modules="modules"
+                    @swiper="onSwiper"
+                    @slideChange="onSlideChange"
+                    pagination
+                    navigation
+                    class="mySwiper">
                         <SwiperSlide v-for="clip in clips" :key="clip.id">
                             <img :src="clip.imageUrl" :alt="clip.title" />
                             <h3>{{ clip.title }}</h3>
@@ -74,7 +81,7 @@
     </section>
 </template>
 
-<script scoped>
+<script>
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/navigation';
@@ -98,20 +105,15 @@ export default {
         this.fetchData();
     },
     methods: {
-        async fetchData(params = {}) {
+        async fetchData() {
             this.loading = true;
-            this.error = null;
             try {
-                const response = await axios.get('http://localhost:8080/api/clips/', { params });
-                this.clips = response.data.map(clip => ({
-                    id: clip.id,
-                    title: clip.title,
-                    imageUrl: clip.imageUrl,
-                }));
-                console.log('Fetched clips:', this.clips);
+                const response = await axios.get('http://localhost:8080/api/clips/');
+                this.clips = response.data;
+                console.log('CLIPS', this.clips);
             } catch (error) {
-                console.error('Error fetching data:', error);
-                this.error = 'Ошибка загрузки данных';
+                this.error = 'Error fetching vk_clips';
+                console.error(error);
             } finally {
                 this.loading = false;
             }
@@ -128,7 +130,7 @@ export default {
             modules: [Navigation, Pagination, A11y],
         };
     },
-};   
+};
 </script>
 
 <style>

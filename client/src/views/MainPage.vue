@@ -20,6 +20,7 @@
       </section>
     </div>
     <swiperRelevant/>
+    <LentaFunc/>
     <main class="content">
       <div class="stage_work">
           <div class="container">
@@ -84,6 +85,8 @@
       </div>
     </main>
     <AboutUs/>
+    <CaruselFuncL/>
+    <CaruselFuncR/>
     <VKclipsPage/>
     <subcribe/>
     <contacts/>
@@ -95,8 +98,11 @@
 import VKclipsPage from '../components/VKclips.vue';
 import contacts from '@/components/ContactsPage.vue';
 import subcribe from '@/components/subcribe.vue';
-import swiperRelevant from '@/components/SwiperCars.vue'
-import AboutUs from '@/components/AboutUs.vue'
+import swiperRelevant from '@/components/SwiperCars.vue';
+import AboutUs from '@/components/AboutUs.vue';
+import LentaFunc from '@/components/LentaFunc.vue';
+import CaruselFuncL from '@/components/CaruselFuncL.vue';
+import CaruselFuncR from '@/components/CaruselFuncR.vue';
 export default {
   name: 'MainPage',
   components: {
@@ -104,7 +110,10 @@ export default {
     contacts,
     subcribe,
     swiperRelevant,
-    AboutUs
+    AboutUs,
+    LentaFunc,
+    CaruselFuncL,
+    CaruselFuncR,
   },
 };
 </script>
