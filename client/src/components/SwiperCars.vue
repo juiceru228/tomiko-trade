@@ -9,8 +9,8 @@
                     <div class="control-title2">ИЗ КИТАЯ 🇨🇳</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler('china')"></img>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('china')"></img>
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('china')"/>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('china')">/>
                     
                     
                 </div>
@@ -50,8 +50,8 @@
                     <div class="control-title2">ИЗ КОРЕИ 🇰🇷</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler('korea')"></img>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('korea')"></img>
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('korea')">/>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('korea')">/>
                     
                     
                 </div>
@@ -91,8 +91,8 @@
                     <div class="control-title2">ИЗ ЯПОНИИ 🇯🇵</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler('japan')"></img>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('japan')"></img>
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('japan')"/>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('japan')"/>
                     
                     
                 </div>

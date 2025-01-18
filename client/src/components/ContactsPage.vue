@@ -19,7 +19,7 @@
                         </div>
                         <div class="contact_item">
                             <p>Офис</p>
-                            <div>г. Владивосток, ​ул. Жигура 9в, 1 этаж, офис 1</div>
+                            <div>г. Владивосток, ул. Жигура 9в, 1 этаж, офис 1</div>
                         </div>
                     </div>
                     <form class="contact_form" id="contactForm" method="post" action="">
