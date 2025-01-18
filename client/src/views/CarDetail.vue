@@ -59,8 +59,8 @@
                     <div class="control-title2">АВТОМОБИЛИ✨</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler"></img>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler"></img>
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler"/>
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler"/>
                     
                     
                 </div>
