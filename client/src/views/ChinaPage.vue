@@ -228,7 +228,7 @@
 		</section>
 
 		<section class="socials-media-container">
-			<img class="line-img" src="img/line.svg" alt="line">
+			<img class="line-img" src="../assets/red-line.svg" alt="line">
 			<div class="socials-media-background"></div>
 			<div class="socials-media-block">
 				<h2 class="socials-media-title">
@@ -238,17 +238,17 @@
 				<div class="socials-media">
 					<a href="" class="socials-media-link">
 						<div class="social-link-background">
-							<img src="img/900px-Telegram_Messenger.png" alt="tg-logo">
+							<img src="../assets/telegram.png" alt="tg-logo">
 						</div>
 						<div class="social-link-text">
 							Телеграм-канал
-							<img src="img/frame-9.svg" alt="arrow">
+							<img src="../assets/frame-9.svg" alt="arrow">
 						</div>
 					</a>
 
 					<a href="" class="socials-media-link">
 						<div class="social-link-background">
-							<img src="img/vk-logo-1-1.svg" alt="vk-logo">
+							<img src="../assets/vk.png" alt="vk-logo">
 						</div>
 						<div class="social-link-text">
 							VK
@@ -258,7 +258,7 @@
 
 					<a href="" class="socials-media-link">
 						<div class="social-link-background">
-							<img src="img/insta-1.svg" alt="insta-logo">
+							<img src="../assets/whatsapp.png" alt="insta-logo">
 						</div>
 						<div class="social-link-text">
 							Instagram
@@ -269,21 +269,21 @@
 			</div>
 
 			<div class="screen-phone-1">
-				<img class="phone-back-1" src="img/phone-back-1.svg" alt="back">
-				<img class="screen-1" src="img/screen-phone-1.png" alt="screen-phone">
+				<img class="phone-back-1" src="../assets/phone-back-1.svg" alt="back">
+				<img class="screen-1" src="../assets/screen-phone-1.png" alt="screen-phone">
 			</div>
 
 			<div class="screen-phone-2">
-				<img class="phone-back-2" src="img/phone-back-2.svg" alt="back">
-				<img class="screen-2-1" src="img/screen-phone-2.png" alt="screen-phone">
-				<img class="screen-2-2" src="img/screen-phone-2.png" alt="screen-phone">
+				<img class="phone-back-2" src="../assets/phone-back-2.svg" alt="back">
+				<img class="screen-2-1" src="../assets/screen-phone-2.png" alt="screen-phone">
+				<img class="screen-2-2" src="../assets/screen-phone-2.png" alt="screen-phone">
 			</div>
 
-			<img class="screen-3" src="img/screen-phone-3.png" alt="screen-phone">
-			<img class = "social-emoji" src="img/emoji.png" alt="emoji">
+			<img class="screen-3" src="../assets/screen-phone-3.png" alt="screen-phone">
+			<img class = "social-emoji" src="../assets/emoji.png" alt="emoji">
 			
 			<div class="social-head">
-				<img src="img/logo.png" alt="tomiko-trade-logo">
+				<img src="../assets/logo-t.png" alt="tomiko-trade-logo">
 				<div class="social-head-text">
 					<span class="social-head-text-1">praviyrul.jp</span>
 					<span class="social-head-text-2">г. Владивосток, Приморский край</span>
