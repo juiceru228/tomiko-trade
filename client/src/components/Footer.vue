@@ -42,7 +42,7 @@
           </div>
           <div class="footer_bottom">
               <div class="container">
-                  <p>© 2024 ООО «Автоцентр-ВЛ» Автомобили под заказ из Кореи, Китая и Японии</p>
+                  <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
                   <p><a target="_blank" href="/static/files/tomiko-trade.pdf">Политика конфиденциальности</a></p>
               </div>
           </div>

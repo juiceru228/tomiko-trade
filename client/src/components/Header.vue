@@ -7,7 +7,8 @@
           <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
           <li><router-link to="/china">Авто из Китая</router-link></li>
           <li><router-link to="/japan">Авто из Японии</router-link></li>
-          <li><router-link to="/korea">Авто из Кореи</router-link></li></span>
+          <li><router-link to="/korea">Авто из Кореи</router-link></li>
+          <li><router-link to="/contacts">Контакты</router-link></li></span>
           <span class="right-text">8 (800) 500-49-46
           <li><router-link to="/"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
           </span>
@@ -26,25 +27,31 @@ export default {
 <style scoped>
 /*Тут header*/
 .header {
-    background-color: rgba(0, 0, 0, 0)e;
+    background-color: #011224;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    width: 90%;
+    width: 100%;
     text-align: left;
-    position: relative;
-    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    z-index: 3;
   }
 
   /*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
   .header-text {
+    background-color: #011224;
     display: flex;
     justify-content: space-between;
+    padding: 10px 20px;
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin: 0 auto; 
+    position: fixed;
+    top: 0;
+    z-index: 3;
   }
   
   /*Тут левая часть header*/

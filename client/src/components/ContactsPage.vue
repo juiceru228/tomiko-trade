@@ -65,12 +65,17 @@
             </div>
         </div>
     </section>
+    <MapComponent/>
 </template>
 
 <script>
+import MapComponent from './MapComponent.vue';
 export default {
-    name: 'ContactPage'
-}
+    name: 'ContactPage',
+    components: {
+        MapComponent,
+    },
+};
 </script>
 
 <style scoped>

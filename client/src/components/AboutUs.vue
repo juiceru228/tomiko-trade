@@ -12,14 +12,12 @@
                       <div class="img_abouts">
                         <img src="../assets/abot.webp" alt="О компании">
                       </div>
-                      <p>Компания “Tomiko Trade” - ваш надежный поставщик по доставке новых 
-                        <br>и подержанных автомобилей из Южной Кореи, Японии и Китая.
-                        <br>
-                        <br>Вам не нужно разбираться в тонкостях процесса приобретения автомобиля. Мы 
-                        <br>делаем это за Вас. Наша цель - помочь Вам приобрести юридически чистый 
-                        <br>автомобиль без пробега по РФ с экономией от 300 000₽.</p>
+                      <p>Компания “Правый руль” предлагает широкий выбор автомобилей от ведущих
+                        мировых производителей. Мы специализируемся на продаже новых 
+                        и подержанных авто. Наша профессионалов поможет вам выбрать 
+                        идеальный автомобиль, учитывая ваши потребности и бюджет</p>
                       <div class="btns_stage">
-                        <button class="gradient-button">Подобрать авто</button>
+                        <button class="gradient-button" @click="openModal">Подобрать авто</button>
                       <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg" alt="whatsapp"></a>
                     </div>
                   </div>
@@ -47,16 +45,62 @@
                   </div>
               </div>
           </div>
+        <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+        </ModalForm>
     </div>      
 </template>
 
 <script>
+import { reactive } from 'vue';
+import ModalForm from '../components/ModalForm.vue';
+import ValidationForm from '../components/ValidationForm.vue';
 export default {
-  name: 'AboutUs'
-}
+  name: 'AboutUs',
+  components: {
+        ModalForm,
+        ValidationForm,
+    },
+    data() {
+    return {
+    isModalVisible: false,
+    form: reactive({
+      name: '',
+      phone_number: '',
+      description: '',
+      isAgreed: false
+      }),
+    };
+  },
+  methods: {
+    openModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        },
+  },
+
+  handleFormSubmit(formData) {
+            console.log('Форма успешно отправлена!', formData);
+            alert('Форма успешно отправлена!');
+            this.isModalVisible = false;
+  },
+  updateForm(newForm) {
+            this.form = newForm;
+  },
+};
 </script>
 
 <style scoped>
+.modal-form {
+    z-index: 1000;
+}
+
+.about_us {
+    margin-bottom: 100px;
+}
+
 .gradient-button {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   border: none;
@@ -70,6 +114,12 @@ export default {
 
 .gradient-button:hover {
   background: linear-gradient(to right, var(--hover-color), var(--hover-bg-color));
+}
+
+@media only screen and (max-width: 1200px) {
+    .about_us .about_block {
+        gap: 30px;
+    }
 }
 
 .about_us .about_block h2 {
@@ -97,10 +147,35 @@ export default {
     white-space: pre-wrap;
 }
 
+.about_us .about_block .img_abouts img {
+    -webkit-box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    border-radius: 16px;
+    aspect-ratio: 500 / 301;
+    width: 603px;
+    height: 363px;
+}
+
+.about_us .bottom_abouts .items img {
+    margin-right: 24px;
+    aspect-ratio: 1 / 1;
+    width: 41px;
+    height: 41px;
+}
+@media only screen and (max-width: 1200px) {
+    .about_us .about_block .img_abouts img {
+        -webkit-transform: none;
+        transform: none;
+        max-width: 500px;
+        height: auto;
+    }
+}
+
 .about_us .about_block {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -109,6 +184,10 @@ export default {
     align-items: center;
     border-bottom: 1px solid #2a3847;
     padding: 0 0 40px 0;
+}
+
+.about_us .about_block .titles {
+    max-width: 750px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -197,6 +276,7 @@ export default {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;

@@ -38,19 +38,20 @@
                 <div class="swiper-wrapper">
                     <div v-if="loading">Загрузка клипов...</div>
                     <div v-if="error">{{ error }}</div>
-                    <Swiper
-                    v-if="!loading && !error"
-                    :modules="modules"
-                    @swiper="onSwiper"
-                    @slideChange="onSlideChange"
-                    pagination
-                    navigation
-                    class="mySwiper">
-                        <SwiperSlide v-for="clip in clips" :key="clip.id">
-                            <img :src="clip.imageUrl" :alt="clip.title" />
-                            <h3>{{ clip.title }}</h3>
-                        </SwiperSlide>
-                    </Swiper>
+                    <div class="swiper">
+                        <swiper :key="clips.length" :modules="modules" 
+                        :slides-per-view="3" :space-between="50"
+                        navigation :pagination="{ clickable: true }" 
+                        @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
+                            <div class="SwiperSlide">
+                                <SwiperSlide v-for="(clip, clipIndex) in clips" :key="clipIndex">
+                                    <img v-for="index in 18" :key="clipIndex + '-' + index"
+                                        :src="clip[0]?.items[index]?.image[4]?.url || placeholder" @error="onImageError"
+                                        :class="{ 'is-placeholder': !clip[0]?.items[index]?.image[4]?.url }" />
+                                </SwiperSlide>
+                            </div>
+                        </swiper>
+                    </div>
                 </div>
             </div>
             <a href="https://vk.com/tomiko_trade" target="_blank" class="clips_link d-flex d-sm-none">
@@ -99,6 +100,11 @@ export default {
             clips: [],
             loading: false,
             error: null,
+            placeholder: 'data:image/svg+xml;base64,' + btoa(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="405" height="720">
+          <rect width="100%" height="100%" fill="#ccc" />
+          <text x="50%" y="50%" text-anchor="middle" fill="#666" font-size="24px" dy=".3em">Image not loaded</text>
+        </svg>`),
         };
     },
     mounted() {
@@ -118,22 +124,25 @@ export default {
                 this.loading = false;
             }
         },
-        onSwiper(swiper) {
-            console.log(swiper);
-        },
-        onSlideChange() {
-            console.log('slide change');
-        },
+        
     },
     setup() {
+        const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
         return {
+            onSwiper,
+            onSlideChange,
             modules: [Navigation, Pagination, A11y],
         };
     },
 };
 </script>
 
-<style>
+<style scoped>
 .clips {
     padding: 60px 0 100px 0;
     margin: 0 0 80px 0;
@@ -159,15 +168,15 @@ export default {
 
 .clips .clips_swiper .swiper-slide img {
     width: 150px;
-    height: 264px;
+    height: 260px;
     border-radius: 16px;
     display: inline-block;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 .swiper-slide img {
     object-fit: cover;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 img,
@@ -178,7 +187,7 @@ svg {
 .clips .clips_swiper {
     overflow: visible;
     display: inline-block;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 .swiper-horizontal {
@@ -202,6 +211,7 @@ svg {
     height: 100%;
     z-index: 1;
     display: flex;
+    flex-direction: row;
     transition-property: transform;
     transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
     box-sizing: content-box;
