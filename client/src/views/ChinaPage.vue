@@ -228,7 +228,7 @@
 		</section>
 
 		<section class="socials-media-container">
-			<img class="line-img" src="img/line.svg" alt="line">
+			<img class="line-img" src="../assets/red-line.svg" alt="line">
 			<div class="socials-media-background"></div>
 			<div class="socials-media-block">
 				<h2 class="socials-media-title">
@@ -283,7 +283,7 @@
 			<img class = "social-emoji" src="../assets/emoji.png" alt="emoji">
 			
 			<div class="social-head">
-				<img src="../assets/logo.png" alt="tomiko-trade-logo">
+				<img src="../assets/logo-t.png" alt="tomiko-trade-logo">
 				<div class="social-head-text">
 					<span class="social-head-text-1">praviyrul.jp</span>
 					<span class="social-head-text-2">г. Владивосток, Приморский край</span>
