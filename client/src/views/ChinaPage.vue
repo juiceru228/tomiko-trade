@@ -334,7 +334,7 @@ export default {
 			selectedTransmission: '',
 			selectedColor: '',
 			selectedSorting: '',
-			mediaUrl: "http://localhost:8080/media",
+			mediaUrl: "/media",
 			currenPage: 1,
 			itemsPerPage: 12,
 			totalItems: 0
@@ -349,7 +349,7 @@ export default {
 			this.dropdownVisible = !this.dropdownVisible;
 		},
 		fetchData(params = {}) {
-			return axios.get('http://localhost:8080/api/filter/', { params })
+			return axios.get('/api/filter/', { params })
 				.then(response => {
 					this.items = response.data;
 					console.log('Fetched data:', this.items);
@@ -435,7 +435,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .china {
     align-items: center;
     background-color: #011224;

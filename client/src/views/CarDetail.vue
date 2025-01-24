@@ -131,7 +131,7 @@ export default {
             items: [],
             isModalVisible: false,
             car: null,
-            mediaUrl: 'http://localhost:8080/media/',
+            mediaUrl: '/media/',
             form: reactive({
                 name: '',
                 phone_number: '',
@@ -168,7 +168,7 @@ export default {
         },
         async fetchDataMain(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.mainCar = response.data;
                     this.fetchDataRelevant({ country: this.mainCar[0].brand_country.country, type: "cars", page: 1 });
@@ -181,7 +181,7 @@ export default {
         },
         async fetchDataRelevant(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.items = response.data;
                     console.log('Fetched data:', this.items);

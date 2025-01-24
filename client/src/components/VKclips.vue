@@ -159,7 +159,7 @@ export default {
     methods: {
         async fetchData(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/clips/', { params })
+                .get('/api/clips/', { params })
                 .then((response) => {
                     this.clips = response.data;
                     console.log('Fetched vs clips:', this.clips);

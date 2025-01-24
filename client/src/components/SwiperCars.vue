@@ -1,7 +1,7 @@
 <template>
     <div class="car-details">
         <ul class="car-info">
-            
+
 
             <div class="swiper-container-wrapper">
                 <div class="control">
@@ -9,10 +9,10 @@
                     <div class="control-title2">ИЗ КИТАЯ 🇨🇳</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler('china')"/>
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('china')" />
                     <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('china')">/>
-                    
-                    
+
+
                 </div>
                 <swiper-container :slides-per-view="5" ref="chinaRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
@@ -52,8 +52,8 @@
                 <div class="swiper-buttons">
                     <img src="../assets/rigthArrow.svg" @click="prevHandler('korea')">/>
                     <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('korea')">/>
-                    
-                    
+
+
                 </div>
                 <swiper-container :slides-per-view="5" ref="koreaRef" :rtl="true" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
@@ -91,10 +91,10 @@
                     <div class="control-title2">ИЗ ЯПОНИИ 🇯🇵</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler('japan')"/>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('japan')"/>
-                    
-                    
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler('japan')" />
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler('japan')" />
+
+
                 </div>
                 <swiper-container :slides-per-view="5" ref="japanRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
@@ -126,7 +126,7 @@
                 </swiper-container>
                 <router-view :key="$route.fullPath"></router-view>
             </div>
-            <contacts/>
+            <contacts />
         </ul>
 
         <!-- Модальное окно -->
@@ -157,14 +157,14 @@ export default {
     data() {
         return {
             itemsChina: [],
-        itemsKorea: [],
-        itemsJapan: [],
+            itemsKorea: [],
+            itemsJapan: [],
             selectedImage: '',
             mainCar: [],
             items: [],
             isModalVisible: false,
             car: null,
-            mediaUrl: 'http://localhost:8080/media/',
+            mediaUrl: '/media/',
             form: reactive({
                 name: '',
                 phone_number: '',
@@ -181,9 +181,9 @@ export default {
         },
     },
     mounted() {
-    this.fetchDataChina({ country: "Китай", type: "cars", page: 1 });
-    this.fetchDataKorea({ country: "Корея", type: "cars", page: 1 });
-    this.fetchDataJapan({ country: "Япония", type: "cars", page: 1 });
+        this.fetchDataChina({ country: "Китай", type: "cars", page: 1 });
+        this.fetchDataKorea({ country: "Корея", type: "cars", page: 1 });
+        this.fetchDataJapan({ country: "Япония", type: "cars", page: 1 });
 
     },
     methods: {
@@ -201,7 +201,7 @@ export default {
         },
         async fetchDataChina(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.itemsChina = response.data;
                     console.log('Fetched data:', this.itemsChina);
@@ -213,7 +213,7 @@ export default {
         },
         async fetchDataKorea(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.itemsKorea = response.data;
                     console.log('Fetched data:', this.itemsKorea);
@@ -225,7 +225,7 @@ export default {
         },
         async fetchDataJapan(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.itemsJapan = response.data;
                     console.log('Fetched data:', this.itemsJapan);
@@ -235,15 +235,7 @@ export default {
                     throw error;
                 });
         },
-/*       async fetchDataRelevant(params = {}) {
-    try {
-        const response = await axios.get('http://localhost:8080/api/filter/', { params });
-        return response.data;
-    } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
-        return [];
-    }
-},*/
+
         handleFormSubmit(formData) {
             console.log('Форма успешно отправлена!', formData);
             alert('Форма успешно отправлена!');
@@ -261,12 +253,10 @@ export default {
         },
     },
     setup() {
-        // Создаём ссылки на каждый swiper
         const chinaRef = ref(null);
         const koreaRef = ref(null);
         const japanRef = ref(null);
 
-        // Получаем экземпляр swiper по имени
         const getSwiperInstance = (swiperName) => {
             if (swiperName === "china") return chinaRef.value.swiper;
             if (swiperName === "korea") return koreaRef.value.swiper;
@@ -274,7 +264,6 @@ export default {
             return null;
         };
 
-        // Обработчики кнопок
         const prevHandler = (swiperName) => {
             const swiper = getSwiperInstance(swiperName);
             if (swiper) swiper.slidePrev();
@@ -464,7 +453,7 @@ export default {
     width: 45%;
 }
 
-.left-column div{
+.left-column div {
     color: rgba(255, 255, 255, 0.5);
     flex-direction: column;
     width: 45%;
@@ -512,7 +501,7 @@ export default {
     font-weight: 700;
 }
 
-.arrow{
+.arrow {
     margin-left: 10px;
 }
 
@@ -528,7 +517,7 @@ export default {
 
 
 .swiper-slide {
-    
+
     display: flex;
     justify-content: flex-end;
     padding: 100px 0;
@@ -541,7 +530,7 @@ export default {
     max-width: 1800px;
     margin: 0 auto;
     overflow: hidden;
-    
+
 }
 
 .swiper-item-box {
@@ -565,7 +554,7 @@ export default {
 }
 
 .swiper-container {
-    
+
     display: flex;
     justify-content: flex-end;
     width: 100%;
