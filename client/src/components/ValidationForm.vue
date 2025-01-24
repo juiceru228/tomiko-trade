@@ -76,7 +76,7 @@ export default {
         };
         const fetchData = (params = {}) => {
             return axios
-                .post('http://localhost:8080/api/bid/', params)
+                .post('/api/bid/', params)
                 .then((response) => {
                     console.log('Ответ от сервера:', response.data);
                 })

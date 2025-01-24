@@ -80,6 +80,8 @@ services:
         - redis
 
     client:
+      env_file:
+        - .env
       restart: always
       build:
         context: ./client

@@ -1,57 +1,60 @@
 <template>
-   <footer>
-          <div class="footer_top">
-              <div class="container">
-                  <div class="footer_row">
-                      <div class="footer_left">
-                          <a href="/" class="brand_logo">
-                              <img loading="lazy" src="../assets/logo.webp" alt="logo">
-                          </a>
-                          <div class="footer_links">
-                              <ul>
-                                  <li>Каталог</li>
-                                  <li><router-link to="/korea">Авто из Кореи</router-link></li>
-                                  <li><router-link to="/china">Авто из Китая</router-link></li>
-                                  <li><router-link to="/japan">Авто из Японии</router-link></li>
-                              </ul>
-                              <ul>
-                                  <li>Компания</li>
-                                      <li><router-link to="">О компании</router-link></li>
-                                      <li><router-link to="">Клипы</router-link></li>
-                                      <li><router-link to="">Отзывы</router-link></li>
-                                </ul>
-                                <ul>
-                                  <li></li>
-                                  <li><router-link to="">Условия работы</router-link></li>
-                                  <li><router-link to="">Акции</router-link></li>
-                                  <li><router-link to="">Контакты</router-link></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="footer_contact">
-                          <p>Звонок по России бесплатный</p>
-                          <a href="tel:+8 (800) 775-67-29">8 (800) 775-67-29</a>
-                          <div class="social">
-                              <a href="https://wa.me/79244202432" target="_blank"><img loading="lazy" src="../assets/ico-whatsapp.svg" alt="whatsapp"></a>
-                              <a href="https://vk.com/tomiko_trade" target="_blank"><img loading="lazy" src="../assets/ico-wk2.svg" alt="ВК"></a>
-                              <a href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><img loading="lazy" src="../assets/ico-insta2.svg" alt="Instagram"></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="footer_bottom">
-              <div class="container">
-                  <p>© 2024 ООО «Автоцентр-ВЛ» Автомобили под заказ из Кореи, Китая и Японии</p>
-                  <p><a target="_blank" href="/static/files/tomiko-trade.pdf">Политика конфиденциальности</a></p>
-              </div>
-          </div>
+    <footer>
+        <div class="footer_top">
+            <div class="container">
+                <div class="footer_row">
+                    <div class="footer_left">
+                        <a href="/" class="brand_logo">
+                            <img loading="lazy" src="../assets/logo.webp" alt="logo">
+                        </a>
+                        <div class="footer_links">
+                            <ul>
+                                <li>Каталог</li>
+                                <li><router-link to="/korea">Авто из Кореи</router-link></li>
+                                <li><router-link to="/china">Авто из Китая</router-link></li>
+                                <li><router-link to="/japan">Авто из Японии</router-link></li>
+                            </ul>
+                            <ul>
+                                <li>Компания</li>
+                                <li><router-link to="">О компании</router-link></li>
+                                <li><router-link to="">Клипы</router-link></li>
+                                <li><router-link to="">Отзывы</router-link></li>
+                            </ul>
+                            <ul>
+                                <li></li>
+                                <li><router-link to="">Условия работы</router-link></li>
+                                <li><router-link to="">Акции</router-link></li>
+                                <li><router-link to="">Контакты</router-link></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer_contact">
+                        <p>Звонок по России бесплатный</p>
+                        <a href="tel:+8 (800) 775-67-29">8 (800) 775-67-29</a>
+                        <div class="social">
+                            <a href="https://wa.me/79244202432" target="_blank"><img loading="lazy"
+                                    src="../assets/ico-whatsapp.svg" alt="whatsapp"></a>
+                            <a href="https://vk.com/tomiko_trade" target="_blank"><img loading="lazy"
+                                    src="../assets/ico-wk2.svg" alt="ВК"></a>
+                            <a href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><img
+                                    loading="lazy" src="../assets/ico-insta2.svg" alt="Instagram"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="container">
+                <p>© 2024 ООО «Автоцентр-ВЛ» Автомобили под заказ из Кореи, Китая и Японии</p>
+                <p><a target="_blank" href="/static/files/tomiko-trade.pdf">Политика конфиденциальности</a></p>
+            </div>
+        </div>
     </footer>
 </template>
 
 <script>
 export default {
-  name: 'AppFooter'
+    name: 'AppFooter'
 }
 </script>
 
@@ -88,6 +91,7 @@ footer .footer_links {
     align-items: flex-start;
     gap: 80px;
 }
+
 footer .footer_row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -100,18 +104,25 @@ footer .footer_row {
     justify-content: space-between;
     gap: 24px;
 }
+
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-dl, ol, ul {
+
+dl,
+ol,
+ul {
     margin-top: 0;
     margin-bottom: 1rem;
 }
-ol, ul {
+
+ol,
+ul {
     padding-left: 2rem;
 }
+
 ul {
     display: block;
     list-style-type: disc;
@@ -127,7 +138,9 @@ footer .brand_logo img {
     width: 80px;
     height: 80px;
 }
-img, svg {
+
+img,
+svg {
     vertical-align: middle;
 }
 
@@ -145,6 +158,7 @@ footer .social img {
     height: 24px;
     aspect-ratio: 1 / 1;
 }
+
 footer .social {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -171,6 +185,7 @@ footer .footer_contact a:not(.social a) {
     color: #FFF;
     margin: 0 0 16px 0;
 }
+
 footer .footer_links a {
     font-size: 16px;
     font-weight: 300;

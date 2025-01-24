@@ -110,15 +110,16 @@
 				<div class="result">
 					<button @click="fetchDataWithParam">Показать</button>
 					<a href="/korea/" style="visibility: hidden;">Сбросить</a>
-						<div v-if="items.length">
-					<ul>
-						<li v-for="item in items" :key="item.id" class="item">
-							<div>{{ item.brand }}</div>
-							<div>{{ item.model }} | {{ item.year }} | {{ item.mileage }} км | {{ item.engine_volume }} л</div>
-							<div class="image_frame"><img :src="`${mediaUrl}${item.image}`"></div>
-						</li>
-					</ul>
-						</div>
+					<div v-if="items.length">
+						<ul>
+							<li v-for="item in items" :key="item.id" class="item">
+								<div>{{ item.brand }}</div>
+								<div>{{ item.model }} | {{ item.year }} | {{ item.mileage }} км | {{ item.engine_volume
+									}} л</div>
+								<div class="image_frame"><img :src="`${mediaUrl}${item.image}`"></div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -129,10 +130,10 @@
 					ПОПУЛЯРНЫЕ <span> АВТО </span>
 				</h2>
 				<div class="swiper-buttons">
-					<img src="img/previous.png" @click="prevHandler('korea')"/>
+					<img src="img/previous.png" @click="prevHandler('korea')" />
 					<img class="arrow" src="img/next.png" @click="nextHandler('korea')">/>
 				</div>
-			</div>                    
+			</div>
 		</div>
 
 		<section class="catalog-car">
@@ -156,7 +157,7 @@
 							<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
 						</div>
 						<div class="catalog-car-image">
-							<img  class="car-image" src="img/image-26.png" alt="Car">
+							<img class="car-image" src="img/image-26.png" alt="Car">
 						</div>
 						<div class="price-order">
 							<h3 class="title-price-order">{{ car.price }} ₽</h3>
@@ -165,13 +166,14 @@
 
 					</div>
 				</div>
-			
+
 				<div class="catalog-pagination">
 					<button @click="goToPage(1)" :disabled="currentPage === 1">1</button>
 					<span v-for="page in totalPages" :key="page">
 						<button @click="goToPage(page)" :disabled="currentPage === page">{{ page }}</button>
 					</span>
-					<button @click="goToPage(totalPages)" :disabled="currentPage === totalPages">{{ totalPages }}</button>
+					<button @click="goToPage(totalPages)" :disabled="currentPage === totalPages">{{ totalPages
+						}}</button>
 					<button @click="nextPage" :disabled="currentPage === totalPages">Следующая</button>
 				</div>
 			</div>
@@ -203,23 +205,33 @@
 					<div class="form-fields">
 						<label>
 							<p>Имя</p>
-							<input type="text" name="name" placeholder="Введите имя" pattern="^[A-Za-zА-Яа-яЁё\s]+$" title="Имя должно содержать только буквы и пробелы." maxlength="20" required aria-describedby="id_name_helptext" id="id_name">
+							<input type="text" name="name" placeholder="Введите имя" pattern="^[A-Za-zА-Яа-яЁё\s]+$"
+								title="Имя должно содержать только буквы и пробелы." maxlength="20" required
+								aria-describedby="id_name_helptext" id="id_name">
 						</label>
 						<label>
 							<p>Телефон</p>
-							<input type="tel" name="phone_number" placeholder="+7" pattern="^\+7 [0-6,9]\d{2} \d{3} \d{2} \d{2}$" title="Формат: &#x27;+7 999 999 99 99&#x27; и номер не должен начинаться с 8 или 7 после кода +7" maxlength="16" required aria-describedby="id_phone_number_helptext" id="id_phone_number">
+							<input type="tel" name="phone_number" placeholder="+7"
+								pattern="^\+7 [0-6,9]\d{2} \d{3} \d{2} \d{2}$"
+								title="Формат: &#x27;+7 999 999 99 99&#x27; и номер не должен начинаться с 8 или 7 после кода +7"
+								maxlength="16" required aria-describedby="id_phone_number_helptext"
+								id="id_phone_number">
 						</label>
 					</div>
 					<div class="message-field">
 						<label>
 							<p>Уточните свой вопрос</p>
-							<textarea name="content" cols="40" rows="10" placeholder="Введите текст сообщения, укажите страну, марку и год машины." maxlength="200" id="id_content"></textarea>
+							<textarea name="content" cols="40" rows="10"
+								placeholder="Введите текст сообщения, укажите страну, марку и год машины."
+								maxlength="200" id="id_content"></textarea>
 						</label>
 					</div>
 					<div class="privacy-policy">
 						<label class="privacy-policy-checkbox">
-							<input type="checkbox" name="privacy_policy_agreed" required id="id_privacy_policy_agreed" checked>
-							<p>С <a target="_blank" href="/static/files/tomiko-trade.pdf">правилами политики конфиденциальности</a> ознакомлен</p>
+							<input type="checkbox" name="privacy_policy_agreed" required id="id_privacy_policy_agreed"
+								checked>
+							<p>С <a target="_blank" href="/static/files/tomiko-trade.pdf">правилами политики
+									конфиденциальности</a> ознакомлен</p>
 						</label>
 						<button type="submit" name="submit">Отправить</button>
 					</div>
@@ -232,7 +244,7 @@
 			<div class="socials-media-background"></div>
 			<div class="socials-media-block">
 				<h2 class="socials-media-title">
-					<span class="social-red-title">Подпишись</span> 
+					<span class="social-red-title">Подпишись</span>
 					<span class="social-white-title">и не упусти свой автомобиль мечты</span>
 				</h2>
 				<div class="socials-media">
@@ -280,8 +292,8 @@
 			</div>
 
 			<img class="screen-3" src="img/screen-phone-3.png" alt="screen-phone">
-			<img class = "social-emoji" src="img/emoji.png" alt="emoji">
-			
+			<img class="social-emoji" src="img/emoji.png" alt="emoji">
+
 			<div class="social-head">
 				<img src="img/logo.png" alt="tomiko-trade-logo">
 				<div class="social-head-text">
@@ -334,7 +346,7 @@ export default {
 			selectedTransmission: '',
 			selectedColor: '',
 			selectedSorting: '',
-			mediaUrl: "http://localhost:8080/media",
+			mediaUrl: "/media",
 			currenPage: 1,
 			itemsPerPage: 12,
 			totalItems: 0
@@ -349,7 +361,7 @@ export default {
 			this.dropdownVisible = !this.dropdownVisible;
 		},
 		fetchData(params = {}) {
-			return axios.get('http://localhost:8080/api/filter/', { params })
+			return axios.get('/api/filter/', { params })
 				.then(response => {
 					this.items = response.data;
 					console.log('Fetched data:', this.items);
@@ -435,23 +447,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .korea {
-    align-items: center;
-    background-color: #011224;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 1600px;
-    overflow: hidden;
-    position: relative;
-    top: 0px;
+	align-items: center;
+	background-color: #011224;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 1600px;
+	overflow: hidden;
+	position: relative;
+	top: 0px;
 }
 
 .breadcrumb {
 	align-items: flex-start;
-    align-self: stretch;
-    flex-direction: column;
+	align-self: stretch;
+	flex-direction: column;
 	display: flex;
 	gap: 2px;
 	padding: 24px 100px 0px;
@@ -460,16 +472,16 @@ export default {
 }
 
 .breadcrumb-items {
-    align-items: flex-start;
-    display: inline-flex;
-    position: relative;
+	align-items: flex-start;
+	display: inline-flex;
+	position: relative;
 }
 
 .breadcrumb a {
-    font-family: "Inter", Helvetica;
-    font-weight: 400;
-    color: #ffffff80;
-    font-size: 14px;
+	font-family: "Inter", Helvetica;
+	font-weight: 400;
+	color: #ffffff80;
+	font-size: 14px;
 }
 
 .car-filter {
@@ -481,7 +493,7 @@ export default {
 	gap: 16px;
 	padding: 40px 100px 0px;
 	position: relative;
-    width: 1400px;
+	width: 1400px;
 }
 
 .title {
@@ -501,150 +513,150 @@ h1 {
 }
 
 .emoji-img {
-    height: 34px;
+	height: 34px;
 	width: 34px;
 	object-fit: cover;
 }
 
 .filter {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    background-color: #081E36;
-    border-radius: 24px;
-    padding: 24px;
-    display: grid;
-    gap: 12px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	background-color: #081E36;
+	border-radius: 24px;
+	padding: 24px;
+	display: grid;
+	gap: 12px;
 }
 
 .dropdown-filter-select {
-    display: flex;
-    justify-content: center;
-    width: max-content;
-    position: relative;
+	display: flex;
+	justify-content: center;
+	width: max-content;
+	position: relative;
 }
 
 .two-parts {
-    display: flex;
-    justify-content: center;
-    height: max-content;
-    width: max-content;
+	display: flex;
+	justify-content: center;
+	height: max-content;
+	width: max-content;
 }
 
 .item {
-    width: 329px;
-    height: 51px;
-    padding: 16px;
-    border-radius: 32px;
-    background: #20344a;
-    outline: 0;
-    cursor: pointer;
-    color: #FFFFFF80;
-    border: 0;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    outline: 0;
+	width: 329px;
+	height: 51px;
+	padding: 16px;
+	border-radius: 32px;
+	background: #20344a;
+	outline: 0;
+	cursor: pointer;
+	color: #FFFFFF80;
+	border: 0;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	outline: 0;
 }
 
 .from {
-    width: 158px;
-    border-radius: 32px 0 0 32px;
+	width: 158px;
+	border-radius: 32px 0 0 32px;
 }
 
 .to {
-    width: 158px;
-    border-radius: 0 32px 32px 0;
+	width: 158px;
+	border-radius: 0 32px 32px 0;
 }
- 
+
 .dropdown-filter-select span {
-    background: #20344a;
-    color: #ffffff40;
-    font-size: 20px;
-    width: 4px;
-    display: flex;
-    align-items: center;
-    padding-bottom: 4px;
+	background: #20344a;
+	color: #ffffff40;
+	font-size: 20px;
+	width: 4px;
+	display: flex;
+	align-items: center;
+	padding-bottom: 4px;
 }
 
 .result {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    padding-top: 12px;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	padding-top: 12px;
 }
 
 .result button {
-    width: 190px;
-    height: 44px;
-    border-radius: 30px;
-    background: #FFFFFF1A;
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 19.6px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
-    outline: 0;
+	width: 190px;
+	height: 44px;
+	border-radius: 30px;
+	background: #FFFFFF1A;
+	font-family: Inter;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 19.6px;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 0;
+	outline: 0;
 }
 
 .result a {
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.36px;
-    color: #fd554b;
-    height: max-content;
-    visibility: hidden;
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 19.36px;
+	color: #fd554b;
+	height: max-content;
+	visibility: hidden;
 }
 
 .swiper-container-wrapper {
-    align-items: center;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 40px;
-    justify-content: center;
-    padding: 40px 100px;
-    position: relative;
-    width: 1400px;
+	align-items: center;
+	align-self: stretch;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 40px;
+	justify-content: center;
+	padding: 40px 100px;
+	position: relative;
+	width: 1400px;
 }
 
 .control {
-    align-items: flex-end;
-    display: flex;
-    justify-content: space-between;
-    left: 773px;
-    position: absolute;
-    top: 74px;
-    width: 727px;
-    height: 40px;
+	align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	left: 773px;
+	position: absolute;
+	top: 74px;
+	width: 727px;
+	height: 40px;
 }
 
 .control h2 {
-    align-items: flex-start;
-    display: inline-flex;
-    position: relative;
-    line-height: normal;
-    font-family: "Bebas Neue";
-    font-size: 40px;
-    font-weight: 400;
-    text-align: left;
-    color: #f8534a;
+	align-items: flex-start;
+	display: inline-flex;
+	position: relative;
+	line-height: normal;
+	font-family: "Bebas Neue";
+	font-size: 40px;
+	font-weight: 400;
+	text-align: left;
+	color: #f8534a;
 }
 
 .control span {
-    color: #ffffff4d;
-    margin-left: 8px;
+	color: #ffffff4d;
+	margin-left: 8px;
 }
 
 .swiper-buttons {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 12px;
+	display: flex;
+	gap: 24px;
+	margin-bottom: 12px;
 }
 
 .catalog-car {
@@ -681,38 +693,38 @@ h1 {
 }
 
 .sort-and-curTraded select {
-    width: 205px;
-    height: 44px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    position: relative;
-    background-color: #ffffff1a;
-    cursor: pointer;
-    color: #FFFFFF;
-    text-align: left;
-    justify-content: space-between;
-    font-family: "Inter";
-    font-weight: 600;
-    border: 0;
+	width: 205px;
+	height: 44px;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	padding: 12px 16px;
+	position: relative;
+	background-color: #ffffff1a;
+	cursor: pointer;
+	color: #FFFFFF;
+	text-align: left;
+	justify-content: space-between;
+	font-family: "Inter";
+	font-weight: 600;
+	border: 0;
 }
 
 .sort-and-curTraded button {
-    align-items: center;
-    width: 248px;
-    height: 44px;
-    border-radius: 30px;
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    padding: 12px 16px;
-    position: relative;
+	align-items: center;
+	width: 248px;
+	height: 44px;
+	border-radius: 30px;
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	padding: 12px 16px;
+	position: relative;
 	background-color: #d51117;
 	justify-content: center;
-    color: #fff;
-    font-family: "Inter";
-    font-weight: 600;
+	color: #fff;
+	font-family: "Inter";
+	font-weight: 600;
 }
 
 .catalog-items {
@@ -728,8 +740,8 @@ h1 {
 }
 
 .card {
-    align-items: flex-start;
-    background-color: #081E36;
+	align-items: flex-start;
+	background-color: #081E36;
 	border-radius: 24px;
 	display: flex;
 	flex-direction: column;
@@ -737,7 +749,7 @@ h1 {
 	overflow: hidden;
 	padding: 16px 8px;
 	position: relative;
-    justify-content: center;
+	justify-content: center;
 }
 
 .card-title {
@@ -771,31 +783,31 @@ h1 {
 }
 
 .catalog-car-image {
-    align-items: center;
-    flex-direction: column;
-    display: flex;
-    overflow: hidden;
-    height: 190px;
-    position: relative;
-    width: 100%;
+	align-items: center;
+	flex-direction: column;
+	display: flex;
+	overflow: hidden;
+	height: 190px;
+	position: relative;
+	width: 100%;
 }
 
 .car-image {
-    border-radius: 16px;
+	border-radius: 16px;
 	position: absolute;
 	object-fit: cover;
 	width: 322px;
-    height: 190px;
+	height: 190px;
 }
 
 .price-order {
 	align-items: center;
-    display: flex;
-    justify-content: space-between;
-    align-self: stretch;
-    padding: 0px 8px;
-    position: relative;
-    width: 322px;
+	display: flex;
+	justify-content: space-between;
+	align-self: stretch;
+	padding: 0px 8px;
+	position: relative;
+	width: 322px;
 }
 
 .title-price-order {
@@ -811,8 +823,8 @@ h1 {
 }
 
 .order-button {
-    height: 44px;
-    width: 149px;
+	height: 44px;
+	width: 149px;
 	align-items: center;
 	border-radius: 30px;
 	gap: 12px;
@@ -821,297 +833,297 @@ h1 {
 	background: #FFFFFF1A;
 	display: inline-flex;
 	justify-content: center;
-    text-align: center;
-    color: #ffffff;
-    font-family: "Inter";
-    font-size: 14px;
-    font-weight: 600;
+	text-align: center;
+	color: #ffffff;
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 600;
 }
 
 .order-button:hover {
-    background-color: #d51117;
+	background-color: #d51117;
 }
 
 .catalog-pagination {
-    align-items: center;
-    align-self: flex-end;
-    position: relative;
-    background-color: #1a2939;
-    border-radius: 52px;
-    display: inline-flex;
-    gap: 2px;
-    justify-content: center;
-    padding: 4px;
+	align-items: center;
+	align-self: flex-end;
+	position: relative;
+	background-color: #1a2939;
+	border-radius: 52px;
+	display: inline-flex;
+	gap: 2px;
+	justify-content: center;
+	padding: 4px;
 }
 
 .catalog-pagination button {
-    align-items: center;
-    border-radius: 48px;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    padding: 7px 11px;
-    position: relative;
-    background-color: transparent;
-    color: #ffffff;
-    font-family: "Inter";
+	align-items: center;
+	border-radius: 48px;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	padding: 7px 11px;
+	position: relative;
+	background-color: transparent;
+	color: #ffffff;
+	font-family: "Inter";
 }
 
 .catalog-pagination button:hover {
-    background-color: #20344a;
+	background-color: #20344a;
 }
 
 .catalog-pagination button.selected {
-    background-color: #d51117;
+	background-color: #d51117;
 }
 
 .contacts {
-    align-self: stretch;
-    align-items: center;
-    display: flex;
-    flex: 0 0 auto;
-    position: relative;
-    flex-direction: column;
-    padding: 80px 100px 100px;
-    width: 1400px;
+	align-self: stretch;
+	align-items: center;
+	display: flex;
+	flex: 0 0 auto;
+	position: relative;
+	flex-direction: column;
+	padding: 80px 100px 100px;
+	width: 1400px;
 }
 
 .contact-content {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 367px;
-    position: relative;
-    width: 100%;
+	align-items: flex-start;
+	display: inline-flex;
+	flex: 0 0 auto;
+	gap: 367px;
+	position: relative;
+	width: 100%;
 }
 
 .contact-info {
-    align-items: flex-start;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 60px;
-    position: relative;
-    width: 393px;
+	align-items: flex-start;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 60px;
+	position: relative;
+	width: 393px;
 }
 
 .contact-details {
-    align-items: flex-start;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 12px;
-    position: relative;
-    width: 100%;
+	align-items: flex-start;
+	align-self: stretch;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 12px;
+	position: relative;
+	width: 100%;
 }
 
 .contact-details h2 {
-    position: relative;
-    align-items: stretch;
-    text-align: left;
-    color: #ffffff;
-    font-family: "Bebas Neue";
-    font-size: 60px;
-    font-weight: 500;
+	position: relative;
+	align-items: stretch;
+	text-align: left;
+	color: #ffffff;
+	font-family: "Bebas Neue";
+	font-size: 60px;
+	font-weight: 500;
 }
 
 .contact-info p {
-    align-items: stretch;
-    color:#ffffff80;
-    font-family: "Inter";
-    font-size: 18px;
-    font-weight: 400;
-    position: relative;
-    text-align: left;
+	align-items: stretch;
+	color: #ffffff80;
+	font-family: "Inter";
+	font-size: 18px;
+	font-weight: 400;
+	position: relative;
+	text-align: left;
 }
 
 .phone-info {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 16px;
-    position: relative;
+	align-items: flex-start;
+	display: inline-flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 16px;
+	position: relative;
 }
 
 .info-item {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 256px;
-    overflow: hidden;
-    position: relative;
-    display: inline-flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 8px;
+	min-width: 256px;
+	overflow: hidden;
+	position: relative;
+	display: inline-flex;
 }
 
 .info-item a {
-    text-align: left;
-    position: relative;
-    width: fit-content;
-    color: #ffffff;
-    font-family: "Inter";
-    font-size: 18px;
-    font-weight: 500;
+	text-align: left;
+	position: relative;
+	width: fit-content;
+	color: #ffffff;
+	font-family: "Inter";
+	font-size: 18px;
+	font-weight: 500;
 }
 
 .contact-form {
-    align-items: flex-start;
-    background-color: #081E36;
-    border-radius: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 40px;
-    position: relative;
-    width: 640px;
+	align-items: flex-start;
+	background-color: #081E36;
+	border-radius: 28px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 40px;
+	position: relative;
+	width: 640px;
 }
 
 .form-fields {
-    align-items: flex-start;
-    align-self: stretch;
-    display: flex;
-    gap: 16px;
-    height: 76px;
-    position: relative;
-    width: 100%;
+	align-items: flex-start;
+	align-self: stretch;
+	display: flex;
+	gap: 16px;
+	height: 76px;
+	position: relative;
+	width: 100%;
 }
 
 .form-fields label {
-    align-items: flex-start;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 8px;
-    overflow: hidden;
-    position: relative;
+	align-items: flex-start;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	flex-grow: 1;
+	gap: 8px;
+	overflow: hidden;
+	position: relative;
 }
 
 .contact-form p {
-    text-align: left;
-    position: relative;
-    align-self: stretch;
-    color: #ffffff;
-    font-family: "Inter";
-    font-size: 14px;
-    font-weight: 400;
+	text-align: left;
+	position: relative;
+	align-self: stretch;
+	color: #ffffff;
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 400;
 }
 
 .form-fields input {
-    align-items: flex-start;
-    background-color: #20344a;
-    display: flex;
-    gap: 10px;
-    overflow: hidden;
-    position: relative;
-    align-self: stretch;
-    border-radius: 32px;
-    flex: 0 0 auto;
-    padding: 16px;
-    width: 100%;
-    border: 0;
-    color: #ffffff80;
-    font-family: "Inter";
-    font-size: 16px;
-    font-weight: 400;
+	align-items: flex-start;
+	background-color: #20344a;
+	display: flex;
+	gap: 10px;
+	overflow: hidden;
+	position: relative;
+	align-self: stretch;
+	border-radius: 32px;
+	flex: 0 0 auto;
+	padding: 16px;
+	width: 100%;
+	border: 0;
+	color: #ffffff80;
+	font-family: "Inter";
+	font-size: 16px;
+	font-weight: 400;
 }
 
 .message-field label {
-    align-items: flex-start;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 8px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
+	align-items: flex-start;
+	align-self: stretch;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 8px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
 }
 
 .message-field textarea {
-    align-self: stretch;
-    background-color: #20344a;
-    border-radius: 16px;
-    height: 101px;
-    overflow: hidden;
-    position: relative;
-    width: 560px;
-    border: 0;
+	align-self: stretch;
+	background-color: #20344a;
+	border-radius: 16px;
+	height: 101px;
+	overflow: hidden;
+	position: relative;
+	width: 560px;
+	border: 0;
 }
 
 .message-field textarea::placeholder {
-    text-align: left;
-    height: auto;
-    left: 16px;
-    position: absolute;
-    top: 15px;
-    width: 442px;
-    color: #ffffff80;
-    font-family: "inter";
-    font-size: 16px;
-    font-weight: 400;
+	text-align: left;
+	height: auto;
+	left: 16px;
+	position: absolute;
+	top: 15px;
+	width: 442px;
+	color: #ffffff80;
+	font-family: "inter";
+	font-size: 16px;
+	font-weight: 400;
 }
 
 .privacy-policy {
-    align-items: flex-start;
-    align-items: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 24px;
-    justify-content: center;
-    position: relative;
-    width: 100%;
+	align-items: flex-start;
+	align-items: stretch;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 24px;
+	justify-content: center;
+	position: relative;
+	width: 100%;
 }
 
 .privacy-policy-checkbox {
-    align-items: center;
-    display: flex;
-    flex: 0 0 auto;
-    gap: 12px;
-    position: relative;
-    width: 100%;
+	align-items: center;
+	display: flex;
+	flex: 0 0 auto;
+	gap: 12px;
+	position: relative;
+	width: 100%;
 }
 
-.privacy-policy-checkbox input{
-    border-radius: 8px;
-    height: 24px;
-    width: 24px;
+.privacy-policy-checkbox input {
+	border-radius: 8px;
+	height: 24px;
+	width: 24px;
 }
 
 .privacy-policy-checkbox p {
-    position: relative;
-    text-align: left;
-    font-family: "Inter";
-    font-size: 14px;
-    font-weight: 400;
-    color: #ffffff;
-    top: 6px;
+	position: relative;
+	text-align: left;
+	font-family: "Inter";
+	font-size: 14px;
+	font-weight: 400;
+	color: #ffffff;
+	top: 6px;
 }
 
 .privacy-policy-checkbox a {
-    color: #fd554b;
+	color: #fd554b;
 }
 
-.privacy-policy button{
-    align-items: center;
-    align-self: stretch;
-    background-color: #20344a;
-    border-radius: 60px;
-    display: flex;
-    flex: 0 0 auto;
-    gap: 12px;
-    justify-content: center;
-    padding: 24px 40px;
-    position: relative;
-    color: #ffffff;
-    font-family: "Inter";
-    font-size: 18px;
-    font-weight: 600;
-    text-align: left;
-    width: 560px;
+.privacy-policy button {
+	align-items: center;
+	align-self: stretch;
+	background-color: #20344a;
+	border-radius: 60px;
+	display: flex;
+	flex: 0 0 auto;
+	gap: 12px;
+	justify-content: center;
+	padding: 24px 40px;
+	position: relative;
+	color: #ffffff;
+	font-family: "Inter";
+	font-size: 18px;
+	font-weight: 600;
+	text-align: left;
+	width: 560px;
 }
 
 .car-filter {
@@ -1123,249 +1135,252 @@ h1 {
 	gap: 16px;
 	padding: 40px 100px 0px;
 	position: relative;
-    width: 1400px;
-    
+	width: 1400px;
+
 }
 
 .socials-media-container {
-    align-self: stretch;
-    height: 602px;
-    width: 1400px;
-    position: relative;
-    padding: 0px 100px 100px;
+	align-self: stretch;
+	height: 602px;
+	width: 1400px;
+	position: relative;
+	padding: 0px 100px 100px;
 }
 
 .line-img {
-    height: 87px;
-    left: 87px;
-    position: relative;
-    top: 515px;
-    width: 1300px;
+	height: 87px;
+	left: 87px;
+	position: relative;
+	top: 515px;
+	width: 1300px;
 }
 
 .socials-media-background {
-    background-color: #081E36;
-    border-radius: 28px;
-    height: 476px;
-    position: absolute;
-    top: 102px;
-    width: 1400px;
+	background-color: #081E36;
+	border-radius: 28px;
+	height: 476px;
+	position: absolute;
+	top: 102px;
+	width: 1400px;
 }
 
 .socials-media-block {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 32px;
-    left: 665px;
-    position: absolute;
-    top: 176px;
+	align-items: flex-start;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 32px;
+	left: 665px;
+	position: absolute;
+	top: 176px;
 }
 
 .socials-media-title {
-    font-family: "Bebas Neue";
-    font-size: 70px;
-    font-weight: 400;
-    position: relative;
-    text-align: left;
-    width: 595px;
+	font-family: "Bebas Neue";
+	font-size: 70px;
+	font-weight: 400;
+	position: relative;
+	text-align: left;
+	width: 595px;
 }
 
 .social-red-title {
-    color: #fd554b;
+	color: #fd554b;
 }
 
 .social-white-title {
-    color: #ffffff;
+	color: #ffffff;
 }
 
 .socials-media {
-    flex: 0 0 auto;
-    position: relative;
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 12px;
+	flex: 0 0 auto;
+	position: relative;
+	align-items: flex-start;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
 .socials-media-link {
-    align-items: center;
-    background-color: #081E36;
-    border-radius: 16px;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 24px;
-    position: relative;
+	align-items: center;
+	background-color: #081E36;
+	border-radius: 16px;
+	display: inline-flex;
+	flex: 0 0 auto;
+	gap: 24px;
+	position: relative;
 }
 
 .social-link-background {
-    align-items: center;
-    background-color: #ffffff33;
-    border-radius: 12px;
-    padding: 10px;
+	align-items: center;
+	background-color: #ffffff33;
+	border-radius: 12px;
+	padding: 10px;
 }
 
-.social-link-background img{
-    height: 24px;
-    width: 24px;
+.social-link-background img {
+	height: 24px;
+	width: 24px;
 }
 
 .social-link-text {
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    display: inline-flex;
-    flex: 0 0 auto;
-    text-align: left;
-    color: #ffffff;
-    font-family: "Inter";
-    font-size: 24px;
-    font-weight: 400;
+	align-items: center;
+	gap: 8px;
+	position: relative;
+	display: inline-flex;
+	flex: 0 0 auto;
+	text-align: left;
+	color: #ffffff;
+	font-family: "Inter";
+	font-size: 24px;
+	font-weight: 400;
 }
 
 .screen-phone-1 {
-    position: absolute;
-    height: 466px;
-    width: 224px;
-    left: 233px;
-    top: 46px;
+	position: absolute;
+	height: 466px;
+	width: 224px;
+	left: 233px;
+	top: 46px;
 }
 
 .phone-back-1 {
-    position: absolute;
-    height: 494px;
-    left: -54px;
-    top: -16px;
-    width: 335px;
+	position: absolute;
+	height: 494px;
+	left: -54px;
+	top: -16px;
+	width: 335px;
 }
 
 .screen-1 {
-    height: 491px;
-    left: -58px;
-    position: absolute;
-    top: -9px;
-    width: 331px;
+	height: 491px;
+	left: -58px;
+	position: absolute;
+	top: -9px;
+	width: 331px;
 }
 
 .screen-phone-2 {
-    position: absolute;
-    height: 533px;
-    left: 128px;
-    width: 256px;
-    top: 0px;
+	position: absolute;
+	height: 533px;
+	left: 128px;
+	width: 256px;
+	top: 0px;
 }
 
 .phone-back-2 {
-    position: absolute;
-    height: 693PX;
-    left: -40px;
-    top: -20px;
-    width: 416px;
+	position: absolute;
+	height: 693PX;
+	left: -40px;
+	top: -20px;
+	width: 416px;
 }
 
 .screen-2-1 {
-    position: absolute;
-    height: 312px;
-    left: 9px;
-    top: 10px;
-    width: 238px;
+	position: absolute;
+	height: 312px;
+	left: 9px;
+	top: 10px;
+	width: 238px;
 }
 
-.screen-2-2{
-    position: absolute;
-    height: 312px;
-    left: 9px;
-    width: 238px;
-    top: 212px;
+.screen-2-2 {
+	position: absolute;
+	height: 312px;
+	left: 9px;
+	width: 238px;
+	top: 212px;
 }
 
 .screen-3 {
-    height: 568px;
-    left: 16px;
-    position: absolute;
-    top: -14px;
-    width: 480px;
+	height: 568px;
+	left: 16px;
+	position: absolute;
+	top: -14px;
+	width: 480px;
 }
 
 .social-emoji {
-    height: 84px;
-    width: 84px;
-    left: 335px;
-    position: absolute;
-    top: 364px;
-    transform: rotate(15.00deg);
+	height: 84px;
+	width: 84px;
+	left: 335px;
+	position: absolute;
+	top: 364px;
+	transform: rotate(15.00deg);
 }
 
 .social-head {
-    align-items: center;
-    background-color: #1a2939;
-    border-radius: 20px;
-    height: 44px;
-    width: 291px;
-    display: inline-flex;
-    gap: 16px;
-    left: 95px;
-    padding: 8px 16px 8px 12px;
-    position: absolute;
-    top: 63px;
+	align-items: center;
+	background-color: #1a2939;
+	border-radius: 20px;
+	height: 44px;
+	width: 291px;
+	display: inline-flex;
+	gap: 16px;
+	left: 95px;
+	padding: 8px 16px 8px 12px;
+	position: absolute;
+	top: 63px;
 }
 
 .social-head img {
-    height: 44px;
-    width: 44px;
+	height: 44px;
+	width: 44px;
 }
 
 .social-head-text {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 7px;
-    position: relative;
+	align-items: flex-start;
+	display: inline-flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 7px;
+	position: relative;
 }
 
-.social-head-text span{
-    align-self: stretch;
-    color: #ffffff;
-    font-family: "Inter";
-    position: relative;
-    text-align: left;
+.social-head-text span {
+	align-self: stretch;
+	color: #ffffff;
+	font-family: "Inter";
+	position: relative;
+	text-align: left;
 }
 
 .social-head-text-1 {
-    font-size: 16px;
-    font-weight: 600;
+	font-size: 16px;
+	font-weight: 600;
 }
 
 .social-head-text-2 {
-    font-size: 14px;
-    font-weight: 400;
+	font-size: 14px;
+	font-weight: 400;
 }
 
-p, h1, h2, h3 {
-    margin: 0;
-    padding: 0;
+p,
+h1,
+h2,
+h3 {
+	margin: 0;
+	padding: 0;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 button {
-    border: 0;
+	border: 0;
 }
 
 @font-face {
-    font-family: "Bebas Neue";
-    src: url('..assets/fonts/BebasNeue.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Bebas Neue";
+	src: url('../assets/fonts/BebasNeue.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url('..assets/fonts/Inter.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Inter";
+	src: url('../assets/fonts/Inter.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 </style>
