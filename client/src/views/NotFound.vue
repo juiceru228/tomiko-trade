@@ -13,13 +13,13 @@
         </div>
     </div>
 </template>
-  
+
 <script>
-  export default {
+export default {
     name: 'NotFound',
-  };
+};
 </script>
-  
+
 <style scoped>
 .not-found {
     display: flex;
@@ -34,7 +34,7 @@
     left: calc(50% - 663px/2);
     top: calc(50% - 394px/2 - 65.01px);
 }
-  
+
 .text-not-found {
     display: flex;
     flex-direction: column;
@@ -43,7 +43,7 @@
     gap: 8px;
 }
 
-.title{
+.title {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -53,6 +53,7 @@
 
     color: #FFFFFF;
 }
+
 .subtitle {
     font-family: 'Inter';
     font-style: normal;
@@ -93,8 +94,8 @@
     background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
     border-radius: 60px;
     border: none;
-    outline: none; 
-    box-shadow: none; 
+    outline: none;
+    box-shadow: none;
     cursor: pointer;
 }
 
@@ -136,7 +137,8 @@
     flex-grow: 0;
 }
 
-button:focus, button:active {
+button:focus,
+button:active {
     outline: none;
     box-shadow: none;
 }

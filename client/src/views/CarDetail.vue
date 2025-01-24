@@ -59,10 +59,10 @@
                     <div class="control-title2">АВТОМОБИЛИ✨</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler"/>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler"/>
-                    
-                    
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler" />
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler" />
+
+
                 </div>
                 <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
@@ -94,7 +94,7 @@
                 </swiper-container>
                 <router-view :key="$route.fullPath"></router-view>
             </div>
-            <contacts/>
+            <contacts />
         </ul>
 
         <!-- Модальное окно -->
@@ -390,7 +390,7 @@ export default {
     width: 45%;
 }
 
-.left-column div{
+.left-column div {
     color: rgba(255, 255, 255, 0.5);
     flex-direction: column;
     width: 45%;
@@ -438,7 +438,7 @@ export default {
     font-weight: 700;
 }
 
-.arrow{
+.arrow {
     margin-left: 10px;
 }
 
