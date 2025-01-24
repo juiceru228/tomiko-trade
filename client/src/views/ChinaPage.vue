@@ -1357,14 +1357,14 @@ button {
 
 @font-face {
     font-family: "Bebas Neue";
-    src: url('fonts/BebasNeue.ttf') format('truetype');
+    src: url('../assets/fonts/BebasNeue.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url('fonts/Inter.ttf') format('truetype');
+    src: url('../assets/fonts/Inter.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
