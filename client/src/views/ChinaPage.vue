@@ -124,18 +124,6 @@
 			</div>
 		</section>
 
-		<div class="swiper-container-wrapper">
-			<div class="control">
-				<h2>
-					ПОПУЛЯРНЫЕ <span> АВТО </span>
-				</h2>
-				<div class="swiper-buttons">
-					<img src="img/previous.png" @click="prevHandler('china')" />
-					<img class="arrow" src="img/next.png" @click="nextHandler('china')">/>
-				</div>
-			</div>
-		</div>
-
 		<section class="catalog-car">
 			<div class="catalog">
 				<div class="sort-and-curTraded">
@@ -168,13 +156,19 @@
 				</div>
 
 				<div class="catalog-pagination">
-					<button @click="goToPage(1)" :disabled="currentPage === 1">1</button>
-					<span v-for="page in totalPages" :key="page">
-						<button @click="goToPage(page)" :disabled="currentPage === page">{{ page }}</button>
-					</span>
-					<button @click="goToPage(totalPages)" :disabled="currentPage === totalPages">{{ totalPages
-						}}</button>
-					<button @click="nextPage" :disabled="currentPage === totalPages">Следующая</button>
+					<button :disabled="currentPage === 1" @click="changePage(1)">
+						First
+					</button>
+					<button :disabled="currentPage === 1" @click="changePage(currentPage - 1)">
+						Prev
+					</button>
+					<span>Page {{ currentPage }} of {{ totalPages }}</span>
+					<button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)">
+						Next
+					</button>
+					<button :disabled="currentPage === totalPages" @click="changePage(totalPages)">
+						Last
+					</button>
 				</div>
 			</div>
 		</section>
@@ -307,6 +301,7 @@
 
 <script>
 import axios from 'axios';
+import {ref} from 'vue';
 
 export default {
 	name: 'ChinaPage',
@@ -347,43 +342,44 @@ export default {
 			selectedColor: '',
 			selectedSorting: '',
 			mediaUrl: "/media",
-			currenPage: 1,
-			itemsPerPage: 12,
-			totalItems: 0
+			currenPage: ref(1),
+			perPage: ref(5),
+			rows: ref(50)
 		};
 	},
+
+	computed: {
+		totalPages() {
+			return Math.ceil(this.rows / this.perPage);
+		}
+	},
 	mounted() {
-		this.fetchData({ country: this.COUNTRY, type: "cars" })
+		this.fetchData({ country: this.COUNTRY, type: "cars", page: 1 })
 			.then(() => this.updateBrands());
 	},
 	methods: {
 		toggleDropdown() {
 			this.dropdownVisible = !this.dropdownVisible;
 		},
+
+		changePage(page) {
+			if (page >= 1 && page <= this.totalPages) {
+				this.currentPage = page;
+			}
+			this.fetchDataWithParam()
+		},
 		fetchData(params = {}) {
 			return axios.get('/api/filter/', { params })
 				.then(response => {
 					this.items = response.data;
 					console.log('Fetched data:', this.items);
-					this.calculateTotalPage();
+
 				}).catch(error => {
 					console.error('Error fetching data:', error)
 					throw error;
 				});
 		},
-		calculateTotalPage() {
-			this.totalPages = Math.ceil(this.items.length / this.itemsPerPage);
-		},
-		goToPage(page) {
-			this.currenPage = page;
-			this.fetchDataWithParam()
-		},
-		nextPage() {
-			if (this.currenPage < this.totalPages) {
-				this.currenPage++;
-				this.fetchDataWithParam()
-			}
-		},
+		
 		onBrandChange() {
 			console.log("Выбранный бренд:", this.selectedBrand);
 			this.updateModels(this.selectedBrand);
@@ -419,8 +415,6 @@ export default {
 				color: this.selectedColor || null,
 				brand: this.selectedBrand || null,
 				ordering: this.selectedSorting || null,
-				page: this.currenPage,
-				items_per_page: this.itemsPerPage
 			};
 			Object.keys(params).forEach(key => {
 				if (params[key] === null) {
@@ -610,53 +604,6 @@ h1 {
 	color: #fd554b;
 	height: max-content;
 	visibility: hidden;
-}
-
-.swiper-container-wrapper {
-	align-items: center;
-	align-self: stretch;
-	display: flex;
-	flex: 0 0 auto;
-	flex-direction: column;
-	gap: 40px;
-	justify-content: center;
-	padding: 40px 100px;
-	position: relative;
-	width: 1400px;
-}
-
-.control {
-	align-items: flex-end;
-	display: flex;
-	justify-content: space-between;
-	left: 773px;
-	position: absolute;
-	top: 74px;
-	width: 727px;
-	height: 40px;
-}
-
-.control h2 {
-	align-items: flex-start;
-	display: inline-flex;
-	position: relative;
-	line-height: normal;
-	font-family: "Bebas Neue";
-	font-size: 40px;
-	font-weight: 400;
-	text-align: left;
-	color: #f8534a;
-}
-
-.control span {
-	color: #ffffff4d;
-	margin-left: 8px;
-}
-
-.swiper-buttons {
-	display: flex;
-	gap: 24px;
-	margin-bottom: 12px;
 }
 
 .catalog-car {
