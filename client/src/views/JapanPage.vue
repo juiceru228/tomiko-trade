@@ -123,7 +123,7 @@
 				</div>
 			</div>
 		</section>
-
+    
 		<section class="catalog-car">
 			<div class="catalog">
 				<div class="sort-and-curTraded">

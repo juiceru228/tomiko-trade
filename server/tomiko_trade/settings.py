@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-@9kur=+p=4^vjuvjrfhs)+o7f)$4mj5z-f4s#2a7_7yq8+042n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+from decouple import config
+ALLOWED_HOSTS = [config('VUE_DEPLOY_URL'), 'localhost', '127.0.0.1']
 
 
 # Application definition
