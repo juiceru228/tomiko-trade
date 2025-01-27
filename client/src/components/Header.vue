@@ -4,12 +4,13 @@
       <ul>
         <div class="header-text">
           <span class="left-text">
-          <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
-          <li><router-link to="/china">Авто из Китая</router-link></li>
-          <li><router-link to="/japan">Авто из Японии</router-link></li>
-          <li><router-link to="/korea">Авто из Кореи</router-link></li></span>
+            <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
+            <li><router-link to="/china">Авто из Китая</router-link></li>
+            <li><router-link to="/japan">Авто из Японии</router-link></li>
+            <li><router-link to="/korea">Авто из Кореи</router-link></li>
+          </span>
           <span class="right-text">8 (800) 500-49-46
-          <li><router-link to="/"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
+            <li><router-link to="/"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
           </span>
         </div>
       </ul>
@@ -26,106 +27,114 @@ export default {
 <style scoped>
 /*Тут header*/
 .header {
-    background-color: rgba(0, 0, 0, 0)e;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    width: 90%;
-    text-align: left;
-    position: relative;
-    margin: 0 auto;
-  }
+  background-color: rgba(0, 0, 0, 0)e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 90%;
+  text-align: left;
+  position: relative;
+  margin: 0 auto;
+}
 
-  /*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
-  .header-text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto; 
-  }
-  
-  /*Тут левая часть header*/
-  .left-text {
-    margin-right: auto;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 19.36px;
-  }
-  
-  /*Тут правая часть header*/
-  .right-text {
-    margin-left: auto;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 24px;
-  }
-  
-  /* */
-  .h1 {
-    clear: both;
-  }
+/*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
+.header-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
 
-  .p {
-    clear: both;
-  }
-  
-  h3 {
-    margin: 40px 0 0;
-  }
-  
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  a {
-    color: #42b983;
-  }
+/*Тут левая часть header*/
+.left-text {
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+}
 
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  nav ul li {
-    display: inline;
-    margin-right: 15px;
-  }
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/*Тут правая часть header*/
+.right-text {
+  margin-left: auto;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* */
+.h1 {
+  clear: both;
+}
+
+.p {
+  clear: both;
+}
+
+h3 {
+  margin: 40px 0 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 
-dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-ol, ul {
-    padding-left: 2rem;
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-img, svg {
-    vertical-align: middle;
-    aspect-ratio: 1 / 1;
-    height: 80px;
-    width: 80px;
+ol,
+ul {
+  padding-left: 2rem;
+}
+
+img,
+svg {
+  vertical-align: middle;
+  aspect-ratio: 1 / 1;
+  height: 80px;
+  width: 80px;
 }
 
 header .right-text img {
-    width: 36px;
-    height: 36px;
-    aspect-ratio: 1 / 1;
+  width: 36px;
+  height: 36px;
+  aspect-ratio: 1 / 1;
 }
 </style>

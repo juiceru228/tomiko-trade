@@ -18,7 +18,7 @@
               <img src="../assets/Insta.png" alt="Insta png" />
             </div>
           </div>
-          
+
           <div class="column-right">
             <p class="title"><strong>Компания</strong></p>
             <p class="s-title">ООО "АВТОЦЕНТР-ВЛ"</p>
@@ -31,50 +31,28 @@
       </div>
 
       <div class="contact-container">
-        <form @submit.prevent="submitForm"> 
+        <form @submit.prevent="submitForm">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Имя</label>
-              <input
-                id="name"
-                type="text"
-                v-model="form.name"
-                placeholder="Введите имя"
-                required
-              />
+              <input id="name" type="text" v-model="form.name" placeholder="Введите имя" required />
             </div>
 
             <div class="form-group">
               <label for="phone">Телефон</label>
-              <input
-                id="phone"
-                type="text"
-                v-model="form.phone"
-                placeholder="+7"
-                @input="formatPhone"
-                required
-              />
+              <input id="phone" type="text" v-model="form.phone" placeholder="+7" @input="formatPhone" required />
             </div>
           </div>
 
           <div class="form-group">
             <label for="message">Уточните свой вопрос</label>
-            <textarea
-              id="message"
-              v-model="form.message"
-              placeholder="Введите текст сообщения, укажите страну, марку и год машины"
-              maxlength="200"
-              required
-            ></textarea>
+            <textarea id="message" v-model="form.message"
+              placeholder="Введите текст сообщения, укажите страну, марку и год машины" maxlength="200"
+              required></textarea>
           </div>
 
           <div class="form-group privacy">
-            <input
-              type="checkbox"
-              v-model="form.privacy"
-              id="privacy"
-              required
-            />
+            <input type="checkbox" v-model="form.privacy" id="privacy" required />
             <label for="privacy">
               С <a href="/privacy-policy.pdf" target="_blank">правилами политики конфиденциальности</a> ознакомлен
             </label>
@@ -372,7 +350,9 @@ input[type="checkbox"] {
   text-align: left;
 }
 
-#name, #phone, #message {
+#name,
+#phone,
+#message {
   text-align: left;
 }
 
@@ -415,7 +395,7 @@ input[type="checkbox"] {
     width: 100%;
     max-width: 480px;
   }
-  
+
   .map-comp {
     height: 300px;
   }

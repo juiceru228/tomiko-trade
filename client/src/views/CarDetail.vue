@@ -59,10 +59,10 @@
                     <div class="control-title2">АВТОМОБИЛИ✨</div>
                 </div>
                 <div class="swiper-buttons">
-                    <img src="../assets/rigthArrow.svg" @click="prevHandler"></img>
-                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler"></img>
-                    
-                    
+                    <img src="../assets/rigthArrow.svg" @click="prevHandler" />
+                    <img class="arrow" src="../assets/leftArrow.svg" @click="nextHandler" />
+
+
                 </div>
                 <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
@@ -94,7 +94,7 @@
                 </swiper-container>
                 <router-view :key="$route.fullPath"></router-view>
             </div>
-            <contacts/>
+            <contacts />
         </ul>
 
         <!-- Модальное окно -->
@@ -131,7 +131,7 @@ export default {
             items: [],
             isModalVisible: false,
             car: null,
-            mediaUrl: 'http://localhost:8080/media/',
+            mediaUrl: '/media/',
             form: reactive({
                 name: '',
                 phone_number: '',
@@ -168,7 +168,7 @@ export default {
         },
         async fetchDataMain(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.mainCar = response.data;
                     this.fetchDataRelevant({ country: this.mainCar[0].brand_country.country, type: "cars", page: 1 });
@@ -181,7 +181,7 @@ export default {
         },
         async fetchDataRelevant(params = {}) {
             return await axios
-                .get('http://localhost:8080/api/filter/', { params })
+                .get('/api/filter/', { params })
                 .then((response) => {
                     this.items = response.data;
                     console.log('Fetched data:', this.items);
@@ -390,7 +390,7 @@ export default {
     width: 45%;
 }
 
-.left-column div{
+.left-column div {
     color: rgba(255, 255, 255, 0.5);
     flex-direction: column;
     width: 45%;
@@ -438,7 +438,7 @@ export default {
     font-weight: 700;
 }
 
-.arrow{
+.arrow {
     margin-left: 10px;
 }
 
