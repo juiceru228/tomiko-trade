@@ -1,84 +1,94 @@
 <template>
   <div class="hello">
-      <div class="titles">
-          <h1>Автомобиль вашей мечты здесь</h1>
-          <p>Прозрачное ценообразование с подробным 
-          <br>разъяснением затрат на каждом этапе</p>
-          <button class="gradient-button" @click="openModalCalculator">Рассчитать стоимость</button>
-      </div>
-      <section class="ZAP">
-          <div class="left_info">
-          <div class="item"><div>5 +</div><p>Лет на рынке</p></div>
-          <div class="item"><div>4 000 +</div><p>Довольных клиентов</p></div>
-          <div class="item"><div><img src="../assets/star.webp" alt="Звездочка">4.6</div></div>
-          </div>
-          <div class="card_discount">
-          <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
-          <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
-          </div>
-      </section>
-      <modal-show v-if="showModalExample" @close="closeModalExample" />
-            <div class="overlay" v-if="showModalExample"></div>
-        <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
-            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
-        </ModalForm>
+    <div class="titles">
+      <h1>Автомобиль вашей мечты здесь</h1>
+      <p>Прозрачное ценообразование с подробным
+        <br>разъяснением затрат на каждом этапе
+      </p>
+      <button class="gradient-button" @click="openModalCalculator">Рассчитать стоимость</button>
     </div>
+    <section class="ZAP">
+      <div class="left_info">
+        <div class="item">
+          <div>5 +</div>
+          <p>Лет на рынке</p>
+        </div>
+        <div class="item">
+          <div>4 000 +</div>
+          <p>Довольных клиентов</p>
+        </div>
+        <div class="item">
+          <div><img src="../assets/star.webp" alt="Звездочка">4.6</div>
+        </div>
+      </div>
+      <div class="card_discount">
+        <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
+        <!---<button class="gradient-button" @click="showModalExample">Смотреть пример</button>--->
+        <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
+      </div>
+    </section>
+    <!---<modal-show v-if="showModalExample" @close="closeModalExample" />
+    <div class="overlay" v-if="showModalExample"></div>
+     <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
+      <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+    </ModalForm> --->
+  </div>
 </template>
 
 <script>
 import { reactive } from 'vue';
-import ModalForm from '../components/ModalForm.vue';
-import ValidationForm from '../components/ValidationForm.vue';
-import ModalCard from './ModalCard.vue';
+//import ModalForm from '../components/ModalForm.vue';
+//import ValidationForm from '../components/ValidationForm.vue';
+//import ModalCard from './ModalCard.vue';
 export default {
-    name: 'HelloPage',
-    components: {
-        ModalForm,
-        ValidationForm,
-        ModalCard,
-    },
-    data() {
+  name: 'HelloPage',
+  components: {
+    //ModalForm,
+    //ValidationForm,
+    //ModalCard,
+  },
+  data() {
     return {
-    isModalCalculatorVisible: false,
-    showModalExample: false,
-    form: reactive({
-      name: '',
-      phone_number: '',
-      description: '',
-      isAgreed: false
+      //isModalCalculatorVisible: false,
+      //showModalExample: false,
+      form: reactive({
+        name: '',
+        phone_number: '',
+        description: '',
+        isAgreed: false
       }),
     };
   },
   methods: {
     openModalCalculator() {
-            this.isModalCalculatorVisible = true;
-        },
-        closeModalCalculator() {
-            this.isModalCalculatorVisible = false;
-        },
-        showModalExample() {
-        this.showModalExample = true;
-        console.log("Нажал на кнопку");
-        },
-        closeModalExample() {
-        this.showModalExample = false;
-        console.log("Нажал на кнопку");
+      this.isModalCalculatorVisible = true;
     },
-},
+    closeModalCalculator() {
+      this.isModalCalculatorVisible = false;
+    },
+    showModalExample() {
+      this.showModalExample = true;
+      console.log("Нажал на кнопку");
+    },
+    closeModalExample() {
+      this.showModalExample = false;
+      console.log("Нажал на кнопку");
+    },
+  },
   handleFormSubmit(formData) {
-            console.log('Форма успешно отправлена!', formData);
-            alert('Форма успешно отправлена!');
-            this.isModalCalculatorVisible = false;
+    console.log('Форма успешно отправлена!', formData);
+    alert('Форма успешно отправлена!');
+    this.isModalCalculatorVisible = false;
   },
   updateForm(newForm) {
-            this.form = newForm;
+    this.form = newForm;
   },
 };
 </script>
 
 <style scoped>
 .modal-form {
-    z-index: 1000;
+  z-index: 1000;
 }
 
 .gradient-button {
@@ -115,23 +125,23 @@ export default {
 }
 
 .hello .titles h1 {
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 76.8px;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 8px;
-    text-transform: uppercase;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 76.8px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
 .hello .titles p {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 36px;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 48px;
-    padding: 0 25%;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 48px;
+  padding: 0 25%;
 }
 
 .save_discount {
@@ -151,101 +161,101 @@ export default {
   width: 40px;
 }
 
-.tittle img{
+.tittle img {
   height: 50px;
 }
 
 .ZAP {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    border-bottom: 1px solid #344150;
-    padding-bottom: 40px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between 20;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: end;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid #344150;
+  padding-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between 20;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: end;
 }
 
 .ZAP .card_discoint {
-    background: #081e36;
-    padding: 16px;
-    border-radius: 18px;
-    max-width: 325px;
+  background: #081e36;
+  padding: 16px;
+  border-radius: 18px;
+  max-width: 325px;
 }
 
 .ZAP .left_info .item {
-    margin-right: 80px;
-    position: relative;
+  margin-right: 80px;
+  position: relative;
 }
 
 .ZAP .left_info .item:last-child {
-    margin-right: 0;
-    margin-right: 300px;
+  margin-right: 0;
+  margin-right: 300px;
 }
 
 .ZAP .left_info .item div {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 48px;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 4px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 4px;
 }
 
 .ZAP .left_info .item p {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.94px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.5019607843);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5019607843);
 }
 
 .ZAP .left_info .item div img {
-    margin-right: 12px;
-    aspect-ratio: 1 / 1;
-    height: 25px;
-    width: 25px;
+  margin-right: 12px;
+  aspect-ratio: 1 / 1;
+  height: 25px;
+  width: 25px;
 }
 
 .ZAP .left_info .item div {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 48px;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 4px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 4px;
 }
 
 .ZAP .left_info {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .ZAP .card_discoint p {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 36px;
-    color: #fff;
-    text-align: left;
-    margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 24px;
 }
 
 .ZAP .card_discoint p span {
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 72px;
-    text-align: left;
-    color: #fd554b;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 72px;
+  text-align: left;
+  color: #fd554b;
 }
 
 .card_discount {
@@ -277,7 +287,7 @@ export default {
   margin-bottom: 20%;
 }
 
-.titles p{
+.titles p {
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
@@ -287,7 +297,7 @@ export default {
   padding: 0 25%;
 }
 
-.titles h1{
+.titles h1 {
   font-size: 64px;
   font-weight: 700;
   line-height: 76.8px;
