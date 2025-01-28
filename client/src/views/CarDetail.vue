@@ -64,7 +64,7 @@
 
 
                 </div>
-                <swiper-container :slides-per-view="5" :space-between="50" ref="swiperRef" @swiperprogress="onProgress"
+                <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
 
                     <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">

@@ -3,9 +3,9 @@
         <ul class="car-info">
             <div class="swiper-container-wrapper">
                 <div class="control">
-                    <div class="control-title1">ПОПУЛЯРНЫЕ АВТО</div>
+                    <div class="control-title1">{{ what }}</div>
                     <div class="control-row">
-                        <div class="control-title2">Из {{ country }}</div>
+                        <div class="control-title2">{{ why }}</div>
                         <img :src="flagPath" alt="ФЛАГ" class="flag" />
                     </div>
                 </div>
@@ -61,7 +61,11 @@ export default {
             type: Object,
             default: () => ({ country: "китай", type: "cars", page: 1 })
         },
-        country: {
+        what: {
+            type: String,
+            default: "Похожие автомобили",
+        },
+        why: {
             type: String,
             default: "Корея",
         },

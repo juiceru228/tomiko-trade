@@ -2,9 +2,9 @@
     <div class="car-details">
         <ul class="car-info">
 
-            <SwiperCarsComponent :fetchParams="{ country: 'Китай', type: 'cars', page: 1 }" country="КИТАЯ" :flagPath="require('../assets/flag3.svg')"/>
-            <SwiperCarsComponent :fetchParams="{ country: 'Япония', type: 'cars', page: 1 }" country="ЯПОНИИ" :flagPath="require('../assets/flag2.webp')"/>
-            <SwiperCarsComponent :fetchParams="{ country: 'Корея', type: 'cars', page: 1 }" country="КОРЕИ" :flagPath="require('../assets/flag.svg')"/>
+            <SwiperCarsComponent :fetchParams="{ country: 'Китай', type: 'cars', page: 1 }" what="ПОПУЛЯРНЫЕ АВТО" why="КИТАЯ" :flagPath="require('../assets/flag3.svg')"/>
+            <SwiperCarsComponent :fetchParams="{ country: 'Япония', type: 'cars', page: 1 }" what="ПОПУЛЯРНЫЕ АВТО" why="ЯПОНИИ" :flagPath="require('../assets/flag2.webp')"/>
+            <SwiperCarsComponent :fetchParams="{ country: 'Корея', type: 'cars', page: 1 }" what="ПОПУЛЯРНЫЕ АВТО" why="КОРЕИ" :flagPath="require('../assets/flag.svg')"/>
             <contacts />
         </ul>
 
