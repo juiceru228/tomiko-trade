@@ -47,27 +47,16 @@
               <p>Прозрачное ценообразование с подробным <br> разъяснением затрат на каждом этапе</p>
             </div>
             <div class="item-stage">
-                <div class="item">
-                    <img loading="lazy" src="../assets/work1.webp" alt="work1">
-                    <div>
-                        <h3><span>Заявка</span></h3>
-                        <p><span>Оставьте заявку и получите бесплатную консультацию персонального менеджера. Вам отправят
-                            свежие варианты из статистики, рассчитают ориентировочную стоимость автомобиля и ответят на все
-                            сопутствующие вопросы о покупке автомобиля.</span></p>
-                    </div>
+                <div class="item-images">
+                    <img loading="lazy" class="item-icons" src="../assets/work1.webp" alt="work1">
                     <img loading="lazy" class="line_img" src="../assets/line1.svg" alt="line1">
                 </div>
-                <div class="item">
-                    <img loading="lazy" src="../assets/work2.webp" alt="work2">
-                    <div>
-                        <h3><span>Договор</span></h3>
-                        <p><span>Если Вас все устроило, заключаем договор. Вы вносите авансовый депозит и менеджер по покупкам
-                            начинает активные действия по подбору автомобиля.</span></p>
-                    </div>
+                <div class="item-images">
+                    <img loading="lazy" class="item-icons"  src="../assets/work2.webp" alt="work2">
                     <img loading="lazy" class="line_img line_img2" src="../assets/line2.svg" alt="line2">
                 </div>
                 <div class="item">
-                    <img loading="lazy" src="../assets/work3.webp" alt="work3">
+                    <img loading="lazy" class="item-icons"  src="../assets/work3.webp" alt="work3">
                     <div>
                         <h3><span>Подбор и покупка авто</span></h3>
                         <p><span>Ежедневно менеджер по покупке просматривает доступные лоты и отправляет Вам варианты на
@@ -77,13 +66,24 @@
                     <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
                 </div>
                 <div class="item">
-                    <img loading="lazy" src="../assets/work4.webp" alt="work4">
+                    <img loading="lazy" class="item-icons"  src="../assets/work4.webp" alt="work4">
                     <div>
                         <h3><span>Доставка и отправка</span></h3>
                         <p><span>Доставляем автомобиль во Владивосток, проходим этапы оформления и отправляем его в Ваш город
                             любым удобным способом.</span></p>
                     </div>
                     <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
+                </div>
+                <div class="item-text">
+                    <h3><span>Заявка</span></h3>
+                    <p><span>Оставьте заявку и получите бесплатную консультацию персонального менеджера. Вам отправят
+                        свежие варианты из статистики, рассчитают ориентировочную стоимость автомобиля и ответят на все
+                        сопутствующие вопросы о покупке автомобиля.</span></p>
+                </div>
+                <div class="item-text">
+                    <h3><span>Договор</span></h3>
+                    <p><span>Если Вас все устроило, заключаем договор. Вы вносите авансовый депозит и менеджер по покупкам
+                            начинает активные действия по подбору автомобиля.</span></p>
                 </div>
             </div>
             <div class="stages__buttons">

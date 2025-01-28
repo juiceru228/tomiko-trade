@@ -18,8 +18,6 @@ import CarDetail from './views/CarDetail.vue'
 import ContactPage from './views/ContactPage.vue'
 import NotFound from './views/NotFound.vue'
 import SwiperCars from './components/SwiperCars.vue'
-import AboutUs from './views/AboutUs.vue';
-import PromotionsComponent from './views/Promotions.vue';
 const routes = [
 	{path: '/', component:MainPage},
 	{path: '/china', component:ChinaPage},
@@ -28,9 +26,7 @@ const routes = [
   {path: '/car/:id', name: 'CarDetail', component:CarDetail},
   {path: '/contact', component:ContactPage},
   {path: '/:pathMatch(.*)*', name: 'NotFound', component:NotFound},
-  {path: '/ayaya', component:SwiperCars},
-  {path: '/promotions', component:PromotionsComponent},
-  {path: '/about', component:AboutUs}
+  {path: '/ayaya', component:SwiperCars}
 ];
 
 const router = createRouter({

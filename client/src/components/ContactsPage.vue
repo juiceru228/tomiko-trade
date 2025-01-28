@@ -77,12 +77,17 @@
             </div>
         </div>
     </section>
+    <MapComponent/>
 </template>
 
 <script>
+import MapComponent from './MapComponent.vue';
 export default {
-    name: 'ContactPage'
-}
+    name: 'ContactPage',
+    components: {
+        MapComponent,
+    },
+};
 </script>
 
 <style scoped>
@@ -91,7 +96,6 @@ export default {
 }
 
 .contacts .title h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: 100%;
@@ -108,7 +112,6 @@ export default {
 }
 
 .contacts .section_description {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.5);
@@ -129,7 +132,6 @@ export default {
 }
 
 .contacts .contact_item p {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 300;
     line-height: normal;
@@ -137,9 +139,15 @@ export default {
     color: rgba(255, 255, 255, 0.5);
 }
 
+<<<<<<< HEAD
 .contacts .contact_item a,
 .contacts .contact_item div {
     font-family: Inter;
+=======
+
+.contacts .contact_item a, .contacts .contact_item div {
+
+>>>>>>> origin/main
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -158,7 +166,6 @@ export default {
 }
 
 .contacts .contact_form .form_group p {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     color: #FFF;
@@ -181,7 +188,6 @@ export default {
     border: 0;
     outline: 0;
     color: #FFF;
-    font-family: Inter;
     line-height: normal;
 }
 
@@ -201,7 +207,6 @@ contacts .contact_form .form_group label:has(input[type=checkbox]) p {
 }
 
 .contacts .contact_form .form_group p {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     color: #FFF;

@@ -3,24 +3,15 @@
     <div class="hello">
       <div class="titles">
         <h1>Автомобиль вашей мечты здесь</h1>
-        <p>Прозрачное ценообразование с подробным
-          <br>разъяснением затрат на каждом этапе
-        </p>
+        <p>Прозрачное ценообразование с подробным 
+          <br>разъяснением затрат на каждом этапе</p>
         <button class="gradient-button">Рассчитать стоимость</button>
       </div>
       <section class="ZAP">
         <div class="left_info">
-          <div class="item">
-            <div>5 +</div>
-            <p>Лет на рынке</p>
-          </div>
-          <div class="item">
-            <div>4 000 +</div>
-            <p>Довольных клиентов</p>
-          </div>
-          <div class="item">
-            <div><img src="../assets/star.webp" alt="Звездочка">4.6</div>
-          </div>
+          <div class="item"><div>5 +</div><p>Лет на рынке</p></div>
+          <div class="item"><div>4 000 +</div><p>Довольных клиентов</p></div>
+          <div class="item"><div><img src="../assets/star.webp" alt="Звездочка">4.6</div></div>
         </div>
         <div class="card_discount">
           <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
@@ -28,233 +19,237 @@
         </div>
       </section>
     </div>
-    <swiperRelevant />
+    <swiperRelevant/>
     <main class="content">
       <div class="stage_work">
-        <div class="container">
-          <div class="stage_block">
+          <div class="container">
+            <div class="stage_block">
 
-            <div class="title">
-              <h2><span>Этапы</span> работы</h2>
-              <p>Прозрачное ценообразование с подробным <br> разъяснением затрат на каждом этапе</p>
+              <div class="title">
+                  <h2><span>Этапы</span> работы</h2>
+                  <p>Прозрачное ценообразование с подробным <br> разъяснением затрат на каждом этапе</p>
             </div>
             <div class="itesm_stages">
-              <div class="item">
-                <img loading="lazy" src="../assets/work1.webp" alt="work1">
-                <div>
-                  <h3><span>Заявка</span></h3>
-                  <p><span>Оставьте заявку и получите бесплатную консультацию персонального менеджера. Вам отправят
-                      свежие варианты из статистики, рассчитают ориентировочную стоимость автомобиля и ответят на все
-                      сопутствующие вопросы о покупке автомобиля.</span></p>
-                </div>
-                <img loading="lazy" class="line_img" src="../assets/line1.svg" alt="line1">
-              </div>
-              <div class="item">
-                <img loading="lazy" src="../assets/work2.webp" alt="work2">
-                <div>
-                  <h3><span>Договор</span></h3>
-                  <p><span>Если Вас все устроило, заключаем договор. Вы вносите авансовый депозит и менеджер по покупкам
-                      начинает активные действия по подбору автомобиля.</span></p>
-                </div>
-                <img loading="lazy" class="line_img line_img2" src="../assets/line2.svg" alt="line2">
-              </div>
-              <div class="item">
-                <img loading="lazy" src="../assets/work3.webp" alt="work3">
-                <div>
-                  <h3><span>Подбор и покупка авто</span></h3>
-                  <p><span>Ежедневно менеджер по покупке просматривает доступные лоты и отправляет Вам варианты на
-                      согласование до тех пор, пока не будет найден подходящий. Менеджер отправляет точный расчет цены
-                      согласованного варианта по курсам на день покупки и мы покупаем автомобиль.</span></p>
-                </div>
-                <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
-              </div>
-              <div class="item">
-                <img loading="lazy" src="../assets/work4.webp" alt="work4">
-                <div>
-                  <h3><span>Доставка и отправка</span></h3>
-                  <p><span>Доставляем автомобиль во Владивосток, проходим этапы оформления и отправляем его в Ваш город
-                      любым удобным способом.</span></p>
-                </div>
-                <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
-              </div>
+                  <div class="item">
+                      <img loading="lazy" src="../assets/work1.webp" alt="work1">
+                      <div>
+                          <h3><span>Заявка</span></h3>
+                          <p><span>Оставьте заявку и получите бесплатную консультацию персонального менеджера. Вам отправят свежие варианты из статистики, рассчитают ориентировочную стоимость автомобиля и ответят на все сопутствующие вопросы о покупке автомобиля.</span></p>
+                      </div>
+                      <img loading="lazy" class="line_img" src="../assets/line1.svg" alt="line1">
+                  </div>
+                  <div class="item">
+                      <img loading="lazy" src="../assets/work2.webp" alt="work2">
+                      <div>
+                          <h3><span>Договор</span></h3>
+                          <p><span>Если Вас все устроило, заключаем договор. Вы вносите авансовый депозит и менеджер по покупкам начинает активные действия по подбору автомобиля.</span></p>
+                      </div>
+                      <img loading="lazy" class="line_img line_img2" src="../assets/line2.svg" alt="line2">
+                  </div>
+                  <div class="item">
+                      <img loading="lazy"  src="../assets/work3.webp" alt="work3">
+                      <div>
+                          <h3><span>Подбор и покупка авто</span></h3>
+                          <p><span>Ежедневно менеджер по покупке просматривает доступные лоты и отправляет Вам варианты на согласование до тех пор, пока не будет найден подходящий. Менеджер отправляет точный расчет цены согласованного варианта по курсам на день покупки и мы покупаем автомобиль.</span></p>
+                      </div>
+                      <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
+                  </div>
+                  <div class="item">
+                      <img loading="lazy" src="../assets/work4.webp" alt="work4">
+                      <div>
+                          <h3><span>Доставка и отправка</span></h3>
+                          <p><span>Доставляем автомобиль во Владивосток, проходим этапы оформления и отправляем его в Ваш город любым удобным способом.</span></p>
+                      </div>
+                      <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
+                  </div>
             </div>
             <div class="btns_stage">
               <button class="gradient-button">Получить консультацию</button>
-              <a href="https://wa.me/79244202432" target="_blank"><img loading="lazy" src="../assets/cta_button1.svg"
-                  alt="whatsapp"></a>
+              <a href="https://wa.me/79244202432" target="_blank"><img loading="lazy" src="../assets/cta_button1.svg" alt="whatsapp"></a>
             </div>
-
-          </div>
-          <div class="save_discount">
-            <div>
-              <p>Экономия до <span>30%</span></p>
-              <span>от рынка авто в наличии</span>
+  
             </div>
-            <a href="#" aria-label="Открыть карточку">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M14.0306 8.53074L9.53063 13.0307C9.38973 13.1716 9.19863 13.2508 8.99938 13.2508C8.80012 13.2508 8.60902 13.1716 8.46813 13.0307C8.32723 12.8898 8.24807 12.6987 8.24807 12.4995C8.24807 12.3002 8.32723 12.1091 8.46813 11.9682L11.6875 8.75011H2.5C2.30109 8.75011 2.11032 8.67109 1.96967 8.53044C1.82902 8.38979 1.75 8.19902 1.75 8.00011C1.75 7.8012 1.82902 7.61043 1.96967 7.46978C2.11032 7.32913 2.30109 7.25011 2.5 7.25011H11.6875L8.46937 4.03011C8.32848 3.88921 8.24932 3.69812 8.24932 3.49886C8.24932 3.2996 8.32848 3.10851 8.46937 2.96761C8.61027 2.82671 8.80137 2.74756 9.00062 2.74756C9.19988 2.74756 9.39098 2.82671 9.53187 2.96761L14.0319 7.46761C14.1018 7.53738 14.1573 7.62028 14.1951 7.71155C14.2329 7.80281 14.2523 7.90065 14.2522 7.99943C14.252 8.09822 14.2324 8.19601 14.1944 8.28718C14.1564 8.37836 14.1007 8.46113 14.0306 8.53074Z"
-                  fill="white" />
-              </svg>
-            </a>
+            <div class="save_discount">
+              <div>
+                  <p>Экономия до <span>30%</span></p>
+                  <span>от рынка авто в наличии</span>
+              </div>
+              <a href="#" aria-label="Открыть карточку">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M14.0306 8.53074L9.53063 13.0307C9.38973 13.1716 9.19863 13.2508 8.99938 13.2508C8.80012 13.2508 8.60902 13.1716 8.46813 13.0307C8.32723 12.8898 8.24807 12.6987 8.24807 12.4995C8.24807 12.3002 8.32723 12.1091 8.46813 11.9682L11.6875 8.75011H2.5C2.30109 8.75011 2.11032 8.67109 1.96967 8.53044C1.82902 8.38979 1.75 8.19902 1.75 8.00011C1.75 7.8012 1.82902 7.61043 1.96967 7.46978C2.11032 7.32913 2.30109 7.25011 2.5 7.25011H11.6875L8.46937 4.03011C8.32848 3.88921 8.24932 3.69812 8.24932 3.49886C8.24932 3.2996 8.32848 3.10851 8.46937 2.96761C8.61027 2.82671 8.80137 2.74756 9.00062 2.74756C9.19988 2.74756 9.39098 2.82671 9.53187 2.96761L14.0319 7.46761C14.1018 7.53738 14.1573 7.62028 14.1951 7.71155C14.2329 7.80281 14.2523 7.90065 14.2522 7.99943C14.252 8.09822 14.2324 8.19601 14.1944 8.28718C14.1564 8.37836 14.1007 8.46113 14.0306 8.53074Z" fill="white"/>
+                  </svg>
+              </a>
+            </div>
           </div>
-        </div>
       </div>
       <div class="about_us">
-        <p>
-          <a name="about_us" style="scroll-margin-top: 150px;"></a>
-          <a name="about_us2" style="scroll-margin-top: 350px;"></a>
-        </p>
-        <div class="container">
-          <div class="about_block">
-            <h2 class="d-flex d-lg-none">О нас</h2>
-            <div class="titles">
-              <h2 class="d-none d-lg-block">О нас</h2>
-              <div class="img_abouts">
-                <img src="../assets/abot.webp" alt="О компании">
+          <p>
+              <a name="about_us" style="scroll-margin-top: 150px;"></a>
+              <a name="about_us2" style="scroll-margin-top: 350px;"></a>
+          </p>
+          <div class="container">
+              <div class="about_block">
+                  <h2 class="d-flex d-lg-none">О нас</h2>
+                  <div class="titles">
+                      <h2 class="d-none d-lg-block">О нас</h2>
+                      <div class="img_abouts">
+                        <img src="../assets/abot.webp" alt="О компании">
+                      </div>
+                      <p>Компания “Tomiko Trade” - ваш надежный поставщик по доставке новых 
+                        <br>и подержанных автомобилей из Южной Кореи, Японии и Китая.
+                        <br>
+                        <br>Вам не нужно разбираться в тонкостях процесса приобретения автомобиля. Мы 
+                        <br>делаем это за Вас. Наша цель - помочь Вам приобрести юридически чистый 
+                        <br>автомобиль без пробега по РФ с экономией от 300 000₽.</p>
+                      <div class="btns_stage">
+                        <button class="gradient-button">Подобрать авто</button>
+                      <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg" alt="whatsapp"></a>
+                    </div>
+                  </div>
               </div>
-              <p>Компания “Tomiko Trade” - ваш надежный поставщик по доставке новых
-                <br>и подержанных автомобилей из Южной Кореи, Японии и Китая.
-                <br>
-                <br>Вам не нужно разбираться в тонкостях процесса приобретения автомобиля. Мы
-                <br>делаем это за Вас. Наша цель - помочь Вам приобрести юридически чистый
-                <br>автомобиль без пробега по РФ с экономией от 300 000₽.
-              </p>
-              <div class="btns_stage">
-                <button class="gradient-button">Подобрать авто</button>
-                <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg"
-                    alt="whatsapp"></a>
+              <div class="bottom_abouts">
+                  <div class="item">
+                      <h3>5 +</h3>
+                      <p>Лет на рынке</p>
+                  </div>
+                  <div class="item">
+                      <h3>4 000 +</h3>
+                      <p>довольных клиентов</p>
+                  </div>
+                  <div class="items">
+                      <img src="../assets/class.webp" alt="Лайк">
+                      <p>Прозрачное ценообразование с <br> подробным разъяснением затрат на <br> каждом этапе</p>
+                  </div>
+                  <div class="items">
+                      <img src="../assets/doc.webp" alt="Листок">
+                      <p>Полное сопровождение и <br> предоставление фото/видео <br> отчета на протяжение всей сделки</p>
+                  </div>
+                  <div class="items">
+                      <img src="../assets/dog.webp" alt="Рукопожатие">
+                      <p>Проверенные <br> поставщики</p>
+                  </div>
               </div>
-            </div>
           </div>
-          <div class="bottom_abouts">
-            <div class="item">
-              <h3>5 +</h3>
-              <p>Лет на рынке</p>
-            </div>
-            <div class="item">
-              <h3>4 000 +</h3>
-              <p>довольных клиентов</p>
-            </div>
-            <div class="items">
-              <img src="../assets/class.webp" alt="Лайк">
-              <p>Прозрачное ценообразование с <br> подробным разъяснением затрат на <br> каждом этапе</p>
-            </div>
-            <div class="items">
-              <img src="../assets/doc.webp" alt="Листок">
-              <p>Полное сопровождение и <br> предоставление фото/видео <br> отчета на протяжение всей сделки</p>
-            </div>
-            <div class="items">
-              <img src="../assets/dog.webp" alt="Рукопожатие">
-              <p>Проверенные <br> поставщики</p>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
-    <VKclipsPage />
-    <subcribe />
-    <contacts />
+    <VKclipsPage/>
+    <subcribe/>
+    <contacts/>
   </div>
-
+  
 </template>
 
 <script>
 import VKclipsPage from '../components/VKclips.vue';
 import contacts from '@/components/ContactsPage.vue';
 import subcribe from '@/components/subcribe.vue';
-import swiperRelevant from '@/components/SwiperCars.vue'
+import swiperRelevant from '@/components/SwiperCars.vue';
+import AboutUs from '@/components/AboutUs.vue';
+import LentaFunc from '@/components/LentaFunc.vue';
+import CaruselFuncL from '@/components/CaruselFuncL.vue';
+import CaruselFuncR from '@/components/CaruselFuncR.vue';
+import ReviewSwiper from '@/components/ReviewSwiper.vue';
+import EtapPage from '../components/EtapPage.vue';
+import HelloPage from '../components/HelloPage.vue';
 export default {
   name: 'MainPage',
   components: {
     VKclipsPage,
     contacts,
     subcribe,
-    swiperRelevant
-  },
+    swiperRelevant,
+    AboutUs,
+    LentaFunc,
+    CaruselFuncL,
+    CaruselFuncR,
+    ReviewSwiper,
+    EtapPage,
+    HelloPage,
+  }
 };
 </script>
 
 <style scoped>
+
 .stage_work {
-  margin-bottom: 80px;
+    margin-bottom: 80px;
 }
 
-.tittle img {
+.tittle img{
   height: 50px;
 }
 
 .stage_work .save_discount {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  gap: 11px;
-  margin: 14px 0 0 80px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-  background-color: #D51117;
-  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
-  border-radius: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 11px;
+    margin: 14px 0 0 80px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    background-color: #D51117;
+    clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+    border-radius: 50px;
 }
 
 div {
-  display: block;
-  unicode-bidi: isolate;
+    display: block;
+    unicode-bidi: isolate;
 }
 
-.stage_work {
+.stage_work { 
   padding: 40px 20px;
 }
 
 @media only screen and (max-width: 992px) {
-  .stage_work .itesm_stages .item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-  }
+    .stage_work .itesm_stages .item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    }
 }
 
 .stage_work .itesm_stages .item {
-  max-width: 259px;
-  position: relative;
+    max-width: 259px;
+    position: relative;
 }
 
 .stage_work .stage_block .itesm_stages img {
-  aspect-ratio: 1 / 1;
-  width: 52px;
-  height: 52px;
+    aspect-ratio: 1 / 1;
+    width: 52px;
+    height: 52px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .about_us .about_block .img_abouts img {
-    -webkit-transform: none;
-    transform: none;
-    max-width: 500px;
-    height: auto;
-  }
+    .about_us .about_block .img_abouts img {
+        -webkit-transform: none;
+        transform: none;
+        max-width: 500px;
+        height: auto;
+    }
 }
 
 .about_us .about_block .img_abouts img {
-  -webkit-box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
-  box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
-  border-radius: 16px;
-  aspect-ratio: 500 / 301;
-  width: 603px;
-  height: 363px;
+    -webkit-box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    border-radius: 16px;
+    aspect-ratio: 500 / 301;
+    width: 603px;
+    height: 363px;
 }
 
 .about_us .bottom_abouts .items img {
-  margin-right: 24px;
-  aspect-ratio: 1 / 1;
-  width: 41px;
-  height: 41px;
+    margin-right: 24px;
+    aspect-ratio: 1 / 1;
+    width: 41px;
+    height: 41px;
 }
 
 .container {
@@ -279,8 +274,8 @@ div {
 }
 
 .itesm_stages {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; 
+  flex-wrap: wrap; 
   justify-content: space-between;
   margin-top: 20px;
 }
@@ -292,7 +287,6 @@ div {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
 /*
 .item img {
   width: 100%;
@@ -360,7 +354,7 @@ div {
   margin-bottom: 20%;
 }
 
-.titles p {
+.titles p{
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
@@ -370,7 +364,7 @@ div {
   padding: 0 25%;
 }
 
-.titles h1 {
+.titles h1{
   font-size: 64px;
   font-weight: 700;
   line-height: 76.8px;
@@ -379,7 +373,6 @@ div {
   margin-bottom: 8px;
   text-transform: uppercase;
 }
-
 .title h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -399,19 +392,19 @@ div {
 }
 
 .ZAP {
-  position: relative;
-  z-index: 1;
-  border-bottom: 1px solid #344150;
-  padding-bottom: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: end;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid #344150;
+    padding-bottom: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: end;
 }
 
 .content {
@@ -437,51 +430,48 @@ div {
 
 /* */
 .h1 {
-  clear: both;
-}
+    clear: both;
+  }
 
-.p {
-  clear: both;
-}
+  .p {
+    clear: both;
+  }
+  
+  h3 {
+    margin: 40px 0 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #42b983;
+  }
 
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 15px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Кнопка с градиентом */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Кнопка с градиентом */
 .gradient-button {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   border: none;
@@ -498,264 +488,257 @@ nav ul li a:hover {
 }
 
 .ZAP .left_info .item div {
-  font-family: Bebas-Neue, Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 48px;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 4px;
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 4px;
 }
 
 .ZAP .left_info .item p {
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.94px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.5019607843);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5019607843);
 }
 
 .ZAP .left_info .item div img {
-  margin-right: 12px;
-  aspect-ratio: 1 / 1;
-  height: 25px;
-  width: 25px;
+    margin-right: 12px;
+    aspect-ratio: 1 / 1;
+    height: 25px;
+    width: 25px;
 }
 
 .ZAP .left_info .item div {
-  font-family: Bebas-Neue, Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 48px;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 4px;
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 4px;
 }
 
 .ZAP .left_info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .ZAP .card_discoint p {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 36px;
-  color: #fff;
-  text-align: left;
-  margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 24px;
 }
 
 .ZAP .card_discoint p span {
-  font-size: 48px;
-  font-weight: 900;
-  line-height: 72px;
-  text-align: left;
-  color: #fd554b;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 72px;
+    text-align: left;
+    color: #fd554b;
 }
 
 .stage_work .title h2 span {
-  color: #f8534a;
+    color: #f8534a;
 }
 
 .stage_work .title h2 {
-  font-family: Bebas-Neue, Arial, sans-serif;
-  font-size: 70px;
-  font-weight: 700;
-  line-height: 70px;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 16px;
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 16px;
 }
 
 .stage_work .itesm_stages .item h3 span {
-  color: #fff;
+    color: #fff;
 }
 
 .stage_work .itesm_stages .item p {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 24px;
-  text-align: left;
-  color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .stage_work .stage_block .itesm_stages img {
-  aspect-ratio: 1 / 1;
-  width: 52px;
-  height: 52px;
+    aspect-ratio: 1 / 1;
+    width: 52px;
+    height: 52px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .stage_work .itesm_stages .item .line_img {
-    left: 80px;
-    max-width: 139px;
-  }
+    .stage_work .itesm_stages .item .line_img {
+        left: 80px;
+        max-width: 139px;
+    }
 }
-
 .stage_work .itesm_stages .item .line_img {
-  position: absolute;
-  top: 27px;
-  left: 77px;
+    position: absolute;
+    top: 27px;
+    left: 77px;
 }
-
 .stage_work .stage_block .itesm_stages .line_img {
-  aspect-ratio: 203 / 2;
-  width: 203px;
-  height: 2px;
+    aspect-ratio: 203 / 2;
+    width: 203px;
+    height: 2px;
 }
-
 .stage_work .stage_block .itesm_stages img {
-  aspect-ratio: 1 / 1;
-  width: 52px;
-  height: 52px;
+    aspect-ratio: 1 / 1;
+    width: 52px;
+    height: 52px;
 }
-
-img,
-svg {
-  vertical-align: middle;
+img, svg {
+    vertical-align: middle;
 }
-
 .stage_work .btns_stage img {
-  aspect-ratio: 1 / 1;
-  width: 70px;
-  height: 70px;
+    aspect-ratio: 1 / 1;
+    width: 70px;
+    height: 70px;
 }
 
 .about_us .about_block h2 {
-  font-family: Bebas-Neue, Arial, sans-serif;
-  font-size: 70px;
-  font-weight: 700;
-  line-height: 70px;
-  text-align: left;
-  color: #fff;
-  margin-bottom: 16px;
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 16px;
 }
-
 @media (min-width: 992px) {
-  .d-lg-block {
-    display: block !important;
-  }
+    .d-lg-block {
+        display: block !important;
+    }
 }
 
 .about_us .about_block .titles p {
-  font-family: Inter;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
-  text-align: left;
-  color: #fff;
-  white-space: pre-wrap;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    color: #fff;
+    white-space: pre-wrap;
 }
 
 .about_us .about_block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-bottom: 1px solid #2a3847;
-  padding: 0 0 40px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #2a3847;
+    padding: 0 0 40px 0;
 }
 
 @media only screen and (max-width: 1200px) {
-  .about_us .about_block .img_abouts img {
-    -webkit-transform: none;
-    transform: none;
-    max-width: 500px;
-    height: auto;
-  }
+    .about_us .about_block .img_abouts img {
+        -webkit-transform: none;
+        transform: none;
+        max-width: 500px;
+        height: auto;
+    }
 }
-
 .about_us .about_block .img_abouts img {
-  -webkit-box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
-  box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
-  border-radius: 16px;
-  aspect-ratio: 500 / 301;
-  width: 603px;
-  height: 363px;
+    -webkit-box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    box-shadow: 0 24px 100px 0 rgba(213, 17, 23, 0.4);
+    border-radius: 16px;
+    aspect-ratio: 500 / 301;
+    width: 603px;
+    height: 363px;
 }
 
 .about_us .about_block .titles .btns_stage {
-  margin-top: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+    margin-top: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .about_us .btns_stage img {
-  aspect-ratio: 1 / 1;
-  width: 70px;
-  height: 70px;
+    aspect-ratio: 1 / 1;
+    width: 70px;
+    height: 70px;
 }
 
 .about_us .about_block .titles {
-  max-width: 748px;
+    max-width: 748px; 
 }
 
 .about_us .bottom_abouts .item h3 {
-  font-family: Bebas-Neue, Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 48px;
-  text-align: center;
-  color: #fd554b;
-  margin-bottom: 4px;
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: #fd554b;
+    margin-bottom: 4px;
 }
 
 .about_us .bottom_abouts .item p {
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 16.94px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.5019607843);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5019607843);
 }
 
 .about_us .bottom_abouts .items img {
-  margin-right: 24px;
-  aspect-ratio: 1 / 1;
-  width: 41px;
-  height: 41px;
+    margin-right: 24px;
+    aspect-ratio: 1 / 1;
+    width: 41px;
+    height: 41px;
 }
 
 .about_us .bottom_abouts .items p {
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
-  text-align: left;
-  color: #fff;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    color: #fff;
 }
 
 .about_us .bottom_abouts .items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
 }
 
 .about_us .bottom_abouts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-top: 33px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 33px;
 }
+
 </style>

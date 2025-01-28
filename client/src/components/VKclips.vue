@@ -36,6 +36,7 @@
             </div>
             <div class="clips_swiper swiper">
                 <div class="swiper-wrapper">
+<<<<<<< HEAD
                     <swiper :modules="modules" :slides-per-view="3" :space-between="50" navigation
                         :pagination="{ clickable: true }" @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
                         <SwiperSlide>
@@ -123,6 +124,91 @@
                             </a>
                         </SwiperSlide>
                     </swiper>
+=======
+                    <div class="swiper-wrapper">
+                    <swiper :modules="modules" :slides-per-view="10" :space-between="10" 
+                    navigation :pagination="{ clickable: true }" 
+                    @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[1]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[2]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[2]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[3]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[3]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[4]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[4]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[5]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[5]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[6]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[6]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[7]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[7]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[8]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[8]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[9]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[9]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[10]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[10]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[11]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[11]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[12]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[12]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[12]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[12]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[13]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[13]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[14]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[14]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[15]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[15]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[16]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[16]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[17]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[17]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[18]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[18]?.image[4]?.url }" />
+                        </SwiperSlide>
+                    </swiper>
+                    </div>
+
+>>>>>>> origin/main
                 </div>
             </div>
             <a href="https://vk.com/tomiko_trade" target="_blank" class="clips_link d-flex d-sm-none">
@@ -153,27 +239,36 @@
     </section>
 </template>
 
-<script scoped>
+<script>
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import axios from 'axios';
+
 export default {
     name: 'VKclipsPage',
     components: {
         Swiper,
         SwiperSlide,
     },
-    date() {
+    data() {
         return {
-            clips: []
-        }
+            clips: [],
+            loading: false,
+            error: null,
+            placeholder: 'data:image/svg+xml;base64,' + btoa(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="405" height="720">
+          <rect width="100%" height="100%" fill="#ccc" />
+          <text x="50%" y="50%" text-anchor="middle" fill="#666" font-size="24px" dy=".3em">Image not loaded</text>
+        </svg>`),
+        };
     },
     mounted() {
         this.fetchData();
     },
     methods: {
+<<<<<<< HEAD
         async fetchData(params = {}) {
             return await axios
                 .get('/api/clips/', { params })
@@ -185,7 +280,22 @@ export default {
                     console.error('Error fetching data:', error);
                     throw error;
                 });
+=======
+        async fetchData() {
+            this.loading = true;
+            try {
+                const response = await axios.get('http://localhost:8080/api/clips/');
+                this.clips = response.data;
+                console.log('CLIPS', this.clips);
+            } catch (error) {
+                this.error = 'Error fetching vk_clips';
+                console.error(error);
+            } finally {
+                this.loading = false;
+            }
+>>>>>>> origin/main
         },
+        
     },
     setup() {
         const onSwiper = (swiper) => {
@@ -200,11 +310,10 @@ export default {
             modules: [Navigation, Pagination, A11y],
         };
     },
-};    
+};
 </script>
 
-<style>
-/*<iframe loading="lazy" src="https://vk.com/video_ext.php?oid=499628829&id=456239017&hash=08167ba3a6aa1892&__ref=vk.admin_android&api_hash=173506549679f8e7117113cc6111_GM2DINZRGM2TGOI" width="640" height="360" frameborder="0" allowfullscreen></iframe>*/
+<style scoped>
 .clips {
     padding: 60px 0 100px 0;
     margin: 0 0 80px 0;
@@ -230,15 +339,15 @@ export default {
 
 .clips .clips_swiper .swiper-slide img {
     width: 150px;
-    height: 264px;
+    height: 260px;
     border-radius: 16px;
     display: inline-block;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 .swiper-slide img {
     object-fit: cover;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 img,
@@ -249,7 +358,7 @@ svg {
 .clips .clips_swiper {
     overflow: visible;
     display: inline-block;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 .swiper-horizontal {
@@ -273,6 +382,7 @@ svg {
     height: 100%;
     z-index: 1;
     display: flex;
+    flex-direction: row;
     transition-property: transform;
     transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
     box-sizing: content-box;
@@ -281,11 +391,10 @@ svg {
 .clips .clips_swiper .swiper-wrapper {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 .clips .title h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: 70px;
@@ -321,6 +430,10 @@ svg {
     .d-sm-flex {
         display: flex !important;
     }
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .clips .section_top {

@@ -64,7 +64,7 @@
 
 
                 </div>
-                <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
+                <swiper-container :slides-per-view="5" :space-between="50" ref="swiperRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
 
                     <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">
@@ -94,7 +94,7 @@
                 </swiper-container>
                 <router-view :key="$route.fullPath"></router-view>
             </div>
-            <contacts />
+            <contacts/>
         </ul>
 
         <!-- Модальное окно -->
@@ -114,18 +114,15 @@ register();
 import { reactive } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
-import contacts from '@/components/ContactsPage.vue';
 import axios from 'axios';
 export default {
     name: 'CarDetail',
     components: {
         ModalForm,
         ValidationForm,
-        contacts
     },
     data() {
         return {
-
             selectedImage: '',
             mainCar: [],
             items: [],
