@@ -16,7 +16,7 @@
 
 			<div class="filter" style="visibility: visible;">
 				<div class="dropdown-filter-select">
-					<select class="item" v-model="selectedBrand">
+					<select class="item" v-model="selectedBrand" @change="onBrandChange">
 						<option value="" disabled>Марка авто</option>
 						<option v-for="option in brands" :key="option" :value="option">
 							{{ option }}
@@ -110,7 +110,7 @@
 				<div class="result">
 					<button @click="fetchDataWithParam">Показать</button>
 					<a href="/japan/" style="visibility: hidden;">Сбросить</a>
-					<div v-if="items.length">
+					<!---<div v-if="items.length">
 						<ul>
 							<li v-for="item in items" :key="item.id" class="item">
 								<div>{{ item.brand }}</div>
@@ -119,11 +119,11 @@
 								<div class="image_frame"><img :src="`${mediaUrl}${item.image}`"></div>
 							</li>
 						</ul>
-					</div>
+					</div>--->
 				</div>
 			</div>
 		</section>
-    
+
 		<section class="catalog-car">
 			<div class="catalog">
 				<div class="sort-and-curTraded">
@@ -139,19 +139,20 @@
 
 				<div class="catalog-items">
 					<div class="card">
+						<li v-for="item in items" :key="item.id" class="item">
+							<div class="card-title">
 
-						<div class="card-title">
-							<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
-							<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
-						</div>
-						<div class="catalog-car-image">
-							<img class="car-image" src="img/image-26.png" alt="Car">
-						</div>
-						<div class="price-order">
-							<h3 class="title-price-order">{{ car.price }} ₽</h3>
-							<button class="order-button">Оставить заявку</button>
-						</div>
-
+								<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
+								<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
+							</div>
+							<div class="catalog-car-image">
+								<img class="car-image" src="img/image-26.png" alt="Car">
+							</div>
+							<div class="price-order">
+								<h3 class="title-price-order">{{ item.price }} ₽</h3>
+								<button class="order-button">Оставить заявку</button>
+							</div>
+						</li>
 					</div>
 				</div>
 
@@ -301,7 +302,7 @@
 
 <script>
 import axios from 'axios';
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 export default {
 	name: 'JapanPage',
@@ -319,6 +320,7 @@ export default {
 			colors: ['Черный', 'Бежевый', 'Белый', 'Бордовый', 'Желтый', 'Зеленый', 'Золотой',
 				'Коричневый', 'Красный', 'Оранжевый', 'Розовый', 'Серебряный', 'Серый', 'Синий', 'Фиолетовый'],
 			items: [],
+			brands_models: [],
 			sorts: {
 				"mileage": "Пробег: по возрастанию",
 				"-mileage": "Пробег: по убыванию",
@@ -354,7 +356,8 @@ export default {
 		}
 	},
 	mounted() {
-		this.fetchData({ country: this.COUNTRY, type: "cars" })
+		this.fetchData({ country: this.COUNTRY, type: "cars", page: 1 });
+		this.fetchModels({ country: this.COUNTRY, type: "cars_models" })
 			.then(() => this.updateBrands());
 	},
 	methods: {
@@ -373,28 +376,39 @@ export default {
 				.then(response => {
 					this.items = response.data;
 					console.log('Fetched data:', this.items);
-				
+
 				}).catch(error => {
 					console.error('Error fetching data:', error)
 					throw error;
 				});
 		},
+		fetchModels(params = {}) {
+			return axios.get('/api/filter/', { params })
+				.then(response => {
+					this.brands_models = response.data;
+					console.log('Fetched models:', this.brands_models, this.brands_models.length);
 
+				}).catch(error => {
+					console.error('Error fetching models:', error)
+					throw error;
+				});
+		},
 		onBrandChange() {
 			console.log("Выбранный бренд:", this.selectedBrand);
+			this.selectedModel = '';
 			this.updateModels(this.selectedBrand);
 		},
 		updateBrands() {
-			this.brands = Array.from(new Set(this.items
-				.map(item => item.brand_country?.brand)
+			this.brands = Array.from(new Set(this.brands_models
+				.map(item => item.brand)
 				.filter(brand => brand))).sort();
 			console.log('Updated brands:', this.brands);
 		},
 		updateModels(selectedBrand) {
-			this.models = Array.from(new Set(this.items
+			this.models = Array.from(new Set(this.brands_models
 				.map(item => {
 					const model = item.model;
-					return model && selectedBrand == item.brand_country?.brand ? model : null
+					return model && selectedBrand == item.brand ? model : null
 				})
 				.filter(model => model))).sort();
 			console.log('Updated model:', this.models);
