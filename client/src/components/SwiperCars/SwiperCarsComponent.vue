@@ -5,7 +5,7 @@
                 <div class="control">
                     <div class="control-title1">ПОПУЛЯРНЫЕ АВТО</div>
                     <div class="control-row">
-                        <div class="control-title2">Из {{ country }}</div>
+                        <div class="control-title2">ИЗ {{ country }}</div>
                         <img :src="flagPath" alt="ФЛАГ" class="flag" />
                     </div>
                 </div>
