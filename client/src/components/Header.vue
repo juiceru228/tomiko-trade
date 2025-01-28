@@ -8,7 +8,7 @@
           <li><router-link to="/china">Авто из Китая</router-link></li>
           <li><router-link to="/japan">Авто из Японии</router-link></li>
           <li><router-link to="/korea">Авто из Кореи</router-link></li>
-          <li><router-link to="/contacts">Контакты</router-link></li>
+          <li><router-link to="/contact">Контакты</router-link></li>
           <li><router-link to=""> Акции</router-link></li></span>
           <span class="right-text">8 (800) 500-49-46
           <li><router-link to="/promotions"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
