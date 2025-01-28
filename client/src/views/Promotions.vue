@@ -67,7 +67,7 @@
 
 <script>
 export default {
-  name: "Promotions",
+  name: "PromotionsComponent",
 };
 </script>
 
@@ -75,6 +75,7 @@ export default {
 .promotions {
   font-family: Arial, sans-serif;
   color: white;
+  text-align: left;
   padding: 20px;
 }
 
@@ -126,12 +127,14 @@ export default {
 
 .promo-text ul {
   list-style: none;
+  text-align: left;
   padding: 0;
   margin: 20px 0;
 }
 
 .promo-text ul li {
   display: flex;
+  text-align: left;
   align-items: left;
   font-size: 16px;
 }
