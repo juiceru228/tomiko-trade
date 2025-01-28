@@ -30,7 +30,7 @@
 
                                 <div class="price-button-wrapper">
                                     <div class="swiper-price">{{ item.price }} ₽</div>
-                                    <button class="swipe-button" @click="openModal">Оставить заявку</button>
+                                    <button class="swipe-button" @click.prevent="openModal">Оставить заявку</button>
 
                                 </div>
 
@@ -38,7 +38,7 @@
 
                         </router-link>
                     </swiper-slide>
-
+                    
                     <swiper-slide class="swiper-slide"></swiper-slide>
                     <swiper-slide class="swiper-slide"></swiper-slide>
 
@@ -46,16 +46,27 @@
                 <router-view :key="$route.fullPath"></router-view>
             </div>
         </ul>
+        <!-- Модальное окно -->
+        <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+        </ModalForm>
     </div>
 </template>
 <script>
 import { register } from 'swiper/element/bundle';
 import { ref } from 'vue';
 register();
+import { reactive } from 'vue';
+import ModalForm from '../../components/ModalForm.vue';
+import ValidationForm from '../../components/ValidationForm.vue';
 import 'swiper/swiper-bundle.css';
 import axios from 'axios';
 export default {
     name: 'SwiperCarsComponent',
+    components: {
+        ModalForm,
+        ValidationForm,
+    },
     props: {
         fetchParams: {
             type: Object,
@@ -76,8 +87,15 @@ export default {
             selectedImage: '',
             mainCar: [],
             items: [],
+            isModalVisible: false,
             car: null,
             mediaUrl: '/media/',
+            form: reactive({
+                name: '',
+                phone_number: '',
+                description: '',
+                isAgreed: false
+            }),
 
         };
     },
@@ -116,6 +134,20 @@ export default {
         },
         onSlideChange() {
             console.log('Slide changed');
+        },
+        openModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        },
+        updateForm(newForm) {
+            this.form = newForm;
+        },
+        handleFormSubmit(formData) {
+            console.log('Форма успешно отправлена!', formData);
+            alert('Форма успешно отправлена!');
+            this.isModalVisible = false;
         },
     },
     setup() {

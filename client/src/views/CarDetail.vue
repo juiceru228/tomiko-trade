@@ -79,7 +79,7 @@
 
                                 <div class="price-button-wrapper">
                                     <div class="swiper-price">{{ item.price }} ₽</div>
-                                    <button class="swipe-button" @click="openModal">Оставить заявку</button>
+                                    <button class="swipe-button" @click.prevent="openModal">Оставить заявку</button>
 
                                 </div>
 
