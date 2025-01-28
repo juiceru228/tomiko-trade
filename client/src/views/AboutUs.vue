@@ -10,10 +10,12 @@
                         Наша команда профессионалов поможет вам выбрать идеальный автомобиль, учитывая ваши потребности и бюджет.
                     </p>
                     <div class="stages__buttons">
-                        <button class="pill-button">Получить консультацию</button>
-                        <button class="round-button">
-                            <img src="../assets/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
-                        </button>
+                        <div class="buttons">
+                            <button class="pill-button">Получить консультацию</button>
+                            <button class="round-button">
+                                <img src="../assets/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <img src="../assets/abot.webp" alt="Команда" class="about-image" />
@@ -42,63 +44,24 @@
             </div>
         </div>
         <div class="stages-of-work-card">
-            <div class="stage-title">
-              <h2><span>ЭТАПЫ</span> РАБОТЫ</h2>
-              <p>Прозрачное ценообразование с подробным <br> разъяснением затрат на каждом этапе</p>
-            </div>
-            <div class="item-stage">
-                <div class="item-images">
-                    <img loading="lazy" class="item-icons" src="../assets/work1.webp" alt="work1">
-                    <img loading="lazy" class="line_img" src="../assets/line1.svg" alt="line1">
-                </div>
-                <div class="item-images">
-                    <img loading="lazy" class="item-icons"  src="../assets/work2.webp" alt="work2">
-                    <img loading="lazy" class="line_img line_img2" src="../assets/line2.svg" alt="line2">
-                </div>
-                <div class="item">
-                    <img loading="lazy" class="item-icons"  src="../assets/work3.webp" alt="work3">
-                    <div>
-                        <h3><span>Подбор и покупка авто</span></h3>
-                        <p><span>Ежедневно менеджер по покупке просматривает доступные лоты и отправляет Вам варианты на
-                            согласование до тех пор, пока не будет найден подходящий. Менеджер отправляет точный расчет цены
-                            согласованного варианта по курсам на день покупки и мы покупаем автомобиль.</span></p>
-                    </div>
-                    <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
-                </div>
-                <div class="item">
-                    <img loading="lazy" class="item-icons"  src="../assets/work4.webp" alt="work4">
-                    <div>
-                        <h3><span>Доставка и отправка</span></h3>
-                        <p><span>Доставляем автомобиль во Владивосток, проходим этапы оформления и отправляем его в Ваш город
-                            любым удобным способом.</span></p>
-                    </div>
-                    <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
-                </div>
-                <div class="item-text">
-                    <h3><span>Заявка</span></h3>
-                    <p><span>Оставьте заявку и получите бесплатную консультацию персонального менеджера. Вам отправят
-                        свежие варианты из статистики, рассчитают ориентировочную стоимость автомобиля и ответят на все
-                        сопутствующие вопросы о покупке автомобиля.</span></p>
-                </div>
-                <div class="item-text">
-                    <h3><span>Договор</span></h3>
-                    <p><span>Если Вас все устроило, заключаем договор. Вы вносите авансовый депозит и менеджер по покупкам
-                            начинает активные действия по подбору автомобиля.</span></p>
-                </div>
-            </div>
-            <div class="stages__buttons">
-                <button class="pill-button">Получить консультацию</button>
-                <button class="round-button">
-                    <img src="../assets/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
-                </button>
-            </div>
+           <EtapPage />
+        </div>
+        <div class="commissions">
+            <CommissionsComp />
         </div>
     </div>
 </template>
 
 <script>
+import EtapPage from '@/components/EtapPage.vue';
+import CommissionsComp from '@/components/CommissionsComp.vue';
+
 export default {
     name: "AboutUs",
+    components: {
+        EtapPage,
+        CommissionsComp
+    }
 };
 </script>
 
@@ -106,7 +69,7 @@ export default {
 .about-us {
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding-top: 50px;
     color: white;
     border-radius: 12px;
     gap: 32px;
@@ -118,6 +81,9 @@ export default {
     flex-direction: column;
     gap: 24px;
     text-align: left;
+    padding-top: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .about-us-block {
@@ -150,7 +116,6 @@ export default {
 
 .stages__buttons {
     display: flex;
-    align-items: center;
     gap: 12px;
     margin-top: 24px;
 }
@@ -175,6 +140,13 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 21px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
 }
 
 .round-button img {
@@ -226,11 +198,13 @@ export default {
 }
 
 .list-item-img img{
-    margin-right: 24px;
+    margin-right: 10px;
     aspect-ratio: 1 / 1;
     width: 41px;
     height: 41px;
     align-items: start;
+    margin-bottom: auto;
+    margin-top: 30px;
 }
 
 .list-text-img {
@@ -249,50 +223,8 @@ export default {
     height: 41px;
 }
 
-.stage-of-work-card {
-    text-align: center;
-    box-sizing: border-box;
-    background-image: url(../assets/stage1.webp);
-    border-radius: 15px;
-    padding-bottom: 80px;
+.commissions {
+    background-color: #081E36;
 }
 
-.stage-title h2{
-    font-family: 'Bebas Neue';
-    font-size: 70px;
-    margin-bottom: 10px;
-}
-
-.stage-title p {
-    font-family: 'Inter';
-    font-size: 18px;
-    color: #FFFFFF80;
-}
-
-.stage-title h2 span {
-    color: #f8534a;
-}
-
-.item-stage {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.item img {
-    width: 38px;
-    height: 38px;
-}
-
-.line_img {
-    width: 203px;
-    height: 2px;
-}
 </style>

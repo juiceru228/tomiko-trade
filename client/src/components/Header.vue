@@ -4,15 +4,6 @@
       <ul>
         <div class="header-text">
           <span class="left-text">
-<<<<<<< HEAD
-            <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
-            <li><router-link to="/china">Авто из Китая</router-link></li>
-            <li><router-link to="/japan">Авто из Японии</router-link></li>
-            <li><router-link to="/korea">Авто из Кореи</router-link></li>
-          </span>
-          <span class="right-text">8 (800) 500-49-46
-            <li><router-link to="/"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
-=======
           <li><router-link to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link></li>
           <li><router-link to="/china">Авто из Китая</router-link></li>
           <li><router-link to="/japan">Авто из Японии</router-link></li>
@@ -21,7 +12,6 @@
           <li><router-link to=""> Акции</router-link></li></span>
           <span class="right-text">8 (800) 500-49-46
           <li><router-link to="/promotions"><img alt="Vue logo" src="../assets/cta_button1.svg"></router-link></li>
->>>>>>> origin/main
           </span>
         </div>
       </ul>
@@ -38,28 +28,6 @@ export default {
 <style scoped>
 /*Тут header*/
 .header {
-<<<<<<< HEAD
-  background-color: rgba(0, 0, 0, 0)e;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  width: 90%;
-  text-align: left;
-  position: relative;
-  margin: 0 auto;
-}
-
-/*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
-.header-text {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: 0 auto;
-}
-=======
     background-color: #011224;
     color: white;
     display: flex;
@@ -107,7 +75,6 @@ export default {
   .h1 {
     clear: both;
   }
->>>>>>> origin/main
 
 /*Тут левая часть header*/
 .left-text {
@@ -180,26 +147,12 @@ ul {
   margin-bottom: 1rem;
 }
 
-<<<<<<< HEAD
-ol,
-ul {
-  padding-left: 2rem;
-}
-
-img,
-svg {
-  vertical-align: middle;
-  aspect-ratio: 1 / 1;
-  height: 80px;
-  width: 80px;
-=======
 img, svg {
     vertical-align: middle;
     aspect-ratio: 1 / 1;
     height: 80px;
     width: 80px;
 
->>>>>>> origin/main
 }
 
 header .right-text img {

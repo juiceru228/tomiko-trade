@@ -139,15 +139,9 @@ export default {
     color: rgba(255, 255, 255, 0.5);
 }
 
-<<<<<<< HEAD
-.contacts .contact_item a,
-.contacts .contact_item div {
-    font-family: Inter;
-=======
 
 .contacts .contact_item a, .contacts .contact_item div {
 
->>>>>>> origin/main
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
