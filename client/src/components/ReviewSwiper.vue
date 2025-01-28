@@ -1,7 +1,8 @@
 <template>
     <div class="swiper-column">
-        <swiper :slides-per-view="4" :space-between="10"
-        pagination navigation :loop="false" :preventClicks="true">
+        <swiper :modules="modules" :slides-per-view="4" :space-between="10" 
+          navigation :pagination="{ clickable: true }" 
+          @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
         <swiper-slide v-for="review in reviews" :key="review.id">
             <ReviewCard 
             :name="review.user.name"
@@ -15,6 +16,9 @@
   
 <script>
   import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { Navigation, Pagination, A11y } from 'swiper/modules';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
   import 'swiper/swiper-bundle.css';
   import ReviewCard from './ReviewCard.vue';
   
@@ -46,7 +50,21 @@
       .then(data => {
         this.reviews = data.reviews;
       });
-  }
+  },
+  setup() {
+        const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
+        return {
+            onSwiper,
+            onSlideChange,
+            modules: [Navigation, Pagination, A11y],
+        };
+    },
+  
 }
 </script>
   

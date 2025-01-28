@@ -6,12 +6,14 @@
       </div>
       <div class="review-content">
         <h3 class="review-name">{{ truncatedName }}</h3>
-        <p class="review-text">{{ review }}</p>
       </div>
-      <div class="stars">
-          <span v-for="star in stars" :key="star" class="star">★</span>
-          <span v-for="star in remainingStars" :key="star" class="star empty">☆</span>
+      <div class="ostatok">
+        <div class="stars">
+            <span v-for="star in stars" :key="star" class="star">★</span>
+            <span v-for="star in remainingStars" :key="star" class="star empty">☆</span>
         </div>
+        <p class="review-text">{{ review }}</p>
+      </div>  
     </div>
   </div>
 </template>
@@ -56,12 +58,13 @@ export default {
     padding: 16px 24px;
     border-radius: 16px;
     background: #081e36;
-    max-width: 338px;
+    max-width: 340px;
+    
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -85,6 +88,13 @@ export default {
 
 .stars {
   color: gold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 4px;
 }
 
 .star.empty {
@@ -93,7 +103,11 @@ export default {
 
 .review-text {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: #FFF;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -123,8 +137,32 @@ export default {
     width: 100%;
     padding-right: var(--bs-gutter-x, .75rem);
     padding-left: var(--bs-gutter-x, .75rem);
-    margin-right: auto;
     margin-left: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+    flex-wrap: wrap;
+    flex-direction: column;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.ostatok {
+  display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 8px;
 }
 </style>
  
