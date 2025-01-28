@@ -11,7 +11,7 @@
 		<section class="car-filter">
 			<div class="title">
 				<h1>Автомобили из Кореи</h1>
-				<img class="emoji-img" src="../assets/flag2.webp" alt="country-flag">
+				<img class="emoji-img" src="../assets/flag.svg" alt="country-flag">
 			</div>
 
 			<div class="filter" style="visibility: visible;">
