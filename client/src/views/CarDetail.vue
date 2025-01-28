@@ -94,6 +94,7 @@
                 </swiper-container>
                 <router-view :key="$route.fullPath"></router-view>
             </div>
+            <contacts/>
         </ul>
 
         <!-- Модальное окно -->
