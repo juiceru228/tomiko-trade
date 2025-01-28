@@ -2,7 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import filters
-from .serializers import CarSerializer, BrandSerializer
+from .serializers import CarSerializer, BrandSerializer, CarValuesSerializer
 from django.core.paginator import Paginator
 import logging
 logger = logging.getLogger('django')
@@ -73,6 +73,12 @@ class FilteredList(APIView):
                 serializer = CarSerializer(page_obj, many=True)
             else:
                 serializer = CarSerializer(queryset, many=True)
+            logger.info("fetch cars")
+        elif data_type == 'cars_models':
+            queryset = Car.objects.all().order_by(ordering)
+            if filter_conditions:
+                queryset = queryset.filter(**filter_conditions)
+                serializer = CarValuesSerializer(queryset, many=True)
             logger.info("fetch cars")
         elif data_type == 'brands':
             queryset = Brand.objects.all()

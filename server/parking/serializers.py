@@ -12,3 +12,7 @@ class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = ['id', 'model', 'year', 'mileage', 'price', 'transmission', 'engine_volume', 'drive', 'color', 'power_volume', 'image', 'duty', 'brand_country']
+class CarValuesSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    model = serializers.CharField()
+    brand = serializers.CharField(source='brand_country.brand')
