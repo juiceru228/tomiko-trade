@@ -140,19 +140,19 @@
 				<div class="catalog-items">
 					<div class="card">
 						<li v-for="item in items" :key="item.id" class="item">
-						<div class="card-title">
-							
-							<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
-							<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
-						</div>
-						<div class="catalog-car-image">
-							<img class="car-image" src="img/image-26.png" alt="Car">
-						</div>
-						<div class="price-order">
-							<h3 class="title-price-order">{{ item.price }} ₽</h3>
-							<button class="order-button">Оставить заявку</button>
-						</div>
-					</li>
+							<div class="card-title">
+
+								<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
+								<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
+							</div>
+							<div class="catalog-car-image">
+								<img class="car-image" src="img/image-26.png" alt="Car">
+							</div>
+							<div class="price-order">
+								<h3 class="title-price-order">{{ item.price }} ₽</h3>
+								<button class="order-button">Оставить заявку</button>
+							</div>
+						</li>
 					</div>
 				</div>
 
@@ -302,7 +302,7 @@
 
 <script>
 import axios from 'axios';
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 export default {
 	name: 'ChinaPage',
@@ -358,7 +358,7 @@ export default {
 	mounted() {
 		this.fetchData({ country: this.COUNTRY, type: "cars", page: 1 });
 		this.fetchModels({ country: this.COUNTRY, type: "cars_models" })
-		.then(() => this.updateBrands());
+			.then(() => this.updateBrands());
 	},
 	methods: {
 		toggleDropdown() {
