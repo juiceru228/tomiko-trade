@@ -6,12 +6,12 @@
       </div>
       <div class="review-content">
         <h3 class="review-name">{{ truncatedName }}</h3>
-        <div class="stars">
+        <p class="review-text">{{ review }}</p>
+      </div>
+      <div class="stars">
           <span v-for="star in stars" :key="star" class="star">★</span>
           <span v-for="star in remainingStars" :key="star" class="star empty">☆</span>
         </div>
-        <p class="review-text">{{ review }}</p>
-      </div>
     </div>
   </div>
 </template>
@@ -46,15 +46,17 @@ export default {
 
 <style scoped>
 .review-card {
-  justify-content:space-between 20;
-  display: flex;
-  align-items: center;
-  max-width: 338px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: #081e36;
-  margin: 10px;
+  display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 16px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 16px 24px;
+    border-radius: 16px;
+    background: #081e36;
+    max-width: 338px;
 }
 
 .avatar {

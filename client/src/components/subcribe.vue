@@ -77,7 +77,6 @@ export default {
     }
 }
 .subscribe .title h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: normal;
@@ -124,7 +123,6 @@ export default {
     -ms-flex-align: center;
     align-items: center;
     gap: 24px;
-    font-family: Inter;
     font-size: 24px;
     font-weight: 300;
     color: #FFF;

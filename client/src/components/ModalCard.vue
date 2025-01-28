@@ -1,6 +1,5 @@
 <template>
     <div>
-        <form @skidka.prevent="skidka" class="custom-form" @click="handleFormClick">
             <div class="modal_ show">
                 <div class="modal_content">
                     <span class="close_modal">
@@ -35,7 +34,6 @@
                     </div>
                 </div>
             </div>
-        </form>
         <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
             <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
         </ModalForm>
@@ -54,6 +52,7 @@ export default {
     },
     data() {
     return {
+    showModal: false,
     isModalVisible: false,
     form: reactive({
       name: '',
@@ -70,6 +69,9 @@ export default {
         closeModal() {
             this.isModalVisible = false;
         },
+        close() {
+        this.$emit('close');
+      },
   },
 
   handleFormSubmit(formData) {
@@ -134,7 +136,6 @@ img, svg {
 }
 
 .modal_ .modal_title {
-    font-family: Inter;
     font-size: 24px;
     font-weight: 400;
     color: #FFF;
@@ -180,7 +181,6 @@ img, svg {
 }
 
 .modal_ .modal_left p, .modal_ .modal_right p {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     text-align: center;
@@ -188,7 +188,6 @@ img, svg {
 }
 
 .modal_ .modal_left .price {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 700;
     line-height: 150%;

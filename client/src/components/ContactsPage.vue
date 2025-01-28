@@ -83,7 +83,6 @@ export default {
     margin: 0 0 116px 0;
 }
 .contacts .title h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: 100%;
@@ -99,7 +98,6 @@ export default {
 }
 
 .contacts .section_description {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.5);
@@ -120,7 +118,6 @@ export default {
     align-items: flex-start;
 }
 .contacts .contact_item p {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 300;
     line-height: normal;
@@ -129,7 +126,6 @@ export default {
 }
 
 .contacts .contact_item a, .contacts .contact_item div {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -145,7 +141,6 @@ export default {
     background: #081e36;
 }
 .contacts .contact_form .form_group p {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     color: #FFF;
@@ -163,7 +158,6 @@ export default {
     border: 0;
     outline: 0;
     color: #FFF;
-    font-family: Inter;
     line-height: normal;
 }
 button, input, optgroup, select, textarea {
@@ -177,7 +171,6 @@ contacts .contact_form .form_group label:has(input[type=checkbox]) p {
     margin: 0;
 }
 .contacts .contact_form .form_group p {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     color: #FFF;

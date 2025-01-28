@@ -36,21 +36,87 @@
             </div>
             <div class="clips_swiper swiper">
                 <div class="swiper-wrapper">
-                    <div v-if="loading">Загрузка клипов...</div>
-                    <div v-if="error">{{ error }}</div>
-                    <div class="swiper">
-                        <swiper :key="clips.length" :modules="modules" 
-                        :slides-per-view="3" :space-between="50"
-                        navigation :pagination="{ clickable: true }" 
-                        @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
-                            <div class="SwiperSlide">
-                                <SwiperSlide v-for="(clip, clipIndex) in clips" :key="clipIndex">
-                                    <img v-for="index in 18" :key="clipIndex + '-' + index"
-                                        :src="clip[0]?.items[index]?.image[4]?.url || placeholder" @error="onImageError"
-                                        :class="{ 'is-placeholder': !clip[0]?.items[index]?.image[4]?.url }" />
-                                </SwiperSlide>
-                            </div>
-                        </swiper>
+                    <div class="swiper-wrapper">
+                    <swiper :modules="modules" :slides-per-view="10" :space-between="10" 
+                    navigation :pagination="{ clickable: true }" 
+                    @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[1]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[2]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[2]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[3]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[3]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[4]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[4]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[5]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[5]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[6]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[6]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[7]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[7]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[8]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[8]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[9]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[9]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[10]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[10]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[11]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[11]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[12]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[12]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[12]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[12]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[13]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[13]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[14]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[14]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[15]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[15]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[16]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[16]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[17]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[17]?.image[4]?.url }" />
+                        </SwiperSlide>
+                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
+                            <img :src="clip[0]?.items[18]?.image[4]?.url || placeholder" @error="onImageError"
+                                :class="{ 'is-placeholder': !clip[1]?.items[18]?.image[4]?.url }" />
+                        </SwiperSlide>
+                    </swiper>
                     </div>
                 </div>
             </div>
@@ -220,11 +286,10 @@ svg {
 .clips .clips_swiper .swiper-wrapper {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    max-width: 1800px;
+    max-width: 2000px;
 }
 
 .clips .title h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: 70px;
@@ -260,6 +325,10 @@ svg {
     .d-sm-flex {
         display: flex !important;
     }
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .clips .section_top {

@@ -192,7 +192,6 @@ export default {
 }
 
 .stage_work .save_discount p {
-    font-family: Inter;
     font-size: 24px;
     font-weight: 300;
     line-height: normal;
@@ -203,7 +202,6 @@ export default {
     font-size: 32px;
 }
 .stage_work .save_discount span {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 300;
     line-height: 150%;
@@ -248,7 +246,6 @@ a {
 }
 
 .stage_work .title h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: 70px;
@@ -352,5 +349,13 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.12);
     position: relative;
     z-index: 2;
+}
+
+.stage_work .itesm_stages .item p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
 }
 </style>

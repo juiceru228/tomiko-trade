@@ -1,23 +1,25 @@
 <template>
-    <div class="hello">
-        <div class="titles">
-            <h1>Автомобиль вашей мечты здесь</h1>
-            <p>Прозрачное ценообразование с подробным 
-            <br>разъяснением затрат на каждом этапе</p>
-            <button class="gradient-button" @click="openModal">Рассчитать стоимость</button>
-        </div>
-        <section class="ZAP">
-            <div class="left_info">
-            <div class="item"><div>5 +</div><p>Лет на рынке</p></div>
-            <div class="item"><div>4 000 +</div><p>Довольных клиентов</p></div>
-            <div class="item"><div><img src="../assets/star.webp" alt="Звездочка">4.6</div></div>
-            </div>
-            <div class="card_discount">
-            <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
-            <button class="gradient-button" @click="openQuestionnaireForm">Смотреть пример</button>
-            </div>
-        </section>
-        <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+  <div class="hello">
+      <div class="titles">
+          <h1>Автомобиль вашей мечты здесь</h1>
+          <p>Прозрачное ценообразование с подробным 
+          <br>разъяснением затрат на каждом этапе</p>
+          <button class="gradient-button" @click="openModalCalculator">Рассчитать стоимость</button>
+      </div>
+      <section class="ZAP">
+          <div class="left_info">
+          <div class="item"><div>5 +</div><p>Лет на рынке</p></div>
+          <div class="item"><div>4 000 +</div><p>Довольных клиентов</p></div>
+          <div class="item"><div><img src="../assets/star.webp" alt="Звездочка">4.6</div></div>
+          </div>
+          <div class="card_discount">
+          <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
+          <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
+          </div>
+      </section>
+      <modal-show v-if="showModalExample" @close="closeModalExample" />
+            <div class="overlay" v-if="showModalExample"></div>
+        <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
             <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
         </ModalForm>
     </div>
@@ -33,11 +35,12 @@ export default {
     components: {
         ModalForm,
         ValidationForm,
-        ModalCard
+        ModalCard,
     },
     data() {
     return {
-    isModalVisible: false,
+    isModalCalculatorVisible: false,
+    showModalExample: false,
     form: reactive({
       name: '',
       phone_number: '',
@@ -47,21 +50,25 @@ export default {
     };
   },
   methods: {
-    openModal() {
-            this.isModalVisible = true;
+    openModalCalculator() {
+            this.isModalCalculatorVisible = true;
         },
-        closeModal() {
-            this.isModalVisible = false;
+        closeModalCalculator() {
+            this.isModalCalculatorVisible = false;
         },
-        openQuestionnaireForm() {
-            this.isModalVisible = true; 
+        showModalExample() {
+        this.showModalExample = true;
+        console.log("Нажал на кнопку");
         },
-  },
-
+        closeModalExample() {
+        this.showModalExample = false;
+        console.log("Нажал на кнопку");
+    },
+},
   handleFormSubmit(formData) {
             console.log('Форма успешно отправлена!', formData);
             alert('Форма успешно отправлена!');
-            this.isModalVisible = false;
+            this.isModalCalculatorVisible = false;
   },
   updateForm(newForm) {
             this.form = newForm;
@@ -108,7 +115,6 @@ export default {
 }
 
 .hello .titles h1 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 64px;
     font-weight: 700;
     line-height: 76.8px;
@@ -119,7 +125,6 @@ export default {
 }
 
 .hello .titles p {
-    font-family: Inter;
     font-size: 24px;
     font-weight: 400;
     line-height: 36px;
@@ -181,11 +186,10 @@ export default {
 
 .ZAP .left_info .item:last-child {
     margin-right: 0;
-    margin-right: 200px;
+    margin-right: 300px;
 }
 
 .ZAP .left_info .item div {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 48px;
     font-weight: 700;
     line-height: 48px;
@@ -195,7 +199,6 @@ export default {
 }
 
 .ZAP .left_info .item p {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     line-height: 16.94px;
@@ -211,7 +214,6 @@ export default {
 }
 
 .ZAP .left_info .item div {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 48px;
     font-weight: 700;
     line-height: 48px;

@@ -5,13 +5,10 @@
               <a name="about_us2" style="scroll-margin-top: 350px;"></a>
           </p>
           <div class="container">
-              <div class="about_block">
+                <div class="about_block">
                   <h2 class="d-flex d-lg-none">О нас</h2>
                   <div class="titles">
                       <h2 class="d-none d-lg-block">О нас</h2>
-                      <div class="img_abouts">
-                        <img src="../assets/abot.webp" alt="О компании">
-                      </div>
                       <p>Компания “Правый руль” предлагает широкий выбор автомобилей от ведущих
                         мировых производителей. Мы специализируемся на продаже новых 
                         и подержанных авто. Наша профессионалов поможет вам выбрать 
@@ -20,7 +17,10 @@
                         <button class="gradient-button" @click="openModal">Подобрать авто</button>
                       <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg" alt="whatsapp"></a>
                     </div>
-                  </div>
+                </div>
+                    <div class="img_abouts">
+                        <img src="../assets/abot.webp" alt="О компании">
+                    </div>
               </div>
               <div class="bottom_abouts">
                   <div class="item">
@@ -123,7 +123,6 @@ export default {
 }
 
 .about_us .about_block h2 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 70px;
     font-weight: 700;
     line-height: 70px;
@@ -138,7 +137,6 @@ export default {
 }
 
 .about_us .about_block .titles p {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
@@ -229,7 +227,6 @@ export default {
 }
 
 .about_us .bottom_abouts .item h3 {
-    font-family: Bebas-Neue, Arial, sans-serif;
     font-size: 48px;
     font-weight: 700;
     line-height: 48px;
@@ -239,7 +236,6 @@ export default {
 }
 
 .about_us .bottom_abouts .item p {
-    font-family: Inter;
     font-size: 14px;
     font-weight: 300;
     line-height: 16.94px;
@@ -255,7 +251,6 @@ export default {
 }
 
 .about_us .bottom_abouts .items p {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
@@ -298,11 +293,21 @@ img, svg {
 }
 
 .about_us .about_block .titles p {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
     text-align: left;
     white-space: pre-wrap;
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
 }
 </style>

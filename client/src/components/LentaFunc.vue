@@ -1,12 +1,10 @@
 <template>
     <div class="logos_brand">
-      <div class="logo-carousel" ref="marquee">
+      <div class="logo-carousel">
         <div class="marquee">
-          <div class="marquee-inner" ref="marqueeInner" :style="{ transform: 'translateX(' + translateX + 'px)' }">
             <button v-for="(logo, index) in logos" :key="index" @click="openQuestionnaireForm()">
               <img loading="lazy" :src="logo.src" :alt="logo.alt">
-            </button>
-          </div>
+            </button> 
         </div>
       </div>
     </div>
@@ -58,62 +56,27 @@ export default {
           { src: require('../assets/brand12.webp'), alt: 'Logo 12' },
           { src: require('../assets/brand13.webp'), alt: 'Logo 13' },
         ],
-        translateX: 0,
-        animationSpeed: 2,
-        animationFrameId: null,
       };
-    },
-    methods: {
-      openQuestionnaireForm() {
-        console.log('Открыть анкету');
-      },
-      startAnimation() {
-        const totalWidth = this.$refs.marqueeInner.scrollWidth;
-        const containerWidth = this.$refs.marquee.offsetWidth;
-  
-        const animate = () => {
-          this.translateX -= this.animationSpeed;
-          if (Math.abs(this.translateX) >= totalWidth) {
-            this.translateX = containerWidth;
-          }
-  
-          this.animationFrameId = requestAnimationFrame(animate);
-        };
-  
-        animate();
-      },
-      stopAnimation() {
-        cancelAnimationFrame(this.animationFrameId);
-      },
-    },
-    mounted() {
-      this.startAnimation();
-    },
-    beforeUnmount() {
-      this.stopAnimation();
     },
   };
 </script>
 
-<style scoped>     
+<style scoped>  
+button { 
+  background-color: transparent;
+  border: none;
+}   
 .logos_brand {
-    background-color: #011224;
-    margin-bottom: 52px;
-    overflow: hidden;
-    width: 2400px;
-    max-width: 2000px;
+  max-width: 2000px;
+  margin-bottom: -10px;
+  overflow: hidden;
 }
 
 .logos_brand .logo-carousel {
-    max-width: 2000px;
-    width: 2400px;
-    overflow: hidden;
-    padding: 10px 0;
-}
-
-div {
-    display: block;
-    unicode-bidi: isolate;
+  max-width: 2000px;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 element.style {
@@ -121,7 +84,6 @@ element.style {
     margin-right: 0px;
     float: left;
     display: inline-flex;
-    width: 2400px;
     margin-left: 0px;
 }
 
@@ -141,12 +103,8 @@ img, svg {
 button, select {
     text-transform: none;
 }
-button, input, optgroup, select, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
+
+
 button {
     border-radius: 0;
 }
@@ -157,12 +115,19 @@ button {
 }
       
 .marquee {
-    display: flex;
-    align-items: center;
+        max-width: 1800px;
+        animation: scrolling 30s linear infinite;
+        white-space: nowrap;
+        display: inline-block;
+        will-change: transform;
 }
-      
-.marquee-inner {
-    display: flex;
-    transition: transform linear;
-}
+
+@keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 </style>
