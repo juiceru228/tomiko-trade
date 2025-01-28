@@ -129,11 +129,12 @@ img, svg {
     aspect-ratio: 1 / 1;
     height: 80px;
     width: 80px;
+
 }
 
 header .right-text img {
-    width: 36px;
-    height: 36px;
-    aspect-ratio: 1 / 1;
+  width: 36px;
+  height: 36px;
+  aspect-ratio: 1 / 1;
 }
 </style>

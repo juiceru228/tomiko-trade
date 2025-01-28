@@ -1,34 +1,35 @@
 <template>
     <section class="subscribe">
-    <div class="container">
-        <div class="subscribe_row">
-            <img loading="lazy" src="../assets/subscribe_image.webp" alt="Подпишись" class="subscribe_image">
-            <div class="subscribe_right">
-                <div class="title">
-                    <h2><span>Подпишись</span>, чтобы не пропустить выгодные предложения от нашей компании!</h2>
+        <div class="container">
+            <div class="subscribe_row">
+                <img loading="lazy" src="../assets/subscribe_image.webp" alt="Подпишись" class="subscribe_image">
+                <div class="subscribe_right">
+                    <div class="title">
+                        <h2><span>Подпишись</span>, чтобы не пропустить выгодные предложения от нашей компании!</h2>
+                    </div>
+                    <a href="https://vk.com/tomiko_trade" class="subscribe_item" target="_blank">
+                        <div class="subscribe_item_img">
+                            <img loading="lazy" src="../assets/ico-wk.svg" alt="ВК">
+                        </div>
+                        <div>
+                            VK
+                            <img loading="lazy" src="../assets/arr_link.svg" alt="Стрелка2">
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" class="subscribe_item"
+                        target="_blank">
+                        <div class="subscribe_item_img">
+                            <img loading="lazy" src="../assets/ico-insta.svg" alt="Inst">
+                        </div>
+                        <div>
+                            Instagram
+                            <img loading="lazy" src="../assets/arr_link.svg" alt="Стрелка3">
+                        </div>
+                    </a>
                 </div>
-                <a href="https://vk.com/tomiko_trade" class="subscribe_item" target="_blank">
-                    <div class="subscribe_item_img">
-                        <img loading="lazy" src="../assets/ico-wk.svg" alt="ВК">
-                    </div>
-                    <div>
-                        VK
-                        <img loading="lazy" src="../assets/arr_link.svg" alt="Стрелка2">
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" class="subscribe_item" target="_blank">
-                    <div class="subscribe_item_img">
-                        <img loading="lazy" src="../assets/ico-insta.svg" alt="Inst">
-                    </div>
-                    <div>
-                        Instagram
-                        <img loading="lazy" src="../assets/arr_link.svg" alt="Стрелка3">
-                    </div>
-                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </template>
 
 <script>
@@ -42,17 +43,20 @@ export default {
     margin: 0 0 174px 0;
     padding: 80px 0 0 0;
 }
+
 @media only screen and (max-width: 1200px) {
     .subscribe .subscribe_image {
         max-width: 450px;
         margin: -50px 0 0 0;
     }
 }
+
 .subscribe .subscribe_image {
     margin: -100px 0 -80px 0;
     width: 505px;
     aspect-ratio: 505 / 693;
 }
+
 .subscribe .subscribe_row::before {
     position: absolute;
     content: "";
@@ -64,9 +68,11 @@ export default {
     border-radius: 28px;
     z-index: -1;
 }
+
 .subscribe .subscribe_row .subscribe_right {
     padding-block: 40px;
 }
+
 .subscribe .title h2 span {
     color: #fd554b;
 }
@@ -76,12 +82,14 @@ export default {
         font-size: 60px;
     }
 }
+
 .subscribe .title h2 {
     font-size: 70px;
     font-weight: 700;
     line-height: normal;
     color: #FFF;
 }
+
 .subscribe .subscribe_row::after {
     position: absolute;
     content: "";
@@ -101,6 +109,7 @@ export default {
         gap: 40px;
     }
 }
+
 .subscribe .subscribe_row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -115,6 +124,7 @@ export default {
     position: relative;
     z-index: 1;
 }
+
 .subscribe .subscribe_item {
     display: -webkit-box;
     display: -ms-flexbox;

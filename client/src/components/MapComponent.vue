@@ -14,7 +14,8 @@ export default {
         const map = DG.map('map', {
           center: [43.124913, 131.905167],
           zoom: 15
-        }).marker([43.124913, 131.905167]).addTo(map).bindPopup("I'm there!!!");
+        });
+        DG.marker([43.124913, 131.905167]).addTo(map).bindPopup("I'm there!!!");
       });
     };
     document.head.appendChild(script);

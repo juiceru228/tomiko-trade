@@ -30,6 +30,7 @@
                                 <a href="https://vk.com/tomiko_trade" target="_blank"><img loading="lazy" src="../assets/ico-wk2.svg" alt="ВК"></a>
                                 <a href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><img loading="lazy" src="../assets/ico-insta2.svg" alt="Instagram"></a>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -40,12 +41,13 @@
                     <p><a target="_blank" href="">Политика конфиденциальности</a></p>
                 </div>
             </div>
+
     </footer>
 </template>
 
 <script>
 export default {
-  name: 'AppFooter'
+    name: 'AppFooter'
 }
 </script>
 
@@ -82,6 +84,7 @@ footer .footer_links {
     align-items: flex-start;
     gap: 80px;
 }
+
 footer .footer_row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -94,18 +97,25 @@ footer .footer_row {
     justify-content: space-between;
     gap: 24px;
 }
+
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-dl, ol, ul {
+
+dl,
+ol,
+ul {
     margin-top: 0;
     margin-bottom: 1rem;
 }
-ol, ul {
+
+ol,
+ul {
     padding-left: 2rem;
 }
+
 ul {
     display: block;
     list-style-type: disc;
@@ -121,7 +131,9 @@ footer .brand_logo img {
     width: 80px;
     height: 80px;
 }
-img, svg {
+
+img,
+svg {
     vertical-align: middle;
 }
 
@@ -139,6 +151,7 @@ footer .social img {
     height: 24px;
     aspect-ratio: 1 / 1;
 }
+
 footer .social {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -164,6 +177,7 @@ footer .footer_contact a:not(.social a) {
     color: #FFF;
     margin: 0 0 16px 0;
 }
+
 footer .footer_links a {
     font-size: 16px;
     font-weight: 300;

@@ -118,6 +118,7 @@
                         </SwiperSlide>
                     </swiper>
                     </div>
+
                 </div>
             </div>
             <a href="https://vk.com/tomiko_trade" target="_blank" class="clips_link d-flex d-sm-none">

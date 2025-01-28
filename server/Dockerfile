@@ -1,4 +1,4 @@
-FROM postgres-17.2-alpine
+FROM postgres:17.2-alpine
 COPY ./server/database/dump.sql ./docker-entrypoint-initdb.d/
 
 FROM python:3.12.7-alpine
