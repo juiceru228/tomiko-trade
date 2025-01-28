@@ -181,7 +181,7 @@ export default {
         async fetchData() {
             this.loading = true;
             try {
-                const response = await axios.get('http://localhost:8080/api/clips/');
+                const response = await axios.get('/api/clips/');
                 this.clips = response.data;
                 console.log('CLIPS', this.clips);
             } catch (error) {

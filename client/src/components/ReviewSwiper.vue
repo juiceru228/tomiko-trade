@@ -21,7 +21,7 @@
   import 'swiper/css/pagination';
   import 'swiper/swiper-bundle.css';
   import ReviewCard from './ReviewCard.vue';
-  
+  import axios from 'axios';
   export default {
     name: `ReviewSwiper`,
     components: {
@@ -36,20 +36,28 @@
       };
     },
     async mounted() {
-      await this.fetchReviews();
-    },
-    methods: {
+    await this.fetchReviews();
+
+  },
+  methods: {
     formatDate(dateString) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return new Date(dateString).toLocaleDateString('ru-RU', options);
-    }
-  },
-  mounted() {
-    fetch('http://localhost:8080/api/reviews/')
-      .then(response => response.json())
-      .then(data => {
-        this.reviews = data.reviews;
-      });
+    },
+
+    async fetchReviews() {
+      this.loading = true;
+      try {
+        const response = await axios.get('/api/reviews/');
+        this.reviews = response.data.reviews;
+        console.log('reviews', this.reviews);
+      } catch (error) {
+        this.error = 'Error fetching reviews';
+        console.error(error);
+      } finally {
+        this.loading = false;
+      }
+    },
   },
   setup() {
         const onSwiper = (swiper) => {
