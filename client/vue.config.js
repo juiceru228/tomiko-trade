@@ -1,19 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true
-})
-/*
-module.exports = {
+  transpileDependencies: true,
   devServer: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:4000',  // Ваш сервер Django
-        changeOrigin: true,  // Позволяет проксировать запросы с другого порта
-        pathRewrite: {
-          '^/api': '',  // Убирает /api из запроса, если нужно
-        },
-      },
-    },
-  },
-};
-*/
+    allowedHosts: "all",
+    host: "0.0.0.0",
+    port: 8000,
+    client: {
+      webSocketURL: "wss://juiceru.ru/ws"
+    }
+  }
+})
