@@ -138,37 +138,35 @@
 
 
 				<div class="catalog-items">
-					<div class="card">
-						<li v-for="item in items" :key="item.id" class="item">
-							<div class="card-title">
-
-								<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
-								<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
-							</div>
-							<div class="catalog-car-image">
-								<img class="car-image" src="img/image-26.png" alt="Car">
-							</div>
-							<div class="price-order">
-								<h3 class="title-price-order">{{ item.price }} ₽</h3>
-								<button class="order-button">Оставить заявку</button>
-							</div>
-						</li>
-					</div>
+					<li class="card" v-for="item in items" :key="item.id">
+						<div class="card-title">
+							<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
+							<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
+						</div>
+						<div class="catalog-car-image">
+							<img class="car-image" :src="`${mediaUrl}${item.image}`" alt="Car">
+						</div>
+						<div class="price-order">
+							<h3 class="title-price-order">{{ item.price }} ₽</h3>
+							<button class="order-button">Оставить заявку</button>
+						</div>
+					</li>
 				</div>
 
 				<div class="catalog-pagination">
-					<button :disabled="currentPage === 1" @click="changePage(1)">
-						First
+					<button :disabled="currentPage === 1" @click="changePage(currentPage - 1)" v-if="currentPage > 1">
+						Предыдущее
 					</button>
-					<button :disabled="currentPage === 1" @click="changePage(currentPage - 1)">
-						Prev
-					</button>
-					<span>Page {{ currentPage }} of {{ totalPages }}</span>
-					<button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)">
-						Next
-					</button>
-					<button :disabled="currentPage === totalPages" @click="changePage(totalPages)">
-						Last
+					
+					<span v-for="page in pageNumbers" :key="page">
+						<button v-if="page != '...'" :class="{ active: currentPage === page }" @click="changePage(page)">
+							{{ page }}
+						</button>
+						<span v-else>...</span>
+					</span>
+
+					<button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)" v-if="currentPage < totalPages">
+						Следующее
 					</button>
 				</div>
 			</div>
@@ -259,7 +257,7 @@
 						</div>
 						<div class="social-link-text">
 							VK
-							<img src="img/frame-9.svg" alt="arrow">
+							<img src="../assets/frame-9.svg" alt="arrow">
 						</div>
 					</a>
 
@@ -269,7 +267,7 @@
 						</div>
 						<div class="social-link-text">
 							Instagram
-							<img src="img/frame-9.svg" alt="arrow">
+							<img src="../assets/frame-9.svg" alt="arrow">
 						</div>
 					</a>
 				</div>
@@ -344,20 +342,50 @@ export default {
 			selectedColor: '',
 			selectedSorting: '',
 			mediaUrl: "/media",
-			currenPage: ref(1),
-			perPage: ref(5),
-			rows: ref(50)
+			currentPage: ref(1),
+			perPage: ref(12),
+			rows: ref(250)
 		};
 	},
 
 	computed: {
 		totalPages() {
 			return Math.ceil(this.rows / this.perPage);
+		},
+		pageNumbers() {
+			const pages = [];
+			const total = this.totalPages;
+			const current = this.currentPage;
+
+			let start = Math.max(1, current - 2);
+			let end = Math.min(total, current + 2);
+
+			if (current <= 3) {
+				end = Math.min(total, 5);
+			}
+
+			if (current >= total - 2) {
+				start = Math.max(1, total - 4);
+			}
+
+			for (let i = start; i <= end; i++) {
+				pages.push(i);
+			}
+
+			if (start > 1) {
+				pages.unshift('...');
+			}
+
+			if (end < total) {
+				pages.push('...')
+			}
+ 
+			return pages;
 		}
 	},
 	mounted() {
-		this.fetchData({ country: this.COUNTRY, type: "cars", page: 1 });
-		this.fetchModels({ country: this.COUNTRY, type: "cars_models" })
+		this.fetchData({ country: this.COUNTRY, type: "cars", page: this.currentPage })
+		this.fetchModels({ country: this.COUNTRY, type: "cars_models"})
 			.then(() => this.updateBrands());
 	},
 	methods: {
@@ -368,8 +396,8 @@ export default {
 		changePage(page) {
 			if (page >= 1 && page <= this.totalPages) {
 				this.currentPage = page;
+				this.fetchDataWithParam();
 			}
-			this.fetchDataWithParam()
 		},
 		fetchData(params = {}) {
 			return axios.get('/api/filter/', { params })
@@ -626,7 +654,8 @@ h1 {
 	flex: 0 0 auto;
 	flex-direction: column;
 	position: relative;
-	width: 1400px;
+	min-width: 1400px;
+	width: 100%;
 	align-items: center;
 	gap: 40px;
 	justify-content: center;
@@ -662,12 +691,14 @@ h1 {
 	padding: 12px 16px;
 	position: relative;
 	background-color: #ffffff1a;
+	background:#20344a ;
 	cursor: pointer;
 	color: #FFFFFF;
 	text-align: left;
 	justify-content: space-between;
 	font-family: "Inter";
 	font-weight: 600;
+	font-size: 14px;
 	border: 0;
 }
 
@@ -686,6 +717,7 @@ h1 {
 	color: #fff;
 	font-family: "Inter";
 	font-weight: 600;
+	font-size: 14px;
 }
 
 .catalog-items {
@@ -814,7 +846,7 @@ h1 {
 	display: inline-flex;
 	gap: 2px;
 	justify-content: center;
-	padding: 4px;
+	padding: 6px;
 }
 
 .catalog-pagination button {
@@ -824,7 +856,8 @@ h1 {
 	flex-direction: column;
 	gap: 10px;
 	justify-content: center;
-	padding: 7px 11px;
+	height: 31px;
+	min-width: 31px;
 	position: relative;
 	background-color: transparent;
 	color: #ffffff;
@@ -835,7 +868,7 @@ h1 {
 	background-color: #20344a;
 }
 
-.catalog-pagination button.selected {
+.active {
 	background-color: #d51117;
 }
 
@@ -847,7 +880,7 @@ h1 {
 	position: relative;
 	flex-direction: column;
 	padding: 80px 100px 100px;
-	width: 1400px;
+	width: 1600px;
 }
 
 .contact-content {
@@ -989,6 +1022,7 @@ h1 {
 	font-family: "Inter";
 	font-size: 16px;
 	font-weight: 400;
+	text-align: left;
 }
 
 .message-field label {
@@ -1028,7 +1062,6 @@ h1 {
 }
 
 .privacy-policy {
-	align-items: flex-start;
 	align-items: stretch;
 	display: flex;
 	flex: 0 0 auto;
@@ -1102,15 +1135,15 @@ h1 {
 
 .socials-media-container {
 	align-self: stretch;
-	height: 602px;
-	width: 1400px;
+	height: 702px;
+	width: 100%;
 	position: relative;
 	padding: 0px 100px 100px;
 }
 
 .line-img {
 	height: 87px;
-	left: 87px;
+	left: 15px;
 	position: relative;
 	top: 515px;
 	width: 1300px;
@@ -1130,9 +1163,9 @@ h1 {
 	display: inline-flex;
 	flex-direction: column;
 	gap: 32px;
-	left: 665px;
+	left: 765px;
 	position: absolute;
-	top: 176px;
+	top: 174px;
 }
 
 .socials-media-title {
@@ -1200,7 +1233,7 @@ h1 {
 	position: absolute;
 	height: 466px;
 	width: 224px;
-	left: 233px;
+	left: 330px;
 	top: 46px;
 }
 
@@ -1223,7 +1256,7 @@ h1 {
 .screen-phone-2 {
 	position: absolute;
 	height: 533px;
-	left: 128px;
+	left: 228px;
 	width: 256px;
 	top: 0px;
 }
@@ -1254,7 +1287,7 @@ h1 {
 
 .screen-3 {
 	height: 568px;
-	left: 16px;
+	left: 116px;
 	position: absolute;
 	top: -14px;
 	width: 480px;
@@ -1263,7 +1296,7 @@ h1 {
 .social-emoji {
 	height: 84px;
 	width: 84px;
-	left: 335px;
+	left: 435px;
 	position: absolute;
 	top: 364px;
 	transform: rotate(15.00deg);
@@ -1273,11 +1306,11 @@ h1 {
 	align-items: center;
 	background-color: #1a2939;
 	border-radius: 20px;
-	height: 44px;
-	width: 291px;
+	height: 60px;
+	width: 319px;
 	display: inline-flex;
 	gap: 16px;
-	left: 95px;
+	left: 195px;
 	padding: 8px 16px 8px 12px;
 	position: absolute;
 	top: 63px;
@@ -1307,7 +1340,7 @@ h1 {
 
 .social-head-text-1 {
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .social-head-text-2 {
@@ -1315,10 +1348,7 @@ h1 {
 	font-weight: 400;
 }
 
-p,
-h1,
-h2,
-h3 {
+p, h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 }
