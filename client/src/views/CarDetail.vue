@@ -79,7 +79,7 @@
 
                                 <div class="price-button-wrapper">
                                     <div class="swiper-price">{{ item.price }} ₽</div>
-                                    <button class="swipe-button" @click="openModal">Оставить заявку</button>
+                                    <button class="swipe-button" @click.prevent="openModal">Оставить заявку</button>
 
                                 </div>
 
@@ -94,7 +94,6 @@
                 </swiper-container>
                 <router-view :key="$route.fullPath"></router-view>
             </div>
-            <contacts />
         </ul>
 
         <!-- Модальное окно -->
@@ -114,18 +113,15 @@ register();
 import { reactive } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
-import contacts from '@/components/ContactsPage.vue';
 import axios from 'axios';
 export default {
     name: 'CarDetail',
     components: {
         ModalForm,
         ValidationForm,
-        contacts
     },
     data() {
         return {
-
             selectedImage: '',
             mainCar: [],
             items: [],

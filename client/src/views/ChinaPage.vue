@@ -16,7 +16,7 @@
 
 			<div class="filter" style="visibility: visible;">
 				<div class="dropdown-filter-select">
-					<select class="item" v-model="selectedBrand">
+					<select class="item" v-model="selectedBrand" @change="onBrandChange">
 						<option value="" disabled>Марка авто</option>
 						<option v-for="option in brands" :key="option" :value="option">
 							{{ option }}
@@ -110,7 +110,7 @@
 				<div class="result">
 					<button @click="fetchDataWithParam">Показать</button>
 					<a href="/china/" style="visibility: hidden;">Сбросить</a>
-					<div v-if="items.length">
+					<!---<div v-if="items.length">
 						<ul>
 							<li v-for="item in items" :key="item.id" class="item">
 								<div>{{ item.brand }}</div>
@@ -119,7 +119,7 @@
 								<div class="image_frame"><img :src="`${mediaUrl}${item.image}`"></div>
 							</li>
 						</ul>
-					</div>
+					</div>--->
 				</div>
 			</div>
 		</section>
@@ -300,7 +300,7 @@
 
 <script>
 import axios from 'axios';
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 export default {
 	name: 'ChinaPage',
@@ -427,16 +427,16 @@ export default {
 			this.updateModels(this.selectedBrand);
 		},
 		updateBrands() {
-			this.brands = Array.from(new Set(this.items
-				.map(item => item.brand_country?.brand)
+			this.brands = Array.from(new Set(this.brands_models
+				.map(item => item.brand)
 				.filter(brand => brand))).sort();
 			console.log('Updated brands:', this.brands);
 		},
 		updateModels(selectedBrand) {
-			this.models = Array.from(new Set(this.items
+			this.models = Array.from(new Set(this.brands_models
 				.map(item => {
 					const model = item.model;
-					return model && selectedBrand == item.brand_country?.brand ? model : null
+					return model && selectedBrand == item.brand ? model : null
 				})
 				.filter(model => model))).sort();
 			console.log('Updated model:', this.models);

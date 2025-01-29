@@ -25,7 +25,11 @@ export default {
 
 <style scoped>
 #map {
-  width: 70%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin: auto; 
+  max-width: 80%;
   height: 400px;
   border-radius: 50px;
 }
