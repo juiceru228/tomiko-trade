@@ -7,6 +7,11 @@ module.exports = defineConfig({
     port: 8000,
     client: {
       webSocketURL: "wss://juiceru.ru/ws"
+    },
+    headers: {
+      'Access-Control-Allow-Origin': '*', 
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Authorization'
     }
   }
 })
