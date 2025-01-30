@@ -1,54 +1,56 @@
 <template>
     <div class="about_us">
-          <p>
-              <a name="about_us" style="scroll-margin-top: 150px;"></a>
-              <a name="about_us2" style="scroll-margin-top: 350px;"></a>
-          </p>
-          <div class="container">
-                <div class="about_block">
-                  <h2 class="d-flex d-lg-none">О нас</h2>
-                  <div class="titles">
-                      <h2 class="d-none d-lg-block">О нас</h2>
-                      <p>Компания “Правый руль” предлагает широкий выбор автомобилей от ведущих
-                        мировых производителей. Мы специализируемся на продаже новых 
-                        и подержанных авто. Наша профессионалов поможет вам выбрать 
+        <p>
+            <a name="about_us" style="scroll-margin-top: 150px;"></a>
+            <a name="about_us2" style="scroll-margin-top: 350px;"></a>
+        </p>
+        <div class="container">
+            <div class="about_block">
+                <h2 class="d-flex d-lg-none">О нас</h2>
+                <div class="titles">
+                    <h2 class="d-none d-lg-block">О нас</h2>
+                    <p>Компания “Правый руль” предлагает широкий выбор автомобилей от ведущих
+                        мировых производителей. Мы специализируемся на продаже новых
+                        и подержанных авто. Наша профессионалов поможет вам выбрать
                         идеальный автомобиль, учитывая ваши потребности и бюджет</p>
-                      <div class="btns_stage">
+                    <div class="btns_stage">
                         <button class="gradient-button" @click="openModal">Получить консультацию</button>
-                      <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg" alt="whatsapp"></a>
+                        <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg"
+                                alt="whatsapp"></a>
                     </div>
                 </div>
-                    <div class="img_abouts">
-                        <img src="../assets/abot.webp" alt="О компании">
-                    </div>
-              </div>
-              <div class="bottom_abouts">
-                  <div class="item">
-                      <h3>5 +</h3>
-                      <p>Лет на рынке</p>
-                  </div>
-                  <div class="item">
-                      <h3>4 000 +</h3>
-                      <p>довольных клиентов</p>
-                  </div>
-                  <div class="items">
-                      <img src="../assets/class.webp" alt="Лайк">
-                      <p>Прозрачное ценообразование с <br> подробным разъяснением затрат на <br> каждом этапе</p>
-                  </div>
-                  <div class="items">
-                      <img src="../assets/doc.webp" alt="Листок">
-                      <p>Полное сопровождение и <br> предоставление фото/видео <br> отчета на протяжение всей сделки</p>
-                  </div>
-                  <div class="items">
-                      <img src="../assets/dog.webp" alt="Рукопожатие">
-                      <p>Проверенные <br> поставщики</p>
-                  </div>
-              </div>
-          </div>
+                <div class="img_abouts">
+                    <img src="../assets/abot.webp" alt="О компании">
+                </div>
+            </div>
+            <div class="bottom_abouts">
+                <div class="item">
+                    <h3>5 +</h3>
+                    <p>Лет на рынке</p>
+                </div>
+                <div class="item">
+                    <h3>4 000 +</h3>
+                    <p>довольных клиентов</p>
+                </div>
+                <div class="items">
+                    <img src="../assets/class.webp" alt="Лайк">
+                    <p>Прозрачное ценообразование с <br> подробным разъяснением затрат на <br> каждом этапе</p>
+                </div>
+                <div class="items">
+                    <img src="../assets/doc.webp" alt="Листок">
+                    <p>Полное сопровождение и <br> предоставление фото/видео <br> отчета на протяжение всей сделки</p>
+                </div>
+                <div class="items">
+                    <img src="../assets/dog.webp" alt="Рукопожатие">
+                    <p>Проверенные <br> поставщики</p>
+                </div>
+            </div>
+        </div>
         <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
             <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
         </ModalForm>
-    </div>      
+        
+    </div>
 </template>
 
 <script>
@@ -56,39 +58,45 @@ import { reactive } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
 export default {
-  name: 'AboutUs',
-  components: {
+    name: 'AboutUs',
+    components: {
         ModalForm,
         ValidationForm,
     },
     data() {
-    return {
-    isModalVisible: false,
-    form: reactive({
-      name: '',
-      phone_number: '',
-      description: '',
-      isAgreed: false
-      }),
-    };
-  },
-  methods: {
-    openModal() {
+        return {
+            isModalVisible: false,
+            form: reactive({
+                name: '',
+                phone_number: '',
+                description: '',
+                isAgreed: false
+            }),
+        };
+    },
+    methods: {
+        openModal() {
             this.isModalVisible = true;
         },
         closeModal() {
             this.isModalVisible = false;
         },
-  },
-
-  handleFormSubmit(formData) {
+        handleFormSubmit(formData) {
             console.log('Форма успешно отправлена!', formData);
             alert('Форма успешно отправлена!');
             this.isModalVisible = false;
-  },
-  updateForm(newForm) {
+            this.form.name = '';
+            this.form.phone_number = '';
+            this.form.description = '';
+            this.form.isAgreed = false;
+        },
+        updateForm(newForm) {
             this.form = newForm;
-  },
+        },
+    },
+
+
+
 };
 </script>
 
@@ -102,21 +110,21 @@ export default {
 }
 
 .gradient-button {
-font-size: 18px;
-font-weight: 600;
-line-height: 35px;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  border: none;
-  color: white;
-  padding: 15px 30px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background 0.3s ease;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 35px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background 0.3s ease;
 }
 
 .gradient-button:hover {
-  background: linear-gradient(to right, var(--hover-color), var(--hover-bg-color));
+    background: linear-gradient(to right, var(--hover-color), var(--hover-bg-color));
 }
 
 @media only screen and (max-width: 1200px) {
@@ -133,6 +141,7 @@ line-height: 35px;
     color: #fff;
     margin-bottom: 16px;
 }
+
 @media (min-width: 992px) {
     .d-lg-block {
         display: block !important;
@@ -163,6 +172,7 @@ line-height: 35px;
     width: 41px;
     height: 41px;
 }
+
 @media only screen and (max-width: 1200px) {
     .about_us .about_block .img_abouts img {
         -webkit-transform: none;
@@ -227,7 +237,7 @@ line-height: 35px;
 }
 
 .about_us .about_block .titles {
-    max-width: 748px; 
+    max-width: 748px;
 }
 
 .about_us .bottom_abouts .item h3 {
@@ -292,7 +302,9 @@ div {
     width: 70px;
     height: 70px;
 }
-img, svg {
+
+img,
+svg {
     vertical-align: middle;
 }
 
@@ -304,12 +316,22 @@ img, svg {
     white-space: pre-wrap;
 }
 
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
     width: 100%;
     margin: 0 auto;
 }
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
     width: 100%;
     padding-right: var(--bs-gutter-x, .75rem);
     padding-left: var(--bs-gutter-x, .75rem);

@@ -7,7 +7,8 @@
           <div class="promo-text">
             <h2>Приведи друга 👍</h2>
             <p>
-              Каждый третий клиент обращается к нам по рекомендации знакомых, друзей, родственников. Этот факт нас безумно радует, и в знак благодарности мы запустили акцию “Приведи друга”.
+              Каждый третий клиент обращается к нам по рекомендации знакомых, друзей, родственников. Этот факт нас
+              безумно радует, и в знак благодарности мы запустили акцию “Приведи друга”.
             </p>
             <ul>
               <li>
@@ -22,7 +23,7 @@
             </ul>
             <p>Более подробную информацию можно узнать у наших менеджеров.</p>
             <div class="stages__buttons">
-              <button class="pill-button">
+              <button @click="openModal" class="pill-button">
                 Получить консультацию
                 <img src="../assets/whatsapp.png" alt="WhatsApp" class="icon-whatsapp" />
               </button>
@@ -37,9 +38,10 @@
           <div class="promo-text">
             <h2>Оптовые заказы 🚗 🚙</h2>
             <p>
-              Если вы планируете заказать сразу более 1 автомобиля, то для вас действует система лояльности – 10% скидка на комиссию компании на каждый последующий автомобиль в заказе.
+              Если вы планируете заказать сразу более 1 автомобиля, то для вас действует система лояльности – 10% скидка
+              на комиссию компании на каждый последующий автомобиль в заказе.
             </p>
-            <button class="pill-button">Оставить заявку</button>
+            <button @click="openModal" class="pill-button">Оставить заявку</button>
           </div>
           <img src="../assets/prom2.png" alt="Оптовые заказы" class="promo-image" />
         </div>
@@ -50,28 +52,74 @@
           <div class="promo-text">
             <h2>Оплата депозита двумя частями 🤝</h2>
             <p>
-              За долгие годы работы мы выработали для вас идеальную схему работы. Представьте, что мы нашли для вас идеальный вариант автомобиля, но у вас нет полной суммы для оплаты депозита на руках.
+              За долгие годы работы мы выработали для вас идеальную схему работы. Представьте, что мы нашли для вас
+              идеальный вариант автомобиля, но у вас нет полной суммы для оплаты депозита на руках.
             </p>
             <p>
-              Не проблема! В нашей компании вы можете оплатить депозит частями. Первую часть депозита оплачиваете в момент заключения договора, вторую – после покупки автомобиля.
+              Не проблема! В нашей компании вы можете оплатить депозит частями. Первую часть депозита оплачиваете в
+              момент заключения договора, вторую – после покупки автомобиля.
             </p>
             <p>Важно уточнить, что конечная цена от этого не изменится. Делаем всё для вашего удобства и доверия.</p>
-            <button class="pill-button">Оставить заявку</button>
+            <button @click="openModal" class="pill-button">Оставить заявку</button>
           </div>
           <img src="../assets/prom3.png" alt="Оплата" class="promo-image" />
         </div>
       </div>
     </div>
   </div>
+  <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+    <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+  </ModalForm>
 </template>
 
 <script>
+import { reactive } from 'vue';
+import ModalForm from '../components/ModalForm.vue';
+import ValidationForm from '../components/ValidationForm.vue';
 export default {
+  data() {
+    return {
+      isModalVisible: false,
+      form: reactive({
+        name: '',
+        phone_number: '',
+        description: '',
+        isAgreed: false
+      }),
+    }
+  },
   name: "PromotionsComponent",
+  components: {
+    ModalForm,
+    ValidationForm,
+  },
+  methods: {
+    openModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+		handleFormSubmit(formData) {
+			console.log('Форма успешно отправлена!', formData);
+			alert('Форма успешно отправлена!');
+			this.isModalVisible = false;
+			this.form.name = '';
+			this.form.phone_number = '';
+			this.form.description = '';
+			this.form.isAgreed = false;
+		},
+    updateForm(newForm) {
+      this.form = newForm;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.modal-form {
+    z-index: 1000;
+}
 .promotions {
   font-family: Arial, sans-serif;
   color: white;

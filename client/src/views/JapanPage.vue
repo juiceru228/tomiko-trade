@@ -568,6 +568,9 @@ export default {
 </script>
 
 <style scoped>
+.modal-form {
+    z-index: 1000;
+}
 .china {
 	align-items: center;
 	background-color: #011224;

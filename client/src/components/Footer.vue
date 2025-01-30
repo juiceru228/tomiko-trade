@@ -16,7 +16,7 @@
                                 </ul>
                                 <ul>
                                     <li>Компания</li>
-                                        <li><router-link to="/aboutus">О компании</router-link></li>
+                                        <li><router-link to="/about">О компании</router-link></li>
                                         <li><router-link to="">Доставка</router-link></li>
                                         <li><router-link to="">Отзывы</router-link></li>
                                 </ul>

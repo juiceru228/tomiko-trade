@@ -34,7 +34,7 @@
   </div>
 
   <EconomyModal :visible="isEconomyModalVisible" @close="isEconomyModalVisible = false"
-    @open-consultation="openConsultationModal" />
+    @open-consultation="openConsultationModal" class="modal-form"/>
 
   <ModalForm :visible="isConsultationModalVisible" @close="isConsultationModalVisible = false" class="modal-form">
     <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
