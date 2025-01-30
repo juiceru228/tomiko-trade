@@ -2,17 +2,27 @@
     <div class="logos_brand">
       <div class="logo-carousel">
         <div class="marquee">
-            <button v-for="(logo, index) in logos" :key="index" @click="openQuestionnaireForm()">
+            <button v-for="(logo, index) in logos" :key="index" @click="openModal">
               <img loading="lazy" :src="logo.src" :alt="logo.alt">
             </button> 
         </div>
       </div>
+      <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+        </ModalForm>
     </div>
   </template>
   
 <script>
+import { reactive } from 'vue';
+import ModalForm from '../components/ModalForm.vue';
+import ValidationForm from '../components/ValidationForm.vue';
 export default {
     name: "LentaFunc",
+    components: {
+        ModalForm,
+        ValidationForm,
+    },
     data() {
       return {
         logos: [
@@ -56,12 +66,39 @@ export default {
           { src: require('../assets/brand12.webp'), alt: 'Logo 12' },
           { src: require('../assets/brand13.webp'), alt: 'Logo 13' },
         ],
+        isModalVisible: false,
+    form: reactive({
+      name: '',
+      phone_number: '',
+      description: '',
+      isAgreed: false
+      }),
       };
     },
+    methods: {
+    openModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        },
+  },
+
+  handleFormSubmit(formData) {
+            console.log('Форма успешно отправлена!', formData);
+            alert('Форма успешно отправлена!');
+            this.isModalVisible = false;
+  },
+  updateForm(newForm) {
+            this.form = newForm;
+  },
   };
 </script>
 
 <style scoped>  
+.modal-form {
+    z-index: 1000;
+}
 button { 
   background-color: transparent;
   border: none;

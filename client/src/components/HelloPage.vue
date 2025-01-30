@@ -198,7 +198,7 @@ export default {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between 20;
+  justify-content: space-between;
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: end;
@@ -218,7 +218,6 @@ export default {
 
 .ZAP .left_info .item:last-child {
   margin-right: 0;
-  margin-right: 300px;
 }
 
 .ZAP .left_info .item div {
@@ -272,12 +271,12 @@ export default {
   margin-bottom: 24px;
 }
 
-.ZAP .card_discoint p span {
-  font-size: 48px;
-  font-weight: 900;
-  line-height: 72px;
-  text-align: left;
-  color: #fd554b;
+.ZAP .card_discoint span {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 72px;
+    text-align: left;
+    color: #fd554b;
 }
 
 .card_discount {

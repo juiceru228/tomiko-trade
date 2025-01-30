@@ -261,7 +261,26 @@ svg {
     touch-action: pan-y;
 }
 
+
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.swiper-slide {
+    min-height: 150px;
+}
+
+.swiper-slide {
+    margin: 10px;
+}
 .swiper {
+    display: flex;
+    flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
     position: relative;

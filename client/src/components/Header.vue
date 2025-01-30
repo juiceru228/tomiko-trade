@@ -29,6 +29,7 @@ export default {
 /*Тут header*/
 .header {
     background-color: #011224;
+    min-height: 50px;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -38,11 +39,13 @@ export default {
     text-align: left;
     position: fixed;
     top: 0;
-    z-index: 3;
+    z-index: 3;;
+    padding-bottom: 20px;
   }
 
   /*Тут тут настройки для header, почему вторые, потому что без неё могут быть ошибки*/
   .header-text {
+    min-height: 50px;
     background-color: #011224;
     display: flex;
     justify-content: space-between;
@@ -53,6 +56,7 @@ export default {
     position: fixed;
     top: 0;
     z-index: 3;
+    padding-bottom: 20px;
   }
   
   /*Тут левая часть header*/
