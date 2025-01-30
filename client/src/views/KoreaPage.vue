@@ -290,10 +290,14 @@
 			</div>
 		</section>
 	</div>
+	<ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+		<ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+	</ModalForm>
 </template>
 
 <script>
 import axios from 'axios';
+import { ref } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
 import { reactive } from 'vue';
@@ -398,11 +402,7 @@ export default {
 			.then(() => this.updateBrands());
 	},
 	methods: {
-		changePage(page) {
-			if (page >= 1 && page <= this.totalPages()) {
-				this.currentPage = page;
-			}
-		},
+
 		toggleDropdown() {
 			this.dropdownVisible = !this.dropdownVisible;
 		},

@@ -402,11 +402,7 @@ export default {
 			.then(() => this.updateBrands());
 	},
 	methods: {
-		changePage(page) {
-			if (page >= 1 && page <= this.totalPages()) {
-				this.currentPage = page;
-			}
-		},
+
 		toggleDropdown() {
 			this.dropdownVisible = !this.dropdownVisible;
 		},

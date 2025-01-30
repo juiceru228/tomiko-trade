@@ -26,8 +26,8 @@
         <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
       </div>
     </section>
-    <modal-show v-if="showModalExample" @close="closeModalExample" />
-    <div class="overlay" v-if="showModalExample"></div>
+    <modal-show v-if="showModalEx" @close="closeModalExample" />
+    <div class="overlay" v-if="showModalEx"></div>
      <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
       <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
     </ModalForm>
@@ -65,7 +65,7 @@ export default {
     closeModalCalculator() {
       this.isModalCalculatorVisible = false;
     },
-    showModalExample() {
+    showModalEx() {
       this.showModalExample = true;
       console.log("Нажал на кнопку");
     },
