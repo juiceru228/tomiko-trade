@@ -1,7 +1,10 @@
 .control {
+    position: relative;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 30px;
 }
 
 .control-row {
@@ -253,20 +256,21 @@
 
 
 .swiper-slide {
-
     display: flex;
     justify-content: flex-end;
-    padding: 100px 0;
-    margin: 0px;
+
     opacity: 1;
     transition: all 0.3s ease;
+    width: 338px;
+    height: 347px;
+    margin-top: 100px;
 }
 
 .swiper-container-wrapper {
     max-width: 1800px;
     margin: 0 auto;
     overflow: hidden;
-
+    
 }
 
 .swiper-item-box {
@@ -290,12 +294,7 @@
 }
 
 .swiper-container {
-
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    overflow: visible;
-
 }
 
 .price-button-wrapper {
@@ -409,18 +408,11 @@
     margin-right: 200px;
     /* Увеличенное расстояние */
     margin-left: 200px;
-    display: flex;
-    align-items: right;
     transform: translateY(-50px);
 
 }
 
-.swiper-buttons {
-    position: relative;
 
-    z-index: 10000;
-    transform: translateX(45%) translateY(80px);
-}
 
 .swiper-slide-active img {
     transform: scale(2.27);

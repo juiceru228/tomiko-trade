@@ -39,16 +39,17 @@
           </ModalForm>
       </div>
     </section>
-    <!---<modal-show v-if="showModalExample" @close="closeModalExample" />
-    <div class="overlay" v-if="showModalExample"></div>
+    <modal-show v-if="showModalEx" @close="closeModalExample" />
+    <div class="overlay" v-if="showModalEx"></div>
      <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
       <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
-    </ModalForm> --->
+    </ModalForm>
   </div>
 </template>
 
 <script>
 import { reactive } from 'vue';
+
 import EconomyModal from '@/components/EconomyModal.vue';
 import ModalForm from '@/components/ModalForm.vue';
 import ValidationForm from '@/components/ValidationForm.vue';
@@ -63,6 +64,7 @@ export default {
     return {
       isEconomyModalVisible: false,
       isConsultationModalVisible: false,
+
       form: reactive({
         name: '',
         phone_number: '',
@@ -88,7 +90,7 @@ export default {
     closeModalCalculator() {
       this.isModalCalculatorVisible = false;
     },
-    showModalExample() {
+    showModalEx() {
       this.showModalExample = true;
       console.log("Нажал на кнопку");
     },

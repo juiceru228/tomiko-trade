@@ -144,6 +144,7 @@ export default {
 <style scoped>
 .car-details {
     color: white;
+    margin-bottom: 20px;
 }
 
 .car-info {
