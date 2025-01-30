@@ -114,6 +114,8 @@
 			</div>
 		</section>
 
+        <SwiperCarsComponent :fetchParams="{ country: 'Япония', type: 'cars', page: 1 }" country="ЯПОНИИ" :flagPath="require('../assets/flag2.webp')"/>
+
 		<section class="catalog-car">
 			<div class="sort-and-curTraded">
 				<select v-model="selectedSorting">
@@ -166,7 +168,7 @@
 			</div>
 		</section>
 
-		<section class="contacts">
+		<!---<section class="contacts">
 			<div class="contact-content">
 				<div class="contact-info">
 					<div class="contact-details">
@@ -224,7 +226,8 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
+		<contacts/>
 
 		<section class="socials-media-container">
 			<img class="line-img" src="img/line.svg" alt="line">
@@ -300,19 +303,25 @@ import axios from 'axios';
 import { ref } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
+import contacts from '../components/ContactsPage.vue';
 import { reactive } from 'vue';
+import SwiperCarsComponent from '../components/SwiperCars/SwiperCarsComponent.vue';
+
 export default {
 	name: 'JapanPage',
 	components: {
 		ModalForm,
 		ValidationForm,
+		contacts,
+		SwiperCarsComponent
 	},
+
 	data() {
 		return {
 			COUNTRY: 'Япония',
 			brands: [],
 			years: Array.from({ length: 24 }, (_, i) => (i + 2000).toString()),
-			engineVolumes: [],
+			engineVolumes: Array.from({ length: 30 }, (_, i) => (0.7 + i * 0.1).toFixed(1)),
 			drives: ['Передний привод', 'Задний привод', 'Полный'],
 			models: [],
 			mileages: ['5000', '15000', '30000', '50000', '100000'],
@@ -402,6 +411,7 @@ export default {
 			.then(() => this.updateBrands());
 	},
 	methods: {
+		
 		toggleDropdown() {
 			this.dropdownVisible = !this.dropdownVisible;
 		},
@@ -529,6 +539,10 @@ export default {
 			console.log('Форма успешно отправлена!', formData);
 			alert('Форма успешно отправлена!');
 			this.isModalVisible = false;
+			this.form.name = '';
+			this.form.phone_number = '';
+			this.form.description = '';
+			this.form.isAgreed = false;
 		},
 
 		resetDropdowns() {

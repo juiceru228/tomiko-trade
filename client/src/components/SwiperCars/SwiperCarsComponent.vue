@@ -148,6 +148,10 @@ export default {
         handleFormSubmit(formData) {
             console.log('Форма успешно отправлена!', formData);
             alert('Форма успешно отправлена!');
+            this.form.name = '';
+            this.form.phone_number = '';
+            this.form.description = '';
+            this.form.isAgreed = false;
             this.isModalVisible = false;
         },
     },

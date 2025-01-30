@@ -53,7 +53,7 @@ def getReviews(request=None):
     url = 'https://public-api.reviews.2gis.com/2.0/branches/3518965489880232/reviews'
 
     params = {
-        'limit': 8,
+        'limit': 32,
         'is_advertiser': 'false',
         'fields': 'meta.providers,meta.branch_rating,meta.branch_reviews_count,meta.total_count,reviews.hiding_reason,reviews.is_verified',
         'without_my_first_review': 'false',

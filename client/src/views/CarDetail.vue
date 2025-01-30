@@ -65,7 +65,7 @@
 
                 </div>
                 <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
-                    @swiperslidechange="onSlideChange" :space-between="10">
+                    @swiperslidechange="onSlideChange">
 
                     <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">
                         <router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
@@ -221,6 +221,7 @@ export default {
 <style scoped>
 .car-details {
     color: white;
+    margin-top: 20px;
 }
 
 .car-info {
@@ -339,11 +340,12 @@ export default {
     flex-grow: 1;
     border: none;
     color: white;
-    padding: 15px 30px;
+    padding: 12px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 50px;
     transition: background 0.3s ease;
+    white-space: nowrap; 
 }
 
 .gradient-button {
@@ -453,10 +455,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     padding: 100px 0;
-    margin: 10px;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
+    margin: 0px;
     opacity: 1;
     transition: all 0.3s ease;
 }
@@ -470,7 +469,6 @@ export default {
 .swiper-item-box {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -617,8 +615,8 @@ export default {
 
 .swiper-buttons {
     position: relative;
-
-    z-index: 10000;
+    margin-left: 700px;
+    z-index: 100;
     transform: translateX(45%) translateY(80px);
 }
 

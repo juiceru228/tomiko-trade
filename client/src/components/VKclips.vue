@@ -36,10 +36,7 @@
             </div>
             <div class="clips_swiper swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-wrapper">
-                    <swiper :modules="modules" :slides-per-view="10" :space-between="10" 
-                    navigation :pagination="{ clickable: true }" 
-                    @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
+                    <swiper :modules="modules" :slides-per-view="10" :space-between="10"  @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
                             <img :src="clip[0]?.items[1]?.image[4]?.url || placeholder" @error="onImageError"
                                 :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
@@ -117,7 +114,6 @@
                                 :class="{ 'is-placeholder': !clip[1]?.items[18]?.image[4]?.url }" />
                         </SwiperSlide>
                     </swiper>
-                    </div>
 
                 </div>
             </div>
@@ -191,7 +187,7 @@ export default {
                 this.loading = false;
             }
         },
-        
+
     },
     setup() {
         const onSwiper = (swiper) => {
@@ -278,6 +274,7 @@ svg {
 .swiper-slide {
     margin: 10px;
 }
+
 .swiper {
     display: flex;
     flex-wrap: wrap;
@@ -346,7 +343,12 @@ svg {
         display: flex !important;
     }
 }
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
     max-width: 100%;
     margin: 0 auto;
 }

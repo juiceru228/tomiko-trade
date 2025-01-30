@@ -33,9 +33,9 @@ class FilteredList(APIView):
         if mileage_stop:
             filter_conditions['mileage__lte'] = int (mileage_stop)
         if engine_volume_start:
-            filter_conditions['engine_volume__gte'] = int (engine_volume_start)
+            filter_conditions['engine_volume__gte'] = float (engine_volume_start)
         if engine_volume_stop:
-            filter_conditions['engine_volume__lte'] = int (engine_volume_stop)
+            filter_conditions['engine_volume__lte'] = float (engine_volume_stop)
         if 'country' in params:
             filter_conditions['brand_country__country'] = params.get('country')
         if 'brand' in params:
