@@ -2,9 +2,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import axios from './axios';
-import { createRouter, createWebHistory } from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 // main.js/ts
-import { createBootstrap } from 'bootstrap-vue-next'
+import {createBootstrap} from 'bootstrap-vue-next'
 
 // Add the necessary CSS
 import 'bootstrap/dist/css/bootstrap.css'
@@ -18,21 +18,24 @@ import CarDetail from './views/CarDetail.vue'
 import ContactPage from './views/ContactPage.vue'
 import NotFound from './views/NotFound.vue'
 import SwiperCars from './components/SwiperCars.vue'
-import ContactsPage from './components/ContactsPage.vue';
+import AboutUs from './views/AboutUs.vue'
+import PromotionsComponent from './views/Promotions.vue';
 const routes = [
-  { path: '/', component: MainPage },
-  { path: '/china', component: ChinaPage },
-  { path: '/korea', component: KoreaPage },
-  { path: '/japan', component: JapanPage },
-  { path: '/car/:id', name: 'CarDetail', component: CarDetail },
-  { path: '/contact', component: ContactPage },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
-
+	{path: '/', component:MainPage},
+	{path: '/china', component:ChinaPage},
+	{path: '/korea', component:KoreaPage},
+	{path: '/japan', component:JapanPage},
+  {path: '/car/:id', name: 'CarDetail', component:CarDetail},
+  {path: '/contact', component:ContactPage},
+  {path: '/:pathMatch(.*)*', name: 'NotFound', component:NotFound},
+  {path: '/ayaya', component:SwiperCars},
+  {path: '/about', component:AboutUs},
+  {path: '/promotions', component:PromotionsComponent}
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+	history: createWebHistory(),
+	routes,
 });
 
 export default {
@@ -42,7 +45,7 @@ export default {
     };
   },
   created() {
-    axios.get('/posts')
+    axios.get('/posts') 
       .then(response => {
         this.posts = response.data;
       })
