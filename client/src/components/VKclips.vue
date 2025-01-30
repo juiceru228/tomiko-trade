@@ -36,83 +36,70 @@
             </div>
             <div class="clips_swiper swiper">
                 <div class="swiper-wrapper">
-                    <swiper :modules="modules" :slides-per-view="10" :space-between="10"  @swiper="onSwiper" @slideChange="onSlideChange" :loop="true">
+                    <swiper :modules="modules" :slides-per-view="9" @swiper="onSwiper" @slideChange="onSlideChange"
+                        :loop-fill-group-with-blank="true" :loop="true">
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[1]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[0]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[0]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[2]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[2]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[1]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[1]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[3]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[3]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[2]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[2]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[4]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[4]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[3]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[3]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[5]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[5]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[4]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[4]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[6]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[6]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[5]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[5]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[7]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[7]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[6]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[6]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[8]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[8]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[7]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[7]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[9]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[9]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[8]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[8]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
                         <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[10]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[10]?.image[4]?.url }" />
+                            <a :href="clip[0]?.items[9]?.player || '#'" target="_blank" rel="noopener noreferrer">
+                                <img :src="clip[0]?.items[9]?.image[4]?.url || placeholder" @error="onImageError"
+                                    :class="{ 'is-placeholder': !clip[0]?.items[1]?.image[4]?.url }" />
+                            </a>
                         </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[11]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[11]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[12]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[12]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[12]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[12]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[13]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[13]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[14]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[14]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[15]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[15]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[16]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[16]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[17]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[17]?.image[4]?.url }" />
-                        </SwiperSlide>
-                        <SwiperSlide v-for="(clip, index) in clips" :key="index">
-                            <img :src="clip[0]?.items[18]?.image[4]?.url || placeholder" @error="onImageError"
-                                :class="{ 'is-placeholder': !clip[1]?.items[18]?.image[4]?.url }" />
-                        </SwiperSlide>
+
+
                     </swiper>
 
                 </div>

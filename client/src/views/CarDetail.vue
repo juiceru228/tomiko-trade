@@ -95,7 +95,7 @@
                 <router-view :key="$route.fullPath"></router-view>
             </div>
         </ul>
-
+        <contact/>
         <!-- Модальное окно -->
         <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
             <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
@@ -109,7 +109,7 @@
 import { register } from 'swiper/element/bundle';
 import { ref } from 'vue';
 register();
-
+import contact from '../components/ContactsPage.vue'
 import { reactive } from 'vue';
 import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
@@ -119,6 +119,7 @@ export default {
     components: {
         ModalForm,
         ValidationForm,
+        contact
     },
     data() {
         return {
@@ -187,11 +188,15 @@ export default {
                     throw error;
                 });
         },
-        handleFormSubmit(formData) {
-            console.log('Форма успешно отправлена!', formData);
-            alert('Форма успешно отправлена!');
-            this.isModalVisible = false;
-        },
+		handleFormSubmit(formData) {
+			console.log('Форма успешно отправлена!', formData);
+			alert('Форма успешно отправлена!');
+			this.isModalVisible = false;
+			this.form.name = '';
+			this.form.phone_number = '';
+			this.form.description = '';
+			this.form.isAgreed = false;
+		},
         onProgress(e) {
             const [swiper, progress] = e.detail;
             console.log('Progress:', swiper, progress);
