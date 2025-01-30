@@ -97,7 +97,7 @@ export default {
                 emit('submit', { ...localForm });
                 fetchData(props.form).then(() => {
                     emit('submit', { ...localForm });
-                    console.log('Данные отправлены:', localForm.form);
+
                 })
                     .catch((error) => {
                         console.error('Ошибка при отправке данных:', error);

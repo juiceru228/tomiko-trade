@@ -19,8 +19,8 @@
 
 
 <script>
-import ModalForm from '../components/ModalForm.vue';
-import ValidationForm from '../components/ValidationForm.vue';
+//import ModalForm from '../components/ModalForm.vue';
+//import ValidationForm from '../components/ValidationForm.vue';
 
 export default {
     props: {
@@ -28,10 +28,10 @@ export default {
             type: Boolean,
         },
     },
-    components: {
+    /*components: {
         ModalForm,
         ValidationForm,
-    },
+    },*/
     emits: ['close', 'open-consultation'],
     methods: {
         close() {

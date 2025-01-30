@@ -314,3 +314,4 @@ img, svg {
     padding-right: var(--bs-gutter-x, .75rem);
     padding-left: var(--bs-gutter-x, .75rem);
 }
+</style>

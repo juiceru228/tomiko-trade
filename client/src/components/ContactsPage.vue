@@ -23,16 +23,17 @@
                         <div>г. Владивосток, ул. Жигура 9в, 1 этаж, офис 1</div>
                     </div>
                 </div>
-                <form @submit.prevent="submitForm" class="custom-form" @click="handleFormClick">
+                <form @submit.prevent="submitForm" class="custom-form"  @click="handleFormClick">
                     <div class="desc1">Оставить заявку</div>
-                    <div class="description">Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под Ваши
+                    <div class="description">Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под
+                        Ваши
                         требования 👨‍💻</div>
                     <div class="form-row">
                         <div class="left-column">
                             <div class="input-wrapper">
                                 <label class="input-describe" for="name">Имя</label>
-                                <input class="first-field" type="text" placeholder="Введите имя" v-model="localForm.name"
-                                    @input="$emit('update:form', localForm)" />
+                                <input class="first-field" type="text" placeholder="Введите имя"
+                                    v-model="localForm.name" @input="$emit('update:form', localForm)" />
                                 <div class="error-tooltip" v-if="errors.name">{{ errors.name }}</div>
                             </div>
                         </div>
@@ -57,12 +58,13 @@
                     <div class="input-wrapper">
                         <div class="checkbox-container">
                             <input class="agreed-box" type="checkbox" v-model="localForm.isAgreed" id="checkbox" />
-                            <label class="agreed-label">С <span class="link">правилами политики конфиденциальности</span>
+                            <label class="agreed-label">С <span class="link">правилами политики
+                                    конфиденциальности</span>
                                 ознакомлен</label>
                             <div class="error-tooltip" v-if="errors.isAgreed">{{ errors.isAgreed }}</div>
                         </div>
                     </div>
-                    <button class="commit-button" type="submit">Отправить</button>
+                    <button class="commit-button" type="submit" @submit="submitForm" >Отправить</button>
                 </form>
             </div>
         </div>
@@ -84,32 +86,49 @@
 import { reactive } from 'vue';
 import axios from 'axios';
 import { mask } from 'vue-the-mask';
+
 export default {
-    name: 'ContactPage',
     directives: {
         mask,
     },
-    props: {
-        form: {
-            type: Object,
-            required: true,
+    name: 'FormModal',
+    methods: {
+        handleFormSubmit(formData) {
+            console.log('Форма успешно отправлена!', formData);
+            alert('Форма успешно отправлена!');
 
+            this.localForm.name = '';
+            this.localForm.phone_number = '';
+            this.localForm.description = '';
+            this.localForm.isAgreed = false;
+
+            this.isConsultationModalVisible = false;
         },
     },
-    emits: ['submit'],
     setup(props, { emit }) {
-        const localForm = reactive({ ...props.form });
-        const errors = reactive({});
+        const localForm = reactive({
+            name: '',
+            phone_number: '',
+            description: '',
+            isAgreed: false
+        });
+        const errors = reactive({
+            name: '',
+            phone_number: '',
+            description: '',
+            isAgreed: ''
+        });
 
         const validateForm = () => {
             const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
-            errors.name = props.form.name ? '' : 'Имя обязательно';
-            errors.phone_number = phoneRegex.test(props.form.phone_number) ? '' : 'Номер телефона должен быть в формате +71231231231';
-            errors.description = props.form.description ? '' : 'Описание обязательно';
-            errors.isAgreed = props.form.isAgreed ? '' : 'Вы должны согласиться с правилами';
+            errors.name = localForm.name ? '' : 'Имя обязательно';
+            errors.phone_number = phoneRegex.test(localForm.phone_number) ? '' : 'Номер телефона должен быть в формате +71231231231';
+            errors.description = localForm.description ? '' : 'Описание обязательно';
+            errors.isAgreed = localForm.isAgreed ? '' : 'Вы должны согласиться с правилами';
 
             return !errors.name && !errors.phone_number && !errors.description && !errors.isAgreed;
         };
+
         const fetchData = (params = {}) => {
             return axios
                 .post('/api/bid/', params)
@@ -122,23 +141,27 @@ export default {
                 });
         };
 
-        const handleFormClick = () => {
-            Object.keys(errors).forEach((key) => {
-                errors[key] = '';
-            });
-        };
-
         const submitForm = () => {
             if (validateForm()) {
-                emit('submit', { ...localForm });
-                fetchData(props.form).then(() => {
-                    emit('submit', { ...localForm });
-                    console.log('Данные отправлены:', localForm.form);
-                })
+                const formData = { ...localForm };
+
+                fetchData(formData)
+                    .then(() => {
+                        // После успешной отправки можно показать уведомление
+                        console.log('Данные отправлены:', formData);
+                        this.handleFormSubmit(this.localForm);
+                        emit('submit', formData);
+                    })
                     .catch((error) => {
                         console.error('Ошибка при отправке данных:', error);
                     });
             }
+        };
+
+        const handleFormClick = () => {
+            Object.keys(errors).forEach((key) => {
+                errors[key] = '';  // Очистить ошибки при клике
+            });
         };
 
         return {
@@ -202,7 +225,8 @@ export default {
 }
 
 
-.contacts .contact_item a, .contacts .contact_item div {
+.contacts .contact_item a,
+.contacts .contact_item div {
     font-size: 18px;
     font-weight: 500;
     line-height: normal;

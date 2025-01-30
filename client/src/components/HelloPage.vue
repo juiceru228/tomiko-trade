@@ -5,7 +5,7 @@
       <p>Прозрачное ценообразование с подробным
         <br>разъяснением затрат на каждом этапе
       </p>
-      <button class="gradient-button" @click="openModalCalculator">Рассчитать стоимость</button>
+      <button class="gradient-button" @click="openConsultationModal">Рассчитать стоимость</button>
     </div>
     <section class="ZAP">
       <div class="left_info">
@@ -24,27 +24,22 @@
       <div class="card_discount">
         <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
         <button class="gradient-button" @click="isEconomyModalVisible = true">Смотреть пример</button>
-          <EconomyModal 
-            :visible="isEconomyModalVisible" 
-            @close="isEconomyModalVisible = false" 
-            @open-consultation="openConsultationModal"
-          />
 
-          <ModalForm 
-              :visible="isConsultationModalVisible" 
-              @close="isConsultationModalVisible = false"
-              class="modal-form"
-          >
-            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
-          </ModalForm>
       </div>
     </section>
-    <modal-show v-if="showModalEx" @close="closeModalExample" />
+    <modal-show v-if="showModalEx" @close="closeModalExample" class="modal-form" />
     <div class="overlay" v-if="showModalEx"></div>
-     <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
-      <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
-    </ModalForm>
+
+
   </div>
+
+  <EconomyModal :visible="isEconomyModalVisible" @close="isEconomyModalVisible = false"
+    @open-consultation="openConsultationModal" />
+
+  <ModalForm :visible="isConsultationModalVisible" @close="isConsultationModalVisible = false" class="modal-form">
+    <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+  </ModalForm>
+
 </template>
 
 <script>
@@ -64,7 +59,8 @@ export default {
     return {
       isEconomyModalVisible: false,
       isConsultationModalVisible: false,
-
+      isModalCalculatorVisible: false,
+      showModalExample: false,
       form: reactive({
         name: '',
         phone_number: '',
@@ -77,13 +73,8 @@ export default {
     openConsultationModal() {
       this.isEconomyModalVisible = false;
       this.isConsultationModalVisible = true;
-      },
-    handleFormSubmit() {
-      console.log("Форма отправлена:", this.form);
     },
-    updateForm(updatedForm) {
-      this.form = updatedForm;
-    },
+
     openModalCalculator() {
       this.isModalCalculatorVisible = true;
     },
@@ -98,15 +89,21 @@ export default {
       this.showModalExample = false;
       console.log("Нажал на кнопку");
     },
+    handleFormSubmit(formData) {
+      console.log('Форма успешно отправлена!', formData);
+      alert('Форма успешно отправлена!');
+      this.isConsultationModalVisible = false;
+      this.form.name = '';
+      this.form.phone_number = '';
+      this.form.description = '';
+      this.form.isAgreed = false;
+
+    },
+    updateForm(newForm) {
+      Object.assign(this.form, newForm);
+    }
   },
-  handleFormSubmit(formData) {
-    console.log('Форма успешно отправлена!', formData);
-    alert('Форма успешно отправлена!');
-    this.isModalCalculatorVisible = false;
-  },
-  updateForm(newForm) {
-    this.form = newForm;
-  },
+
 };
 </script>
 
@@ -274,11 +271,11 @@ export default {
 }
 
 .ZAP .card_discoint span {
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 72px;
-    text-align: left;
-    color: #fd554b;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 72px;
+  text-align: left;
+  color: #fd554b;
 }
 
 .card_discount {
