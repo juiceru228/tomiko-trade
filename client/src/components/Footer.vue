@@ -16,7 +16,7 @@
                                 </ul>
                                 <ul>
                                     <li>Компания</li>
-                                        <li><router-link to="">О компании</router-link></li>
+                                        <li><router-link to="/aboutus">О компании</router-link></li>
                                         <li><router-link to="">Доставка</router-link></li>
                                         <li><router-link to="">Отзывы</router-link></li>
                                 </ul>
@@ -146,6 +146,13 @@ footer .footer_bottom {
     padding: 24px 0;
 }
 
+footer .footer_bottom .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
 footer .social img {
     width: 24px;
     height: 24px;
@@ -153,11 +160,7 @@ footer .social img {
 }
 
 footer .social {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     gap: 12px;
 }

@@ -5,7 +5,7 @@
                 <img loading="lazy" src="../assets/subscribe_image.webp" alt="Подпишись" class="subscribe_image">
                 <div class="subscribe_right">
                     <div class="title">
-                        <h2><span>Подпишись</span>, чтобы не пропустить выгодные предложения от нашей компании!</h2>
+                        <h2><span>Подпишись</span>и не упусти автомобиль своей мечты</h2>
                     </div>
                     <a href="https://vk.com/tomiko_trade" class="subscribe_item" target="_blank">
                         <div class="subscribe_item_img">
@@ -137,5 +137,37 @@ export default {
     font-weight: 300;
     color: #FFF;
     margin: 0 0 12px 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .subscribe .title h2 {
+        font-size: 60px;
+    }
+}
+.subscribe .title h2 {
+    font-family: Bebas-Neue, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: normal;
+    color: #FFF;
+}
+h1, h2, h3, h4, h5, h6, span, p {
+    margin: 0;
+    padding: 0;
+}
+
+.subscribe .title {
+    margin: 0 0 32px 0;
+}
+
+.subscribe .subscribe_row .subscribe_right {
+    padding-block: 40px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .subscribe .subscribe_image {
+        max-width: 450px;
+        margin: -50px 0 0 0;
+    }
 }
 </style>

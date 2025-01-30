@@ -2,59 +2,59 @@
     <div class="logos_brand logos_brand2">
             <div class="">
                 <div class="logo-carousel">
-                    <div class='marquee2'>
-                            <div style="display: inline-flex">
-                                    <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
-                                    <span class="red-line">|</span>
-                                    <a href="" class="red-line">Оплата депозита двумя частями</a>
-                                    <span class="red-line">|</span>
-                                    <a href="" class="red-line">Система лояльности для оптовых заказов</a>
-                                    <span class="red-line">|</span>     
-                            </div>
-                            <div style="display: inline-flex">      
-                                    <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
-                                    <span class="red-line">|</span>
-                                    <a href="" class="red-line">Оплата депозита двумя частями</a>
-                                    <span class="red-line">|</span>
-                                    <a href="" class="red-line">Система лояльности для оптовых заказов</a>
-                                    <span class="red-line">|</span>
-                            </div>
-                            <div style="display: inline-flex">
-                                    <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
-                                    <span class="red-line">|</span>                               
-                                    <a href="" class="red-line">Оплата депозита двумя частями</a>
-                                    <span class="">|</span>                                
-                                    <a href="" class="red-line">Система лояльности для оптовых заказов</a>
-                                    <span class="red-line">|</span>                                
-                            </div>
-                        
-                            <div style="display: inline-flex">                                
-                                    <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
-                                    <span class="red-line">|</span>                                
-                                    <a href="" class="red-line">Оплата депозита двумя частями</a>
-                                    <span class="red-line">|</span>                                
-                                    <a href="" class="red-line">Система лояльности для оптовых заказов</a>
-                                    <span class="red-line">|</span>                                
-                            </div>
-                        
-                            <div style="display: inline-flex">                                
-                                    <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
-                                    <span class="red-line">|</span>                                
-                                    <a href="" class="red-line">Оплата депозита двумя частями</a>
-                                    <span class="red-line">|</span>                                
-                                    <a href="" class="red-line">Система лояльности для оптовых заказов</a>
-                                    <span class="red-line">|</span>                                
-                            </div>
-                        
-                            <div style="display: inline-flex">                                
-                                    <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
-                                    <span class="red-line">|</span>                                
-                                    <a href="" class="red-line">Оплата депозита двумя частями</a>
-                                    <span class="red-line">|</span>                                
-                                    <a href="" class="red-line">Система лояльности для оптовых заказов</a>
-                                    <span class="red-line">|</span>                               
-                            </div>                       
-                    </div>
+                        <div class='marquee2'>
+                                <div style="display: inline-flex">
+                                        <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
+                                        <span class="red-line">|</span>
+                                        <a href="" class="red-line">Оплата депозита двумя частями</a>
+                                        <span class="red-line">|</span>
+                                        <a href="" class="red-line">Система лояльности для оптовых заказов</a>
+                                        <span class="red-line">|</span>     
+                                </div>
+                                <div style="display: inline-flex">      
+                                        <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
+                                        <span class="red-line">|</span>
+                                        <a href="" class="red-line">Оплата депозита двумя частями</a>
+                                        <span class="red-line">|</span>
+                                        <a href="" class="red-line">Система лояльности для оптовых заказов</a>
+                                        <span class="red-line">|</span>
+                                </div>
+                                <div style="display: inline-flex">
+                                        <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
+                                        <span class="red-line">|</span>                               
+                                        <a href="" class="red-line">Оплата депозита двумя частями</a>
+                                        <span class="">|</span>                                
+                                        <a href="" class="red-line">Система лояльности для оптовых заказов</a>
+                                        <span class="red-line">|</span>                                
+                                </div>
+                                
+                                <div style="display: inline-flex">                                
+                                        <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
+                                        <span class="red-line">|</span>                                
+                                        <a href="" class="red-line">Оплата депозита двумя частями</a>
+                                        <span class="red-line">|</span>                                
+                                        <a href="" class="red-line">Система лояльности для оптовых заказов</a>
+                                        <span class="red-line">|</span>                                
+                                </div>
+                                
+                                <div style="display: inline-flex">                                
+                                        <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
+                                        <span class="red-line">|</span>                                
+                                        <a href="" class="red-line">Оплата депозита двумя частями</a>
+                                        <span class="red-line">|</span>                                
+                                        <a href="" class="red-line">Система лояльности для оптовых заказов</a>
+                                        <span class="red-line">|</span>                                
+                                </div>
+                                
+                                <div style="display: inline-flex">                                
+                                        <a href="" class="red-line">Денежное вознаграждение за рекомендацию</a>
+                                        <span class="red-line">|</span>                                
+                                        <a href="" class="red-line">Оплата депозита двумя частями</a>
+                                        <span class="red-line">|</span>                                
+                                        <a href="" class="red-line">Система лояльности для оптовых заказов</a>
+                                        <span class="red-line">|</span>                               
+                                </div>                       
+                        </div>
                 </div>
             </div>
         </div>
