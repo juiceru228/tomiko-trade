@@ -8,19 +8,64 @@
             <span class="subtitle">Оставьте совю заявку и наш менеджер свяжется с Вами для уточнения деталей</span>
         </div>
         <div class="buttons-container">
-            <button class="pill-button" id="consultation">Получить консультацию</button>
+            <button class="pill-button" @click="openModal" id="consultation">Получить консультацию</button>
             <button class="round-button"><img alt="whatsapp" src="../assets/whatsapp.png"></button>
         </div>
     </div>
+    <ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+        <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+    </ModalForm>
+
 </template>
 
 <script>
+import { reactive } from 'vue';
+import ModalForm from '../components/ModalForm.vue';
+import ValidationForm from '../components/ValidationForm.vue';
 export default {
     name: 'NotFound',
+    components: {
+        ModalForm,
+        ValidationForm,
+    },
+    data() {
+        return {
+            isModalVisible: false,
+            form: reactive({
+                name: '',
+                phone_number: '',
+                description: '',
+                isAgreed: false
+            }),
+        }
+    },
+    methods: {
+        openModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        },
+        handleFormSubmit(formData) {
+            console.log('Форма успешно отправлена!', formData);
+            alert('Форма успешно отправлена!');
+            this.isModalVisible = false;
+            this.form.name = '';
+            this.form.phone_number = '';
+            this.form.description = '';
+            this.form.isAgreed = false;
+        },
+        updateForm(newForm) {
+            this.form = newForm;
+        },
+    },
 };
 </script>
 
 <style scoped>
+.modal-form {
+    z-index: 1000;
+}
 .not-found {
     display: flex;
     flex-direction: column;
