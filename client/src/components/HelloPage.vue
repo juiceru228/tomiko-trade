@@ -23,7 +23,20 @@
       </div>
       <div class="card_discount">
         <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
-        <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
+        <button class="gradient-button" @click="isEconomyModalVisible = true">Смотреть пример</button>
+          <EconomyModal 
+            :visible="isEconomyModalVisible" 
+            @close="isEconomyModalVisible = false" 
+            @open-consultation="openConsultationModal"
+          />
+
+          <ModalForm 
+              :visible="isConsultationModalVisible" 
+              @close="isConsultationModalVisible = false"
+              class="modal-form"
+          >
+            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+          </ModalForm>
       </div>
     </section>
     <!---<modal-show v-if="showModalExample" @close="closeModalExample" />
@@ -36,20 +49,20 @@
 
 <script>
 import { reactive } from 'vue';
-/*import ModalForm from '../components/ModalForm.vue';
-import ValidationForm from '../components/ValidationForm.vue';
-import ModalCard from './ModalCard.vue';*/
+import EconomyModal from '@/components/EconomyModal.vue';
+import ModalForm from '@/components/ModalForm.vue';
+import ValidationForm from '@/components/ValidationForm.vue';
 export default {
   name: 'HelloPage',
-  /*components: {
+  components: {
+    EconomyModal,
     ModalForm,
-    ValidationForm,
-    ModalCard,
-  },*/
+    ValidationForm
+  },
   data() {
     return {
-      //isModalCalculatorVisible: false,
-      //showModalExample: false,
+      isEconomyModalVisible: false,
+      isConsultationModalVisible: false,
       form: reactive({
         name: '',
         phone_number: '',
@@ -59,6 +72,16 @@ export default {
     };
   },
   methods: {
+    openConsultationModal() {
+      this.isEconomyModalVisible = false;
+      this.isConsultationModalVisible = true;
+      },
+    handleFormSubmit() {
+      console.log("Форма отправлена:", this.form);
+    },
+    updateForm(updatedForm) {
+      this.form = updatedForm;
+    },
     openModalCalculator() {
       this.isModalCalculatorVisible = true;
     },

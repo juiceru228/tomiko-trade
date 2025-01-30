@@ -40,7 +40,14 @@
 
             <div class="form-group">
               <label for="phone">Телефон</label>
-              <input id="phone" type="text" v-model="form.phone" placeholder="+7" @input="formatPhone" required />
+              <input 
+                id="phone" 
+                type="text" 
+                v-model="form.phone" 
+                placeholder="+7 (_) _--" 
+                @input="formatPhone" 
+                required 
+              />
             </div>
           </div>
 
@@ -88,18 +95,21 @@ export default {
   methods: {
     formatPhone() {
       let digits = this.form.phone.replace(/\D/g, "");
-      if (digits.length > 1) {
-        digits =
-          "+7 " +
-          digits.substring(1, 4) +
-          " " +
-          digits.substring(4, 7) +
-          " " +
-          digits.substring(7, 9) +
-          " " +
-          digits.substring(9, 11);
+
+      if (digits.startsWith("8")) {
+        digits = "7" + digits.slice(1);
       }
-      this.form.phone = digits.trim();
+
+      digits = digits.slice(0, 11);
+
+      let formatted = "+7";
+
+      if (digits.length > 1) formatted += " (" + digits.slice(1, 4);
+      if (digits.length > 4) formatted += ") " + digits.slice(4, 7);
+      if (digits.length > 7) formatted += "-" + digits.slice(7, 9);
+      if (digits.length > 9) formatted += "-" + digits.slice(9, 11);
+
+      this.form.phone = formatted;
     },
     submitForm() {
       if (!this.form.privacy) {
