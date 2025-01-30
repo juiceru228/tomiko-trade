@@ -108,64 +108,58 @@
 				</div>
 
 				<div class="result">
-					<button @click="fetchDataWithParam">Показать</button>
-					<a href="/china/" style="visibility: hidden;">Сбросить</a>
-					<!---<div v-if="items.length">
-						<ul>
-							<li v-for="item in items" :key="item.id" class="item">
-								<div>{{ item.brand }}</div>
-								<div>{{ item.model }} | {{ item.year }} | {{ item.mileage }} км | {{ item.engine_volume
-									}} л</div>
-								<div class="image_frame"><img :src="`${mediaUrl}${item.image}`"></div>
-							</li>
-						</ul>
-					</div>--->
+					<button @click="showAll">Показать</button>
+					<a v-if="filtersApplied" href="/china/" @click.prevent="resetDropdowns">Сбросить</a>
 				</div>
 			</div>
 		</section>
 
 		<section class="catalog-car">
-			<div class="catalog">
-				<div class="sort-and-curTraded">
-					<select v-model="selectedSorting">
-						<option value="" disabled>Сортировка</option>
-						<option v-for="(value, key) in sorts" :key="key" :value="key">
-							{{ value }}
-						</option>
-					</select>
-					<button>Какие авто торгуются сейчас</button>
-				</div>
+			<div class="sort-and-curTraded">
+				<select v-model="selectedSorting">
+					<option value="" disabled>Сортировка</option>
+					<option v-for="(value, key) in sorts" :key="key" :value="key">
+						{{ value }}
+					</option>
+				</select>
+				<button>Какие авто торгуются сейчас</button>
+			</div>
 
 
-				<div class="catalog-items">
-					<li class="card" v-for="item in items" :key="item.id">
+			<div class="catalog-items">
+				<li class="card" v-for="item in items" :key="item.id">
+					<router-link :to="{ name: 'CarDetail', params: { id: item.id } }">
 						<div class="card-title">
 							<h3 class="title-name">{{ item.brand }} {{ item.model }}</h3>
-							<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }}</p>
+							<p>{{ item.year }} · {{ item.drive }} · {{ item.mileage }} км</p>
 						</div>
 						<div class="catalog-car-image">
-							<img class="car-image" :src="`${mediaUrl}${item.image}`" alt="Car">
+							<img class="car-image" :src="`${mediaUrl}${item.image.split('%2C')[0]}`" alt="Car">
 						</div>
 						<div class="price-order">
 							<h3 class="title-price-order">{{ item.price }} ₽</h3>
-							<button class="order-button">Оставить заявку</button>
+							<button class="order-button" @click.prevent='openModal'>Оставить заявку</button>
 						</div>
-					</li>
-				</div>
+					</router-link>
+				</li>
+			</div>
 
+			<div class="pagination">
 				<div class="catalog-pagination">
 					<button :disabled="currentPage === 1" @click="changePage(currentPage - 1)" v-if="currentPage > 1">
 						Предыдущее
 					</button>
-					
+
 					<span v-for="page in pageNumbers" :key="page">
-						<button v-if="page != '...'" :class="{ active: currentPage === page }" @click="changePage(page)">
+						<button v-if="page != '...'" :class="{ active: currentPage === page }"
+							@click="changePage(page)">
 							{{ page }}
 						</button>
 						<span v-else>...</span>
 					</span>
 
-					<button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)" v-if="currentPage < totalPages">
+					<button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)"
+						v-if="currentPage < totalPages">
 						Следующее
 					</button>
 				</div>
@@ -296,15 +290,23 @@
 			</div>
 		</section>
 	</div>
+	<ModalForm :visible="isModalVisible" @close="closeModal" class="modal-form">
+		<ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+	</ModalForm>
 </template>
 
 <script>
 import axios from 'axios';
 import { ref } from 'vue';
-
+import ModalForm from '../components/ModalForm.vue';
+import ValidationForm from '../components/ValidationForm.vue';
+import { reactive } from 'vue';
 export default {
 	name: 'ChinaPage',
-
+	components: {
+		ModalForm,
+		ValidationForm,
+	},
 	data() {
 		return {
 			COUNTRY: 'Китай',
@@ -318,6 +320,7 @@ export default {
 			colors: ['Черный', 'Бежевый', 'Белый', 'Бордовый', 'Желтый', 'Зеленый', 'Золотой',
 				'Коричневый', 'Красный', 'Оранжевый', 'Розовый', 'Серебряный', 'Серый', 'Синий', 'Фиолетовый'],
 			items: [],
+			allItems: [],
 			brands_models: [],
 			sorts: {
 				"mileage": "Пробег: по возрастанию",
@@ -329,6 +332,12 @@ export default {
 				"year": "Год: по возрастанию",
 				"-year": "Год: по убыванию"
 			},
+			form: reactive({
+				name: '',
+				phone_number: '',
+				description: '',
+				isAgreed: false
+			}),
 			selectedBrand: '',
 			selectedYearFrom: '',
 			selectedYearTo: '',
@@ -342,9 +351,11 @@ export default {
 			selectedColor: '',
 			selectedSorting: '',
 			mediaUrl: "/media",
-			currentPage: ref(1),
+			filtersApplied: false,
+			currentPage: 1,
 			perPage: ref(12),
-			rows: ref(250)
+			rows: 0,
+			isModalVisible: false,
 		};
 	},
 
@@ -357,38 +368,45 @@ export default {
 			const total = this.totalPages;
 			const current = this.currentPage;
 
-			let start = Math.max(1, current - 2);
-			let end = Math.min(total, current + 2);
-
-			if (current <= 3) {
-				end = Math.min(total, 5);
+			//первая страница
+			if (total > 1) {
+				pages.push(1);
 			}
 
-			if (current >= total - 2) {
-				start = Math.max(1, total - 4);
+			let start = Math.max(2, current - 2);
+			let end = Math.min(total - 1, current + 2);
+
+			if (start > 2) {
+				pages.push('...');
 			}
 
 			for (let i = start; i <= end; i++) {
 				pages.push(i);
 			}
 
-			if (start > 1) {
-				pages.unshift('...');
+			if (end < total - 1) {
+				pages.push('...');
 			}
 
-			if (end < total) {
-				pages.push('...')
+			//последняя страница
+			if (total > 1) {
+				pages.push(total);
 			}
- 
+
 			return pages;
 		}
 	},
 	mounted() {
 		this.fetchData({ country: this.COUNTRY, type: "cars", page: this.currentPage })
-		this.fetchModels({ country: this.COUNTRY, type: "cars_models"})
+		this.fetchModels({ country: this.COUNTRY, type: "cars_models" })
 			.then(() => this.updateBrands());
 	},
 	methods: {
+		changePage(page) {
+			if (page >= 1 && page <= this.totalPages()) {
+				this.currentPage = page;
+			}
+		},
 		toggleDropdown() {
 			this.dropdownVisible = !this.dropdownVisible;
 		},
@@ -403,8 +421,17 @@ export default {
 			return axios.get('/api/filter/', { params })
 				.then(response => {
 					this.items = response.data;
-					console.log('Fetched data:', this.items);
-
+					console.log('Fetched data:', this.items.length);
+				}).catch(error => {
+					console.error('Error fetching data:', error)
+					throw error;
+				});
+		},
+		fetchDataAll(params = {}) {
+			return axios.get('/api/filter/', { params })
+				.then(response => {
+					this.allItems = response.data;
+					console.log('Fetched data:', this.allItems.length);
 				}).catch(error => {
 					console.error('Error fetching data:', error)
 					throw error;
@@ -415,7 +442,7 @@ export default {
 				.then(response => {
 					this.brands_models = response.data;
 					console.log('Fetched models:', this.brands_models, this.brands_models.length);
-
+					this.rows = this.brands_models.length;
 				}).catch(error => {
 					console.error('Error fetching models:', error)
 					throw error;
@@ -441,7 +468,7 @@ export default {
 				.filter(model => model))).sort();
 			console.log('Updated model:', this.models);
 		},
-		fetchDataWithParam() {
+		async showAll() {
 			let params = {
 				country: this.COUNTRY,
 				type: "cars",
@@ -458,13 +485,57 @@ export default {
 				brand: this.selectedBrand || null,
 				ordering: this.selectedSorting || null,
 			};
+			this.currentPage = 1;
+			await this.fetchDataAll(params);
+			this.rows = this.allItems.length;
+			console.log(this.rows, this.allItems.length)
+
+			this.fetchDataWithParam();
+		},
+		fetchDataWithParam() {
+			this.filtersApplied = true;
+
+			let params = {
+				country: this.COUNTRY,
+				type: "cars",
+				year_start: this.selectedYearFrom || null,
+				year_stop: this.selectedYearTo || null,
+				model: this.selectedModel || null,
+				transmission: this.selectedTransmission || null,
+				engine_volume_start: this.selectedEngineVolumeFrom || null,
+				engine_volume_stop: this.selectedEngineVolumeTo || null,
+				mileage_start: this.selectedMileageFrom || null,
+				mileage_stop: this.selectedMileageTo || null,
+				drive: this.selectedDrive || null,
+				color: this.selectedColor || null,
+				brand: this.selectedBrand || null,
+				ordering: this.selectedSorting || null,
+				page: this.currentPage || null,
+			};
+
 			Object.keys(params).forEach(key => {
 				if (params[key] === null) {
 					delete params[key];
 				}
 			});
+
 			this.fetchData(params);
 		},
+		openModal() {
+			this.isModalVisible = true;
+		},
+		closeModal() {
+			this.isModalVisible = false;
+		},
+		updateForm(newForm) {
+			this.form = newForm;
+		},
+		handleFormSubmit(formData) {
+			console.log('Форма успешно отправлена!', formData);
+			alert('Форма успешно отправлена!');
+			this.isModalVisible = false;
+		},
+
 		resetDropdowns() {
 			this.selectedBrand = '',
 				this.selectedYearFrom = '',
@@ -477,7 +548,11 @@ export default {
 				this.selectedMileageTo = '',
 				this.selectedTransmission = '',
 				this.selectedColor = '',
-				this.selectedSorting = ''
+				this.selectedSorting = '',
+				this.currentPage = 1;
+			this.filtersApplied = false,
+				this.fetchDataWithParam()
+
 		}
 	},
 };
@@ -498,13 +573,12 @@ export default {
 
 .breadcrumb {
 	align-items: flex-start;
-	align-self: stretch;
 	flex-direction: column;
 	display: flex;
 	gap: 2px;
 	padding: 24px 100px 0px;
 	position: relative;
-	width: 100%;
+	width: 1600px;
 }
 
 .breadcrumb-items {
@@ -522,12 +596,11 @@ export default {
 
 .car-filter {
 	align-items: flex-start;
-	align-self: stretch;
 	display: flex;
 	flex: 0 0 auto;
 	flex-direction: column;
 	gap: 16px;
-	padding: 40px 100px 0px;
+	padding: 40px 0px 0px;
 	position: relative;
 	width: 1400px;
 }
@@ -639,42 +712,29 @@ h1 {
 }
 
 .result a {
-	font-family: Inter;
+	font-family: "Inter";
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 19.36px;
 	color: #fd554b;
 	height: max-content;
-	visibility: hidden;
 }
 
 .catalog-car {
-	align-self: stretch;
 	display: flex;
 	flex: 0 0 auto;
 	flex-direction: column;
 	position: relative;
-	min-width: 1400px;
-	width: 100%;
-	align-items: center;
+	width: 1600px;
 	gap: 40px;
 	justify-content: center;
 	padding: 40px 100px 60px;
-}
-
-.catalog {
-	align-self: stretch;
-	display: flex;
-	flex: auto;
-	flex-direction: column;
-	position: relative;
-	width: 100%;
-	align-items: flex-start;
-	gap: 16px;
+	align-items: center;
 }
 
 .sort-and-curTraded {
 	align-items: center;
+	align-self: flex-start;
 	background-color: transparent;
 	display: inline-flex;
 	flex: 0 0 auto;
@@ -691,7 +751,7 @@ h1 {
 	padding: 12px 16px;
 	position: relative;
 	background-color: #ffffff1a;
-	background:#20344a ;
+	background: #20344a;
 	cursor: pointer;
 	color: #FFFFFF;
 	text-align: left;
@@ -722,12 +782,11 @@ h1 {
 
 .catalog-items {
 	align-items: center;
-	align-self: stretch;
 	background-color: transparent;
 	display: flex;
 	flex: 0 0 auto;
 	flex-wrap: wrap;
-	gap: 16px 16px;
+	gap: 16px;
 	position: relative;
 	width: 100%;
 }
@@ -743,6 +802,8 @@ h1 {
 	padding: 16px 8px;
 	position: relative;
 	justify-content: center;
+	height: 347px;
+	width: 338px;
 }
 
 .card-title {
@@ -794,6 +855,7 @@ h1 {
 }
 
 .price-order {
+	margin-top: 10px;
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
@@ -812,7 +874,7 @@ h1 {
 	color: #ffffff;
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 24px;
-	font-weight: 700;
+	font-weight: 400;
 }
 
 .order-button {
@@ -837,16 +899,21 @@ h1 {
 	background-color: #d51117;
 }
 
+.pagination {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
 .catalog-pagination {
 	align-items: center;
-	align-self: flex-end;
 	position: relative;
 	background-color: #1a2939;
 	border-radius: 52px;
 	display: inline-flex;
 	gap: 2px;
 	justify-content: center;
-	padding: 6px;
+	padding: 4px;
 }
 
 .catalog-pagination button {
@@ -868,12 +935,11 @@ h1 {
 	background-color: #20344a;
 }
 
-.active {
+.catalog-pagination button.active {
 	background-color: #d51117;
 }
 
 .contacts {
-	align-self: stretch;
 	align-items: center;
 	display: flex;
 	flex: 0 0 auto;
@@ -1120,31 +1186,18 @@ h1 {
 	width: 560px;
 }
 
-.car-filter {
-	align-items: flex-start;
-	align-self: stretch;
-	display: flex;
-	flex: 0 0 auto;
-	flex-direction: column;
-	gap: 16px;
-	padding: 40px 100px 0px;
-	position: relative;
-	width: 1400px;
-
-}
-
 .socials-media-container {
-	align-self: stretch;
+	display: flex;
 	height: 702px;
-	width: 100%;
+	width: 1600px;
 	position: relative;
 	padding: 0px 100px 100px;
 }
 
 .line-img {
 	height: 87px;
-	left: 15px;
-	position: relative;
+	left: 140px;
+	position: absolute;
 	top: 515px;
 	width: 1300px;
 }
@@ -1163,8 +1216,8 @@ h1 {
 	display: inline-flex;
 	flex-direction: column;
 	gap: 32px;
-	left: 765px;
-	position: absolute;
+	left: 665px;
+	position: relative;
 	top: 174px;
 }
 
@@ -1348,7 +1401,10 @@ h1 {
 	font-weight: 400;
 }
 
-p, h1, h2, h3 {
+p,
+h1,
+h2,
+h3 {
 	margin: 0;
 	padding: 0;
 }

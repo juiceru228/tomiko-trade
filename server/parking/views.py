@@ -67,7 +67,7 @@ class FilteredList(APIView):
             if filter_conditions:
                 queryset = queryset.filter(**filter_conditions)
             if 'page' in params:
-                paginator = Paginator(queryset, 10)
+                paginator = Paginator(queryset, 12)
                 page_number = request.GET.get('page')
                 page_obj = paginator.get_page(page_number)
                 serializer = CarSerializer(page_obj, many=True)

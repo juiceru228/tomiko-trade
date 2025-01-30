@@ -7,15 +7,16 @@
                     <div class="control-row">
                         <div class="control-title2">ИЗ {{ country }}</div>
                         <img :src="flagPath" alt="ФЛАГ" class="flag" />
+                        <div class="swiper-buttons">
+                            <img src="../../assets/rigthArrow.svg" @click="prevHandler('korea')" />
+                            <img class="arrow" src="../../assets/leftArrow.svg" @click="nextHandler('korea')" />
+
+
+                        </div>
                     </div>
                 </div>
-                <div class="swiper-buttons">
-                    <img src="../../assets/rigthArrow.svg" @click="prevHandler('korea')" />
-                    <img class="arrow" src="../../assets/leftArrow.svg" @click="nextHandler('korea')" />
 
-
-                </div>
-                <swiper-container :slides-per-view="5" ref="koreaRef" :rtl="true" @swiperprogress="onProgress"
+                <swiper-container :slides-per-view="5" ref="koreaRef" @swiperprogress="onProgress"
                     @swiperslidechange="onSlideChange">
 
                     <swiper-slide class="swiper-slide" v-for="(item, index) in itemsKorea" :key="index">
@@ -38,7 +39,7 @@
 
                         </router-link>
                     </swiper-slide>
-                    
+
                     <swiper-slide class="swiper-slide"></swiper-slide>
                     <swiper-slide class="swiper-slide"></swiper-slide>
 

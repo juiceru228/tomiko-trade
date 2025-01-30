@@ -28,8 +28,6 @@ export default {
   color: white;
   padding: 0;
   margin: 0;
-  text-align: center;
-  justify-content: center;
 }
 
 /*Эти руты очень удобно в будущем, можно вписать все нужные цвета
@@ -83,8 +81,9 @@ export default {
   flex-direction: column;
 }
 
-main {
-  min-height: calc(100vh - 120px);
+  main {
+  margin: 100px 0px;
+  height: calc(100vh - 140px);
   overflow-x: hidden
 }
 </style>

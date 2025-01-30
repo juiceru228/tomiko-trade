@@ -26,30 +26,30 @@
         <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
       </div>
     </section>
-    <!---<modal-show v-if="showModalExample" @close="closeModalExample" />
+    <modal-show v-if="showModalExample" @close="closeModalExample" />
     <div class="overlay" v-if="showModalExample"></div>
      <ModalForm :visible="isModalCalculatorVisible" @close="closeModalCalculator" class="modal-form">
       <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
-    </ModalForm> --->
+    </ModalForm>
   </div>
 </template>
 
 <script>
 import { reactive } from 'vue';
-/*import ModalForm from '../components/ModalForm.vue';
+import ModalForm from '../components/ModalForm.vue';
 import ValidationForm from '../components/ValidationForm.vue';
-import ModalCard from './ModalCard.vue';*/
+//import ModalCard from './ModalCard.vue';
 export default {
   name: 'HelloPage',
-  /*components: {
+  components: {
     ModalForm,
     ValidationForm,
-    ModalCard,
-  },*/
+ //   ModalCard,
+  },
   data() {
     return {
-      //isModalCalculatorVisible: false,
-      //showModalExample: false,
+      isModalCalculatorVisible: false,
+      showModalExample: false,
       form: reactive({
         name: '',
         phone_number: '',
