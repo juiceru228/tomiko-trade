@@ -5,7 +5,7 @@
             <SwiperCarsComponent :fetchParams="{ country: 'Китай', type: 'cars', page: 1 }" country="КИТАЯ" :flagPath="require('../assets/flag3.svg')"/>
             <SwiperCarsComponent :fetchParams="{ country: 'Япония', type: 'cars', page: 1 }" country="ЯПОНИИ" :flagPath="require('../assets/flag2.webp')"/>
             <SwiperCarsComponent :fetchParams="{ country: 'Корея', type: 'cars', page: 1 }" country="КОРЕИ" :flagPath="require('../assets/flag.svg')"/>
-            <contacts />
+            
         </ul>
 
 
@@ -20,12 +20,10 @@ import SwiperCarsComponent from './SwiperCars/SwiperCarsComponent.vue';
 register();
 import 'swiper/swiper-bundle.css';
 
-import contacts from '@/components/ContactsPage.vue';
 import axios from 'axios';
 export default {
     name: 'SwiperCars',
     components: {
-        contacts,
         SwiperCarsComponent
     },
     data() {

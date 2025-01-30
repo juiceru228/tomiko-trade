@@ -23,45 +23,46 @@
                         <div>г. Владивосток, ул. Жигура 9в, 1 этаж, офис 1</div>
                     </div>
                 </div>
-                <form class="contact_form" id="contactForm" method="post" action="">
-                    <input type="hidden" name="csrfmiddlewaretoken"
-                        value="WnXA2zTNsNQ0cY8mt4Z7OJIyOy161QIbX70MVcyuYtZooRtgNQTkbTu9UEmsUh5E">
-                    <div class="form_group">
-                        <label>
-                            <p>Имя</p>
-                            <input type="text" name="name" placeholder="Введите имя" pattern="^[A-Za-zА-Яа-яЁё\s]+$"
-                                title="Имя должно содержать только буквы и пробелы." maxlength="20" required
-                                aria-describedby="id_name_helptext" id="id_name">
-                        </label>
-                        <label>
-                            <p>Телефон</p>
-                            <input type="tel" name="phone_number" placeholder="+7"
-                                pattern="^\+7 [0-6,9]\d{2} \d{3} \d{2} \d{2}$"
-                                title="Формат: &#x27;+7 999 999 99 99&#x27; и номер не должен начинаться с 8 или 7 после кода +7"
-                                maxlength="16" required aria-describedby="id_phone_number_helptext"
-                                id="id_phone_number">
-                        </label>
+                <form @submit.prevent="submitForm" class="custom-form" @click="handleFormClick">
+                    <div class="desc1">Оставить заявку</div>
+                    <div class="description">Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под Ваши
+                        требования 👨‍💻</div>
+                    <div class="form-row">
+                        <div class="left-column">
+                            <div class="input-wrapper">
+                                <label class="input-describe" for="name">Имя</label>
+                                <input class="first-field" type="text" placeholder="Введите имя" v-model="localForm.name"
+                                    @input="$emit('update:form', localForm)" />
+                                <div class="error-tooltip" v-if="errors.name">{{ errors.name }}</div>
+                            </div>
+                        </div>
+                        <div class="right-column">
+                            <div class="input-wrapper">
+                                <label class="input-describe" for="phone_number">Телефон</label>
+                                <input class="second-field" v-mask="'+7 (###) ###-##-##'" placeholder="+7" type="text"
+                                    v-model="localForm.phone_number" @input="$emit('update:form', localForm)" />
+                                <div class="error-tooltip" v-if="errors.phone_number">{{ errors.phone_number }}</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form_group">
-                        <label>
-                            <p>Уточните свой вопрос</p>
-                            <textarea name="content" cols="40" rows="10"
-                                placeholder="Введите текст сообщения, укажите страну, марку и год машины."
-                                maxlength="200" id="id_content"></textarea>
-                        </label>
+                    <div>
+                        <label class="input-describe" for="description">Уточните свой вопрос</label>
+                        <textarea rows=3 class="third-field"
+                            placeholder="Введите текст сообщения, укажите страну, марку и год машины."
+                            v-model="localForm.description" @input="$emit('update:form', localForm)"></textarea>
+                        <div class="error-tooltip-description" v-if="errors.description">{{ errors.description }}</div>
+
+
                     </div>
-                    <div class="form_group">
-                        <label>
-                            <span class="checkmark"></span>
-                            <input type="checkbox" name="privacy_policy_agreed" required id="id_privacy_policy_agreed"
-                                checked>
-                            <p>С <a target="_blank" href="/static/files/tomiko-trade.pdf">правилами политики
-                                    конфиденциальности</a> ознакомлен</p>
-                        </label>
+                    <div class="input-wrapper">
+                        <div class="checkbox-container">
+                            <input class="agreed-box" type="checkbox" v-model="localForm.isAgreed" id="checkbox" />
+                            <label class="agreed-label">С <span class="link">правилами политики конфиденциальности</span>
+                                ознакомлен</label>
+                            <div class="error-tooltip" v-if="errors.isAgreed">{{ errors.isAgreed }}</div>
+                        </div>
                     </div>
-                    <div class="form_group">
-                        <button type="submit" name="submit">Отправить</button>
-                    </div>
+                    <button class="commit-button" type="submit">Отправить</button>
                 </form>
             </div>
         </div>
@@ -77,15 +78,76 @@
             </div>
         </div>
     </section>
-    <MapComponent/>
 </template>
 
 <script>
-import MapComponent from './MapComponent.vue';
+import { reactive } from 'vue';
+import axios from 'axios';
+import { mask } from 'vue-the-mask';
 export default {
     name: 'ContactPage',
-    components: {
-        MapComponent,
+    directives: {
+        mask,
+    },
+    props: {
+        form: {
+            type: Object,
+            required: true,
+
+        },
+    },
+    emits: ['submit'],
+    setup(props, { emit }) {
+        const localForm = reactive({ ...props.form });
+        const errors = reactive({});
+
+        const validateForm = () => {
+            const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+            errors.name = props.form.name ? '' : 'Имя обязательно';
+            errors.phone_number = phoneRegex.test(props.form.phone_number) ? '' : 'Номер телефона должен быть в формате +71231231231';
+            errors.description = props.form.description ? '' : 'Описание обязательно';
+            errors.isAgreed = props.form.isAgreed ? '' : 'Вы должны согласиться с правилами';
+
+            return !errors.name && !errors.phone_number && !errors.description && !errors.isAgreed;
+        };
+        const fetchData = (params = {}) => {
+            return axios
+                .post('/api/bid/', params)
+                .then((response) => {
+                    console.log('Ответ от сервера:', response.data);
+                })
+                .catch((error) => {
+                    console.error('Ошибка при отправке данных:', error);
+                    throw error;
+                });
+        };
+
+        const handleFormClick = () => {
+            Object.keys(errors).forEach((key) => {
+                errors[key] = '';
+            });
+        };
+
+        const submitForm = () => {
+            if (validateForm()) {
+                emit('submit', { ...localForm });
+                fetchData(props.form).then(() => {
+                    emit('submit', { ...localForm });
+                    console.log('Данные отправлены:', localForm.form);
+                })
+                    .catch((error) => {
+                        console.error('Ошибка при отправке данных:', error);
+                    });
+            }
+        };
+
+        return {
+            localForm,
+            errors,
+            validateForm,
+            submitForm,
+            handleFormClick,
+        };
     },
 };
 </script>
@@ -141,7 +203,6 @@ export default {
 
 
 .contacts .contact_item a, .contacts .contact_item div {
-
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -153,95 +214,159 @@ export default {
     max-width: 405px;
 }
 
-.contacts .contact_form {
-    padding: 40px;
-    border-radius: 28px;
-    background: #081e36;
+.checkbox-container {
+    display: flex;
+    align-items: center;
 }
 
-.contacts .contact_form .form_group p {
-    font-size: 14px;
-    font-weight: 400;
-    color: #FFF;
-    margin: 0 0 8px 0;
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.contacts .contact_form .form_group input,
-.contacts .contact_form .form_group textarea {
-    padding: 16px;
-    font-size: 16px;
-    font-weight: 400;
-    width: 100%;
+.left-column,
+.right-column {
+    color: white;
+    flex: 1;
+
 }
 
-.contacts .contact_form .form_group input,
-.contacts .contact_form .form_group textarea,
-.contacts .contact_form .form_group button {
-    border-radius: 32px;
-    background: #20344a;
-    border: 0;
-    outline: 0;
-    color: #FFF;
-    line-height: normal;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
-
-contacts .contact_form .form_group label:has(input[type=checkbox]) p {
-    margin: 0;
-}
-
-.contacts .contact_form .form_group p {
-    font-size: 14px;
-    font-weight: 400;
-    color: #FFF;
-    margin: 0 0 8px 0;
-}
-
-.contacts .contact_form .form_group label:has(input[type=checkbox]) p a {
-    color: #fd554b;
-}
-
-[type=button]:not(:disabled),
-[type=reset]:not(:disabled),
-[type=submit]:not(:disabled),
-button:not(:disabled) {
+.agreed-label {
+    margin-left: 8px;
     cursor: pointer;
 }
 
-[type=button],
-[type=reset],
-[type=submit],
-button {
-    -webkit-appearance: button;
+.agreed-box {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    outline: none;
 }
 
-button,
-select {
-    text-transform: none;
+.input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+.error-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 5px;
+    text-align: left;
+    z-index: 10;
 }
 
-button {
-    border-radius: 0;
+.error-tooltip-description {
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 5px;
+    text-align: left;
+    z-index: 10;
+}
+
+.input {
+    flex-direction: column;
+}
+
+.input-describe {
+    display: block;
+    text-align: left;
+
+}
+
+.desc1 {
+    display: block;
+    text-align: left;
+    line-height: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.description {
+    display: block;
+    text-align: left;
+    line-height: 19.36px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.custom-form {
+    width: 640px;
+    height: 598px;
+    gap: 24px;
+    padding: 40px;
+    background-color: #081E36;
+    border-radius: 28px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.first-field,
+.second-field {
+    padding: 16px;
+    text-align: left;
+    color: #FFFFFF80;
+    width: 100%;
+    background-color: #20344A;
+    border-radius: 32px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 19.36px;
+    height: 51px;
+}
+
+.third-field {
+
+    text-align: left;
+    color: #FFFFFF80;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 100%;
+    background-color: #20344A;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 19.36px;
+    resize: none;
+    height: 101px;
+}
+
+span {
+    color: red;
+}
+
+.commit-button {
+    border-radius: 60px;
+    padding-top: 24px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 24px;
+    border: none;
+    outline: none;
+    background-color: #20344A;
+    color: #FFFFFF80;
 }
 </style>

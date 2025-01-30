@@ -9,36 +9,45 @@
             </div>
             <div class="itesm_stages">
                     <div class="item">
-                        <img loading="lazy" src="../assets/work1.webp" alt="work1">
+                        <div class="ima">
+                            <img loading="lazy" src="../assets/work1.webp" alt="work1">
+                            <img loading="lazy" class="line_img" src="../assets/line1.svg" alt="line1">
+                        </div>
                         <div>
                             <h3><span>Заявка</span></h3>
-                            <p><span>Оставьте заявку и получите бесплатную консультацию персонального менеджера. Вам отправят свежие варианты из статистики, рассчитают ориентировочную стоимость автомобиля и ответят на все сопутствующие вопросы о покупке автомобиля.</span></p>
+                            <p><span>Оставьте заявку, чтобы индивидуальную консультацию</span></p>
                         </div>
-                        <img loading="lazy" class="line_img" src="../assets/line1.svg" alt="line1">
+                        
                     </div>
                     <div class="item">
-                        <img loading="lazy" src="../assets/work2.webp" alt="work2">
+                        <div class="ima">
+                            <img loading="lazy" src="../assets/work2.webp" alt="work1">
+                            <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line1">
+                        </div>
                         <div>
                             <h3><span>Договор</span></h3>
-                            <p><span>Если Вас все устроило, заключаем договор. Вы вносите авансовый депозит и менеджер по покупкам начинает активные действия по подбору автомобиля.</span></p>
+                            <p><span>Подберём автомобиль под ваши критерии</span></p>
                         </div>
-                        <img loading="lazy" class="line_img line_img2" src="../assets/line2.svg" alt="line2">
                     </div>
                     <div class="item">
-                        <img loading="lazy"  src="../assets/work3.webp" alt="work3">
-                        <div>
-                            <h3><span>Подбор и покупка авто</span></h3>
-                            <p><span>Ежедневно менеджер по покупке просматривает доступные лоты и отправляет Вам варианты на согласование до тех пор, пока не будет найден подходящий. Менеджер отправляет точный расчет цены согласованного варианта по курсам на день покупки и мы покупаем автомобиль.</span></p>
+                        <div class="ima">
+                            <img loading="lazy" src="../assets/work3.webp" alt="work1">
+                            <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line1">
                         </div>
-                        <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
+                        <div>
+                            <h3><span>Оформление</span></h3>
+                            <p><span>Согласуем бюджет и заключим договор на авто</span></p>
+                        </div>
                     </div>
                     <div class="item">
-                        <img loading="lazy" src="../assets/work4.webp" alt="work4">
-                        <div>
-                            <h3><span>Доставка и отправка</span></h3>
-                            <p><span>Доставляем автомобиль во Владивосток, проходим этапы оформления и отправляем его в Ваш город любым удобным способом.</span></p>
+                        <div class="ima">
+                            <img loading="lazy" src="../assets/work4.webp" alt="work1">
+                            <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line1">
                         </div>
-                        <img loading="lazy" class="line_img" src="../assets/line2.svg" alt="line2">
+                        <div>
+                            <h3><span>Доставка по рф</span></h3>
+                            <p><span>После доставки в г. Владивосток, мы отправим автомобиль в ваш город</span></p>
+                        </div>
                     </div>
             </div>
             <div class="btns_stage">
@@ -108,6 +117,17 @@ export default {
 </script>
 
 <style scoped>
+
+.ima {
+    display: flex;
+    flex: space-between;
+    vertical-align: middle;
+}
+.stage_work .btns_stage img {
+    aspect-ratio: 1 / 1;
+    width: 70px;
+    height: 70px;
+}
 .modal-form {
     z-index: 1000;
 }
@@ -137,6 +157,7 @@ export default {
     gap: 11px;
     margin: 14px 0 0 80px;
     position: relative;
+    left: -20px;
     z-index: 1;
 }
 
@@ -178,12 +199,6 @@ export default {
 .stage_work .itesm_stages .item {
     max-width: 259px;
     position: relative;
-}
-
-.stage_work .stage_block .itesm_stages img {
-    aspect-ratio: 1 / 1;
-    width: 52px;
-    height: 52px;
 }
 
 .container {
@@ -264,40 +279,6 @@ a {
     line-height: 24px;
     text-align: left;
     color: rgba(255, 255, 255, 0.7);
-}
-
-.stage_work .stage_block .itesm_stages img {
-    aspect-ratio: 1 / 1;
-    width: 52px;
-    height: 52px;
-}
-
-@media only screen and (max-width: 1200px) {
-    .stage_work .itesm_stages .item .line_img {
-        left: 80px;
-        max-width: 139px;
-    }
-}
-.stage_work .itesm_stages .item .line_img {
-    position: absolute;
-    top: 27px;
-    left: 77px;
-}
-.stage_work .stage_block .itesm_stages .line_img {
-    aspect-ratio: 203 / 2;
-    width: 203px;
-    height: 2px;
-}
-.stage_work .stage_block .itesm_stages img {
-    aspect-ratio: 1 / 1;
-    width: 52px;
-    height: 52px;
-}
-
-.stage_work .btns_stage img {
-    aspect-ratio: 1 / 1;
-    width: 70px;
-    height: 70px;
 }
 
 .btns_stage {

@@ -23,7 +23,20 @@
       </div>
       <div class="card_discount">
         <p>Экономия до <span>30%</span><br>от рынка авто в наличии</p>
-        <button class="gradient-button" @click="showModalExample">Смотреть пример</button>
+        <button class="gradient-button" @click="isEconomyModalVisible = true">Смотреть пример</button>
+          <EconomyModal 
+            :visible="isEconomyModalVisible" 
+            @close="isEconomyModalVisible = false" 
+            @open-consultation="openConsultationModal"
+          />
+
+          <ModalForm 
+              :visible="isConsultationModalVisible" 
+              @close="isConsultationModalVisible = false"
+              class="modal-form"
+          >
+            <ValidationForm :form="form" @submit="handleFormSubmit" @update:form="updateForm" />
+          </ModalForm>
       </div>
     </section>
     <modal-show v-if="showModalEx" @close="closeModalExample" />
@@ -36,20 +49,22 @@
 
 <script>
 import { reactive } from 'vue';
-import ModalForm from '../components/ModalForm.vue';
-import ValidationForm from '../components/ValidationForm.vue';
-//import ModalCard from './ModalCard.vue';
+
+import EconomyModal from '@/components/EconomyModal.vue';
+import ModalForm from '@/components/ModalForm.vue';
+import ValidationForm from '@/components/ValidationForm.vue';
 export default {
   name: 'HelloPage',
   components: {
+    EconomyModal,
     ModalForm,
-    ValidationForm,
- //   ModalCard,
+    ValidationForm
   },
   data() {
     return {
-      isModalCalculatorVisible: false,
-      showModalExample: false,
+      isEconomyModalVisible: false,
+      isConsultationModalVisible: false,
+
       form: reactive({
         name: '',
         phone_number: '',
@@ -59,6 +74,16 @@ export default {
     };
   },
   methods: {
+    openConsultationModal() {
+      this.isEconomyModalVisible = false;
+      this.isConsultationModalVisible = true;
+      },
+    handleFormSubmit() {
+      console.log("Форма отправлена:", this.form);
+    },
+    updateForm(updatedForm) {
+      this.form = updatedForm;
+    },
     openModalCalculator() {
       this.isModalCalculatorVisible = true;
     },
@@ -175,7 +200,7 @@ export default {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between 20;
+  justify-content: space-between;
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: end;
@@ -195,7 +220,6 @@ export default {
 
 .ZAP .left_info .item:last-child {
   margin-right: 0;
-  margin-right: 300px;
 }
 
 .ZAP .left_info .item div {
@@ -249,12 +273,12 @@ export default {
   margin-bottom: 24px;
 }
 
-.ZAP .card_discoint p span {
-  font-size: 48px;
-  font-weight: 900;
-  line-height: 72px;
-  text-align: left;
-  color: #fd554b;
+.ZAP .card_discoint span {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 72px;
+    text-align: left;
+    color: #fd554b;
 }
 
 .card_discount {

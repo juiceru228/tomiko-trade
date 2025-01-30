@@ -65,7 +65,7 @@
 
                 </div>
                 <swiper-container :slides-per-view="5" ref="swiperRef" @swiperprogress="onProgress"
-                    @swiperslidechange="onSlideChange">
+                    @swiperslidechange="onSlideChange" :space-between="10">
 
                     <swiper-slide class="swiper-slide" v-for="(item, index) in items" :key="index">
                         <router-link :to="{ name: 'CarDetail', params: { id: item.id } }" class="router-link">
@@ -453,7 +453,10 @@ export default {
     display: flex;
     justify-content: flex-end;
     padding: 100px 0;
-    margin: 0px;
+    margin: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
     opacity: 1;
     transition: all 0.3s ease;
 }
@@ -467,6 +470,7 @@ export default {
 .swiper-item-box {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;

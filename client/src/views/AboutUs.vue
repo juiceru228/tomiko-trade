@@ -225,6 +225,7 @@ export default {
 
 .commissions {
     background-color: #081E36;
+    align-items: center;
 }
 
 </style>

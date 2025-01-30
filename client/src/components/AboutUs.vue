@@ -14,7 +14,7 @@
                         и подержанных авто. Наша профессионалов поможет вам выбрать 
                         идеальный автомобиль, учитывая ваши потребности и бюджет</p>
                       <div class="btns_stage">
-                        <button class="gradient-button" @click="openModal">Подобрать авто</button>
+                        <button class="gradient-button" @click="openModal">Получить консультацию</button>
                       <a href="https://wa.me/79244202432" target="_blank"><img src="../assets/cta_button1.svg" alt="whatsapp"></a>
                     </div>
                 </div>
@@ -102,6 +102,9 @@ export default {
 }
 
 .gradient-button {
+font-size: 18px;
+font-weight: 600;
+line-height: 35px;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   border: none;
   color: white;
@@ -207,6 +210,7 @@ export default {
 }
 
 .about_us .about_block .titles .btns_stage {
+    flex: space-between;
     margin-top: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -310,4 +314,3 @@ img, svg {
     padding-right: var(--bs-gutter-x, .75rem);
     padding-left: var(--bs-gutter-x, .75rem);
 }
-</style>
